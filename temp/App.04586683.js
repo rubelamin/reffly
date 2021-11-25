@@ -74330,7 +74330,26 @@ function _default() {
     label: "Show Badge"
   }))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"components/Logo.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M8 11h8v2H8zm12.1 1H22c0-2.76-2.24-5-5-5h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1zM3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM19 12h-2v3h-3v2h3v3h2v-3h3v-2h-3z"
+}), 'AddLink');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"components/Logo.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74347,6 +74366,12 @@ var _Stack = _interopRequireDefault(require("@mui/material/Stack"));
 var _styles = require("@mui/material/styles");
 
 var _Badge = _interopRequireDefault(require("@mui/material/Badge"));
+
+var _Box = _interopRequireDefault(require("@mui/material/Box"));
+
+var _AddLink = _interopRequireDefault(require("@mui/icons-material/AddLink"));
+
+var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74383,9 +74408,15 @@ var StyledBadge = (0, _styles.styled)(_Badge.default)(function (_a) {
 });
 
 function _default() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Stack.default, {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Box.default, {
+    sx: {
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }, _react.default.createElement(_Stack.default, {
     direction: "row",
-    spacing: 2
+    spacing: 1
   }, _react.default.createElement(StyledBadge, {
     overlap: "circular",
     anchorOrigin: {
@@ -74393,12 +74424,26 @@ function _default() {
       horizontal: 'right'
     },
     variant: "dot"
-  }, _react.default.createElement(_Avatar.default, {
-    alt: "Remy Sharp",
-    src: "https://mui.com/static/images/avatar/1.jpg"
-  }))));
+  }, _react.default.createElement(_Avatar.default, null, _react.default.createElement(_AddLink.default, null))), _react.default.createElement(_Typography.default, {
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "reffly")), _react.default.createElement(_Typography.default, {
+    component: "div",
+    variant: "h6",
+    noWrap: true,
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "RBL Practice")));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74816,26 +74861,7 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("p
 }), 'GitHub');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M8 11h8v2H8zm12.1 1H22c0-2.76-2.24-5-5-5h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1zM3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM19 12h-2v3h-3v2h3v3h2v-3h3v-2h-3z"
-}), 'AddLink');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75442,17 +75468,7 @@ function App() {
       textAlign: 'center',
       my: 5
     }
-  }, _react.default.createElement(_Typography.default, {
-    component: "div",
-    variant: "h6",
-    noWrap: true,
-    sx: {
-      display: {
-        xs: 'none',
-        sm: 'block'
-      }
-    }
-  }, "RBL Practice"), _react.default.createElement(_Logo.default, null), _react.default.createElement(_Typography.default, {
+  }, _react.default.createElement(_Logo.default, null), _react.default.createElement(_Typography.default, {
     component: "div",
     variant: "h1",
     noWrap: true,

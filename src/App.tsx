@@ -85,11 +85,7 @@ function App() {
             
           </Toolbar>
           <Box sx={{ textAlign: 'center', my: 5, }}>
-         <Typography component="div" variant="h6" noWrap
-             sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              RBL Practice
-          </Typography>
+
           <Logo />
           <Typography component="div" variant="h1" noWrap
              sx={{ display: { xs: 'none', sm: 'block', } }}

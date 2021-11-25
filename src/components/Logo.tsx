@@ -3,6 +3,9 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
+import Box from '@mui/material/Box';
+import AddLinkIcon from '@mui/icons-material/AddLink';
+import Typography from '@mui/material/Typography';
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -36,15 +39,29 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function() {
     return <>  
-    <Stack direction="row" spacing={2}>
-      <StyledBadge
-        overlap="circular"
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        variant="dot"
-      >
-        <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
-      </StyledBadge>
-    </Stack>  
+      <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', }}> 
+        <Stack direction="row" spacing={1}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            variant="dot"
+          >
+            <Avatar>
+              <AddLinkIcon />
+            </Avatar>
+          </StyledBadge>
+          <Typography
+             sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              reffly
+          </Typography>
+       </Stack>  
+       <Typography component="div" variant="h6" noWrap
+             sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              RBL Practice
+          </Typography>
+      </Box>
          
      </>
 }

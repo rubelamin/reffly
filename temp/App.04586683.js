@@ -74330,7 +74330,7 @@ function _default() {
     label: "Show Badge"
   }))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"components/AllCom.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"components/Logo.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74340,1421 +74340,65 @@ exports.default = _default;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Box = _interopRequireDefault(require("@mui/material/Box"));
+var _Avatar = _interopRequireDefault(require("@mui/material/Avatar"));
 
-var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
+var _Stack = _interopRequireDefault(require("@mui/material/Stack"));
 
-var _colors = require("@mui/material/colors");
+var _styles = require("@mui/material/styles");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _default() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Box.default, {
-    mt: 2
-  }, _react.default.createElement(_Typography.default, {
-    sx: {
-      bgcolor: _colors.green[500],
-      color: _colors.red[900]
-    }
-  }, "Bangladesh"), _react.default.createElement(_Typography.default, {
-    sx: {
-      color: _colors.red[500]
-    }
-  }, "Cricket Team"), _react.default.createElement(_Typography.default, {
-    sx: {
-      color: _colors.orange[500]
-    }
-  }, "Football")));
-}
-},{"react":"../node_modules/react/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/colors":"../node_modules/@mui/material/colors/index.js"}],"../node_modules/@mui/material/Fab/fabClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getFabUtilityClass = getFabUtilityClass;
-
-var _base = require("@mui/base");
-
-function getFabUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiFab', slot);
-}
-
-const fabClasses = (0, _base.generateUtilityClasses)('MuiFab', ['root', 'primary', 'secondary', 'extended', 'circular', 'focusVisible', 'disabled', 'colorInherit', 'sizeSmall', 'sizeMedium', 'sizeLarge']);
-var _default = fabClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Fab/Fab.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _base = require("@mui/base");
-
-var _ButtonBase = _interopRequireDefault(require("../ButtonBase"));
-
-var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _fabClasses = _interopRequireWildcard(require("./fabClasses"));
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _Badge = _interopRequireDefault(require("@mui/material/Badge"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const _excluded = ["children", "className", "color", "component", "disabled", "disableFocusRipple", "focusVisibleClassName", "size", "variant"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    color,
-    variant,
-    classes,
-    size
-  } = ownerState;
-  const slots = {
-    root: ['root', variant, `size${(0, _capitalize.default)(size)}`, color === 'inherit' && 'colorInherit', color === 'primary' && 'primary', color === 'secondary' && 'secondary']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _fabClasses.getFabUtilityClass, classes);
-};
-
-const FabRoot = (0, _styled.default)(_ButtonBase.default, {
-  name: 'MuiFab',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[ownerState.variant], styles[`size${(0, _capitalize.default)(ownerState.size)}`], ownerState.color === 'inherit' && styles.colorInherit, ownerState.color === 'primary' && styles.primary, ownerState.color === 'secondary' && styles.secondary];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({}, theme.typography.button, {
-  minHeight: 36,
-  transition: theme.transitions.create(['background-color', 'box-shadow', 'border-color'], {
-    duration: theme.transitions.duration.short
-  }),
-  borderRadius: '50%',
-  padding: 0,
-  minWidth: 0,
-  width: 56,
-  height: 56,
-  boxShadow: theme.shadows[6],
-  '&:active': {
-    boxShadow: theme.shadows[12]
-  },
-  color: theme.palette.getContrastText(theme.palette.grey[300]),
-  backgroundColor: theme.palette.grey[300],
-  '&:hover': {
-    backgroundColor: theme.palette.grey.A100,
-    // Reset on touch devices, it doesn't add specificity
-    '@media (hover: none)': {
-      backgroundColor: theme.palette.grey[300]
+var StyledBadge = (0, _styles.styled)(_Badge.default)(function (_a) {
+  var theme = _a.theme;
+  return {
+    '& .MuiBadge-badge': {
+      backgroundColor: '#44b700',
+      color: '#44b700',
+      boxShadow: "0 0 0 2px " + theme.palette.background.paper,
+      '&::after': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: '50%',
+        animation: 'ripple 1.2s infinite ease-in-out',
+        border: '1px solid currentColor',
+        content: '""'
+      }
     },
-    textDecoration: 'none'
-  },
-  [`&.${_fabClasses.default.focusVisible}`]: {
-    boxShadow: theme.shadows[6]
-  },
-  [`&.${_fabClasses.default.disabled}`]: {
-    color: theme.palette.action.disabled,
-    boxShadow: theme.shadows[0],
-    backgroundColor: theme.palette.action.disabledBackground
-  }
-}, ownerState.size === 'small' && {
-  width: 40,
-  height: 40
-}, ownerState.size === 'medium' && {
-  width: 48,
-  height: 48
-}, ownerState.variant === 'extended' && {
-  borderRadius: 48 / 2,
-  padding: '0 16px',
-  width: 'auto',
-  minHeight: 'auto',
-  minWidth: 48,
-  height: 48
-}, ownerState.variant === 'extended' && ownerState.size === 'small' && {
-  width: 'auto',
-  padding: '0 8px',
-  borderRadius: 34 / 2,
-  minWidth: 34,
-  height: 34
-}, ownerState.variant === 'extended' && ownerState.size === 'medium' && {
-  width: 'auto',
-  padding: '0 16px',
-  borderRadius: 40 / 2,
-  minWidth: 40,
-  height: 40
-}, ownerState.color === 'inherit' && {
-  color: 'inherit'
-}), ({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({}, ownerState.color === 'primary' && {
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.primary.main,
-  '&:hover': {
-    backgroundColor: theme.palette.primary.dark,
-    // Reset on touch devices, it doesn't add specificity
-    '@media (hover: none)': {
-      backgroundColor: theme.palette.primary.main
+    '@keyframes ripple': {
+      '0%': {
+        transform: 'scale(.8)',
+        opacity: 1
+      },
+      '100%': {
+        transform: 'scale(2.4)',
+        opacity: 0
+      }
     }
-  }
-}, ownerState.color === 'secondary' && {
-  color: theme.palette.secondary.contrastText,
-  backgroundColor: theme.palette.secondary.main,
-  '&:hover': {
-    backgroundColor: theme.palette.secondary.dark,
-    // Reset on touch devices, it doesn't add specificity
-    '@media (hover: none)': {
-      backgroundColor: theme.palette.secondary.main
-    }
-  }
-}));
-const Fab = /*#__PURE__*/React.forwardRef(function Fab(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiFab'
-  });
-  const {
-    children,
-    className,
-    color = 'default',
-    component = 'button',
-    disabled = false,
-    disableFocusRipple = false,
-    focusVisibleClassName,
-    size = 'large',
-    variant = 'circular'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const ownerState = (0, _extends2.default)({}, props, {
-    color,
-    component,
-    disabled,
-    disableFocusRipple,
-    size,
-    variant
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(FabRoot, (0, _extends2.default)({
-    className: (0, _clsx.default)(classes.root, className),
-    component: component,
-    disabled: disabled,
-    focusRipple: !disableFocusRipple,
-    focusVisibleClassName: (0, _clsx.default)(classes.focusVisible, focusVisibleClassName),
-    ownerState: ownerState,
-    ref: ref
-  }, other, {
-    children: children
-  }));
+  };
 });
-"development" !== "production" ? Fab.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * @default 'default'
-   */
-  color: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['default', 'inherit', 'primary', 'secondary']), _propTypes.default.string]),
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * If `true`, the component is disabled.
-   * @default false
-   */
-  disabled: _propTypes.default.bool,
-
-  /**
-   * If `true`, the  keyboard focus ripple is disabled.
-   * @default false
-   */
-  disableFocusRipple: _propTypes.default.bool,
-
-  /**
-   * If `true`, the ripple effect is disabled.
-   */
-  disableRipple: _propTypes.default.bool,
-
-  /**
-   * @ignore
-   */
-  focusVisibleClassName: _propTypes.default.string,
-
-  /**
-   * The URL to link to when the button is clicked.
-   * If defined, an `a` element will be used as the root node.
-   */
-  href: _propTypes.default.string,
-
-  /**
-   * The size of the component.
-   * `small` is equivalent to the dense button styling.
-   * @default 'large'
-   */
-  size: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['small', 'medium', 'large']), _propTypes.default.string]),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The variant to use.
-   * @default 'circular'
-   */
-  variant: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['circular', 'extended']), _propTypes.default.string])
-} : void 0;
-var _default = Fab;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../ButtonBase":"../node_modules/@mui/material/ButtonBase/index.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","./fabClasses":"../node_modules/@mui/material/Fab/fabClasses.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Fab/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  fabClasses: true
-};
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Fab.default;
-  }
-});
-Object.defineProperty(exports, "fabClasses", {
-  enumerable: true,
-  get: function () {
-    return _fabClasses.default;
-  }
-});
-
-var _Fab = _interopRequireDefault(require("./Fab"));
-
-var _fabClasses = _interopRequireWildcard(require("./fabClasses"));
-
-Object.keys(_fabClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _fabClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _fabClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Fab":"../node_modules/@mui/material/Fab/Fab.js","./fabClasses":"../node_modules/@mui/material/Fab/fabClasses.js"}],"../node_modules/@mui/icons-material/Edit.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-}), 'Edit');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/Favorite.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-}), 'Favorite');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/Navigation.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"
-}), 'Navigation');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"components/Fab.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-
-var _tslib = require("tslib");
-
-var _react = _interopRequireDefault(require("react"));
-
-var _Box = _interopRequireDefault(require("@mui/material/Box"));
-
-var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
-
-var _Fab = _interopRequireDefault(require("@mui/material/Fab"));
-
-var _Add = _interopRequireDefault(require("@mui/icons-material/Add"));
-
-var _Edit = _interopRequireDefault(require("@mui/icons-material/Edit"));
-
-var _Favorite = _interopRequireDefault(require("@mui/icons-material/Favorite"));
-
-var _Navigation = _interopRequireDefault(require("@mui/icons-material/Navigation"));
-
-var _Checkbox = _interopRequireDefault(require("@mui/material/Checkbox"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var label = {
-  inputProps: {
-    'aria-label': 'Checkbox demo'
-  }
-};
 
 function _default() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Box.default, null, _react.default.createElement(_Typography.default, {
-    variant: "h6"
-  }, "Floating Action Button Showing here.")), _react.default.createElement(_Box.default, {
-    sx: {
-      display: 'flex',
-      flexDirection: 'row',
-      mt: 3
-    }
-  }, _react.default.createElement(_Fab.default, {
-    "aria-label": "add",
-    sx: {
-      bgcolor: 'fontColor.teal'
-    }
-  }, _react.default.createElement(_Add.default, null)), _react.default.createElement(_Fab.default, {
-    "aria-label": "edit",
-    sx: {
-      bgcolor: 'fontColor.deepPurple'
-    }
-  }, _react.default.createElement(_Edit.default, null)), _react.default.createElement(_Fab.default, {
-    variant: "extended"
-  }, _react.default.createElement(_Navigation.default, null), "Navigation"), _react.default.createElement(_Fab.default, {
-    "aria-label": "like",
-    sx: {
-      bgcolor: 'fontColor.pink'
-    }
-  }, _react.default.createElement(_Favorite.default, null))), _react.default.createElement(_Box.default, {
-    sx: {
-      mt: 2
-    }
-  }, _react.default.createElement("p", null, "Checkbox design "), _react.default.createElement(_Checkbox.default, (0, _tslib.__assign)({}, label)), _react.default.createElement(_Checkbox.default, (0, _tslib.__assign)({}, label, {
-    defaultChecked: true,
-    color: "success"
-  })), _react.default.createElement(_Checkbox.default, (0, _tslib.__assign)({}, label, {
-    defaultChecked: true,
-    color: "warning"
-  })), _react.default.createElement(_Checkbox.default, (0, _tslib.__assign)({}, label, {
-    defaultChecked: true,
-    color: "primary"
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Stack.default, {
+    direction: "row",
+    spacing: 2
+  }, _react.default.createElement(StyledBadge, {
+    overlap: "circular",
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'right'
+    },
+    variant: "dot"
+  }, _react.default.createElement(_Avatar.default, {
+    alt: "Remy Sharp",
+    src: "https://mui.com/static/images/avatar/1.jpg"
   }))));
 }
-},{"tslib":"../node_modules/tslib/tslib.es6.js","react":"../node_modules/react/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/Fab":"../node_modules/@mui/material/Fab/index.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Edit":"../node_modules/@mui/icons-material/Edit.js","@mui/icons-material/Favorite":"../node_modules/@mui/icons-material/Favorite.js","@mui/icons-material/Navigation":"../node_modules/@mui/icons-material/Navigation.js","@mui/material/Checkbox":"../node_modules/@mui/material/Checkbox/index.js"}],"../node_modules/@mui/material/internal/svg-icons/Star.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("../../utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-/**
- * @ignore - internal component.
- */
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-}), 'Star');
-
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../utils/createSvgIcon":"../node_modules/@mui/material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/internal/svg-icons/StarBorder.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("../../utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-/**
- * @ignore - internal component.
- */
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
-}), 'StarBorder');
-
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../utils/createSvgIcon":"../node_modules/@mui/material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Rating/ratingClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getRatingUtilityClass = getRatingUtilityClass;
-
-var _base = require("@mui/base");
-
-function getRatingUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiRating', slot);
-}
-
-const ratingClasses = (0, _base.generateUtilityClasses)('MuiRating', ['root', 'sizeSmall', 'sizeMedium', 'sizeLarge', 'readOnly', 'disabled', 'focusVisible', 'visuallyHidden', 'pristine', 'label', 'labelEmptyValueActive', 'icon', 'iconEmpty', 'iconFilled', 'iconHover', 'iconFocus', 'iconActive', 'decimal']);
-var _default = ratingClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Rating/Rating.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _useTheme = _interopRequireDefault(require("../styles/useTheme"));
-
-var _utils2 = require("../utils");
-
-var _Star = _interopRequireDefault(require("../internal/svg-icons/Star"));
-
-var _StarBorder = _interopRequireDefault(require("../internal/svg-icons/StarBorder"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _styled = _interopRequireWildcard(require("../styles/styled"));
-
-var _ratingClasses = _interopRequireWildcard(require("./ratingClasses"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["value"],
-      _excluded2 = ["className", "defaultValue", "disabled", "emptyIcon", "emptyLabelText", "getLabelText", "highlightSelectedOnly", "icon", "IconContainerComponent", "max", "name", "onChange", "onChangeActive", "onMouseLeave", "onMouseMove", "precision", "readOnly", "size", "value"];
-
-function clamp(value, min, max) {
-  if (value < min) {
-    return min;
-  }
-
-  if (value > max) {
-    return max;
-  }
-
-  return value;
-}
-
-function getDecimalPrecision(num) {
-  const decimalPart = num.toString().split('.')[1];
-  return decimalPart ? decimalPart.length : 0;
-}
-
-function roundValueToPrecision(value, precision) {
-  if (value == null) {
-    return value;
-  }
-
-  const nearest = Math.round(value / precision) * precision;
-  return Number(nearest.toFixed(getDecimalPrecision(precision)));
-}
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    size,
-    readOnly,
-    disabled,
-    emptyValueFocused,
-    focusVisible
-  } = ownerState;
-  const slots = {
-    root: ['root', `size${(0, _utils2.capitalize)(size)}`, disabled && 'disabled', focusVisible && 'focusVisible', readOnly && 'readyOnly'],
-    label: ['label', 'pristine'],
-    labelEmptyValue: [emptyValueFocused && 'labelEmptyValueActive'],
-    icon: ['icon'],
-    iconEmpty: ['iconEmpty'],
-    iconFilled: ['iconFilled'],
-    iconHover: ['iconHover'],
-    iconFocus: ['iconFocus'],
-    iconActive: ['iconActive'],
-    decimal: ['decimal'],
-    visuallyHidden: ['visuallyHidden']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _ratingClasses.getRatingUtilityClass, classes);
-};
-
-const RatingRoot = (0, _styled.default)('span', {
-  name: 'MuiRating',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [{
-      [`& .${_ratingClasses.default.visuallyHidden}`]: styles.visuallyHidden
-    }, styles.root, styles[`size${(0, _utils2.capitalize)(ownerState.size)}`], ownerState.readOnly && styles.readOnly];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  display: 'inline-flex',
-  // Required to position the pristine input absolutely
-  position: 'relative',
-  fontSize: theme.typography.pxToRem(24),
-  color: '#faaf00',
-  cursor: 'pointer',
-  textAlign: 'left',
-  WebkitTapHighlightColor: 'transparent',
-  [`&.${_ratingClasses.default.disabled}`]: {
-    opacity: theme.palette.action.disabledOpacity,
-    pointerEvents: 'none'
-  },
-  [`&.${_ratingClasses.default.focusVisible} .${_ratingClasses.default.iconActive}`]: {
-    outline: '1px solid #999'
-  },
-  [`& .${_ratingClasses.default.visuallyHidden}`]: _utils.visuallyHidden
-}, ownerState.size === 'small' && {
-  fontSize: theme.typography.pxToRem(18)
-}, ownerState.size === 'large' && {
-  fontSize: theme.typography.pxToRem(30)
-}, ownerState.readOnly && {
-  pointerEvents: 'none'
-}));
-const RatingLabel = (0, _styled.default)('label', {
-  name: 'MuiRating',
-  slot: 'Label',
-  overridesResolver: (props, styles) => styles.label
-})(({
-  ownerState
-}) => (0, _extends2.default)({
-  cursor: 'inherit'
-}, ownerState.emptyValueFocused && {
-  top: 0,
-  bottom: 0,
-  position: 'absolute',
-  outline: '1px solid #999',
-  width: '100%'
-}));
-const RatingIcon = (0, _styled.default)('span', {
-  name: 'MuiRating',
-  slot: 'Icon',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.icon, ownerState.iconEmpty && styles.iconEmpty, ownerState.iconFilled && styles.iconFilled, ownerState.iconHover && styles.iconHover, ownerState.iconFocus && styles.iconFocus, ownerState.iconActive && styles.iconActive];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  // Fit wrapper to actual icon size.
-  display: 'flex',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest
-  }),
-  // Fix mouseLeave issue.
-  // https://github.com/facebook/react/issues/4492
-  pointerEvents: 'none'
-}, ownerState.iconActive && {
-  transform: 'scale(1.2)'
-}, ownerState.iconEmpty && {
-  color: theme.palette.action.disabled
-}));
-const RatingDecimal = (0, _styled.default)('span', {
-  name: 'MuiRating',
-  slot: 'Decimal',
-  shouldForwardProp: prop => (0, _styled.slotShouldForwardProp)(prop) && prop !== 'iconActive',
-  overridesResolver: (props, styles) => {
-    const {
-      iconActive
-    } = props;
-    return [styles.decimal, iconActive && styles.iconActive];
-  }
-})(({
-  iconActive
-}) => (0, _extends2.default)({
-  position: 'relative'
-}, iconActive && {
-  transform: 'scale(1.2)'
-}));
-
-function IconContainer(props) {
-  const other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("span", (0, _extends2.default)({}, other));
-}
-
-"development" !== "production" ? IconContainer.propTypes = {
-  value: _propTypes.default.number.isRequired
-} : void 0;
-
-function RatingItem(props) {
-  const {
-    classes,
-    disabled,
-    emptyIcon,
-    focus,
-    getLabelText,
-    highlightSelectedOnly,
-    hover,
-    icon,
-    IconContainerComponent,
-    isActive,
-    itemValue,
-    labelProps,
-    name,
-    onBlur,
-    onChange,
-    onClick,
-    onFocus,
-    readOnly,
-    ownerState,
-    ratingValue,
-    ratingValueRounded
-  } = props;
-  const isFilled = highlightSelectedOnly ? itemValue === ratingValue : itemValue <= ratingValue;
-  const isHovered = itemValue <= hover;
-  const isFocused = itemValue <= focus;
-  const isChecked = itemValue === ratingValueRounded;
-  const id = (0, _utils2.unstable_useId)();
-  const container = /*#__PURE__*/(0, _jsxRuntime.jsx)(RatingIcon, {
-    as: IconContainerComponent,
-    value: itemValue,
-    className: (0, _clsx.default)(classes.icon, isFilled ? classes.iconFilled : classes.iconEmpty, isHovered && classes.iconHover, isFocused && classes.iconFocus, isActive && classes.iconActive),
-    ownerState: (0, _extends2.default)({}, ownerState, {
-      iconEmpty: !isFilled,
-      iconFilled: isFilled,
-      iconHover: isHovered,
-      iconFocus: isFocused,
-      iconActive: isActive
-    }),
-    children: emptyIcon && !isFilled ? emptyIcon : icon
-  });
-
-  if (readOnly) {
-    return /*#__PURE__*/(0, _jsxRuntime.jsx)("span", (0, _extends2.default)({}, labelProps, {
-      children: container
-    }));
-  }
-
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(React.Fragment, {
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(RatingLabel, (0, _extends2.default)({
-      ownerState: (0, _extends2.default)({}, ownerState, {
-        emptyValueFocused: undefined
-      }),
-      htmlFor: id
-    }, labelProps, {
-      children: [container, /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-        className: classes.visuallyHidden,
-        children: getLabelText(itemValue)
-      })]
-    })), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
-      className: classes.visuallyHidden,
-      onFocus: onFocus,
-      onBlur: onBlur,
-      onChange: onChange,
-      onClick: onClick,
-      disabled: disabled,
-      value: itemValue,
-      id: id,
-      type: "radio",
-      name: name,
-      checked: isChecked
-    })]
-  });
-}
-
-"development" !== "production" ? RatingItem.propTypes = {
-  classes: _propTypes.default.object.isRequired,
-  disabled: _propTypes.default.bool.isRequired,
-  emptyIcon: _propTypes.default.node,
-  focus: _propTypes.default.number.isRequired,
-  getLabelText: _propTypes.default.func.isRequired,
-  highlightSelectedOnly: _propTypes.default.bool.isRequired,
-  hover: _propTypes.default.number.isRequired,
-  icon: _propTypes.default.node,
-  IconContainerComponent: _propTypes.default.elementType.isRequired,
-  isActive: _propTypes.default.bool.isRequired,
-  itemValue: _propTypes.default.number.isRequired,
-  labelProps: _propTypes.default.object,
-  name: _propTypes.default.string,
-  onBlur: _propTypes.default.func.isRequired,
-  onChange: _propTypes.default.func.isRequired,
-  onClick: _propTypes.default.func.isRequired,
-  onFocus: _propTypes.default.func.isRequired,
-  ownerState: _propTypes.default.object.isRequired,
-  ratingValue: _propTypes.default.number,
-  ratingValueRounded: _propTypes.default.number,
-  readOnly: _propTypes.default.bool.isRequired
-} : void 0;
-const defaultIcon = /*#__PURE__*/(0, _jsxRuntime.jsx)(_Star.default, {
-  fontSize: "inherit"
-});
-const defaultEmptyIcon = /*#__PURE__*/(0, _jsxRuntime.jsx)(_StarBorder.default, {
-  fontSize: "inherit"
-});
-
-function defaultLabelText(value) {
-  return `${value} Star${value !== 1 ? 's' : ''}`;
-}
-
-const Rating = /*#__PURE__*/React.forwardRef(function Rating(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    name: 'MuiRating',
-    props: inProps
-  });
-  const {
-    className,
-    defaultValue = null,
-    disabled = false,
-    emptyIcon = defaultEmptyIcon,
-    emptyLabelText = 'Empty',
-    getLabelText = defaultLabelText,
-    highlightSelectedOnly = false,
-    icon = defaultIcon,
-    IconContainerComponent = IconContainer,
-    max = 5,
-    name: nameProp,
-    onChange,
-    onChangeActive,
-    onMouseLeave,
-    onMouseMove,
-    precision = 1,
-    readOnly = false,
-    size = 'medium',
-    value: valueProp
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded2);
-  const name = (0, _utils2.unstable_useId)(nameProp);
-  const [valueDerived, setValueState] = (0, _utils2.useControlled)({
-    controlled: valueProp,
-    default: defaultValue,
-    name: 'Rating'
-  });
-  const valueRounded = roundValueToPrecision(valueDerived, precision);
-  const theme = (0, _useTheme.default)();
-  const [{
-    hover,
-    focus
-  }, setState] = React.useState({
-    hover: -1,
-    focus: -1
-  });
-  let value = valueRounded;
-
-  if (hover !== -1) {
-    value = hover;
-  }
-
-  if (focus !== -1) {
-    value = focus;
-  }
-
-  const {
-    isFocusVisibleRef,
-    onBlur: handleBlurVisible,
-    onFocus: handleFocusVisible,
-    ref: focusVisibleRef
-  } = (0, _utils2.useIsFocusVisible)();
-  const [focusVisible, setFocusVisible] = React.useState(false);
-  const rootRef = React.useRef();
-  const handleFocusRef = (0, _utils2.useForkRef)(focusVisibleRef, rootRef);
-  const handleRef = (0, _utils2.useForkRef)(handleFocusRef, ref);
-
-  const handleMouseMove = event => {
-    if (onMouseMove) {
-      onMouseMove(event);
-    }
-
-    const rootNode = rootRef.current;
-    const {
-      right,
-      left
-    } = rootNode.getBoundingClientRect();
-    const {
-      width
-    } = rootNode.firstChild.getBoundingClientRect();
-    let percent;
-
-    if (theme.direction === 'rtl') {
-      percent = (right - event.clientX) / (width * max);
-    } else {
-      percent = (event.clientX - left) / (width * max);
-    }
-
-    let newHover = roundValueToPrecision(max * percent + precision / 2, precision);
-    newHover = clamp(newHover, precision, max);
-    setState(prev => prev.hover === newHover && prev.focus === newHover ? prev : {
-      hover: newHover,
-      focus: newHover
-    });
-    setFocusVisible(false);
-
-    if (onChangeActive && hover !== newHover) {
-      onChangeActive(event, newHover);
-    }
-  };
-
-  const handleMouseLeave = event => {
-    if (onMouseLeave) {
-      onMouseLeave(event);
-    }
-
-    const newHover = -1;
-    setState({
-      hover: newHover,
-      focus: newHover
-    });
-
-    if (onChangeActive && hover !== newHover) {
-      onChangeActive(event, newHover);
-    }
-  };
-
-  const handleChange = event => {
-    let newValue = event.target.value === '' ? null : parseFloat(event.target.value); // Give mouse priority over keyboard
-    // Fix https://github.com/mui-org/material-ui/issues/22827
-
-    if (hover !== -1) {
-      newValue = hover;
-    }
-
-    setValueState(newValue);
-
-    if (onChange) {
-      onChange(event, newValue);
-    }
-  };
-
-  const handleClear = event => {
-    // Ignore keyboard events
-    // https://github.com/facebook/react/issues/7407
-    if (event.clientX === 0 && event.clientY === 0) {
-      return;
-    }
-
-    setState({
-      hover: -1,
-      focus: -1
-    });
-    setValueState(null);
-
-    if (onChange && parseFloat(event.target.value) === valueRounded) {
-      onChange(event, null);
-    }
-  };
-
-  const handleFocus = event => {
-    handleFocusVisible(event);
-
-    if (isFocusVisibleRef.current === true) {
-      setFocusVisible(true);
-    }
-
-    const newFocus = parseFloat(event.target.value);
-    setState(prev => ({
-      hover: prev.hover,
-      focus: newFocus
-    }));
-  };
-
-  const handleBlur = event => {
-    if (hover !== -1) {
-      return;
-    }
-
-    handleBlurVisible(event);
-
-    if (isFocusVisibleRef.current === false) {
-      setFocusVisible(false);
-    }
-
-    const newFocus = -1;
-    setState(prev => ({
-      hover: prev.hover,
-      focus: newFocus
-    }));
-  };
-
-  const [emptyValueFocused, setEmptyValueFocused] = React.useState(false);
-  const ownerState = (0, _extends2.default)({}, props, {
-    defaultValue,
-    disabled,
-    emptyIcon,
-    emptyLabelText,
-    emptyValueFocused,
-    focusVisible,
-    getLabelText,
-    icon,
-    IconContainerComponent,
-    max,
-    precision,
-    readOnly,
-    size
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(RatingRoot, (0, _extends2.default)({
-    ref: handleRef,
-    onMouseMove: handleMouseMove,
-    onMouseLeave: handleMouseLeave,
-    className: (0, _clsx.default)(classes.root, className),
-    ownerState: ownerState,
-    role: readOnly ? 'img' : null,
-    "aria-label": readOnly ? getLabelText(value) : null
-  }, other, {
-    children: [Array.from(new Array(max)).map((_, index) => {
-      const itemValue = index + 1;
-      const ratingItemProps = {
-        classes,
-        disabled,
-        emptyIcon,
-        focus,
-        getLabelText,
-        highlightSelectedOnly,
-        hover,
-        icon,
-        IconContainerComponent,
-        name,
-        onBlur: handleBlur,
-        onChange: handleChange,
-        onClick: handleClear,
-        onFocus: handleFocus,
-        ratingValue: value,
-        ratingValueRounded: valueRounded,
-        readOnly,
-        ownerState
-      };
-      const isActive = itemValue === Math.ceil(value) && (hover !== -1 || focus !== -1);
-
-      if (precision < 1) {
-        const items = Array.from(new Array(1 / precision));
-        return /*#__PURE__*/(0, _jsxRuntime.jsx)(RatingDecimal, {
-          className: (0, _clsx.default)(classes.decimal, isActive && classes.iconActive),
-          ownerState: ownerState,
-          iconActive: isActive,
-          children: items.map(($, indexDecimal) => {
-            const itemDecimalValue = roundValueToPrecision(itemValue - 1 + (indexDecimal + 1) * precision, precision);
-            return /*#__PURE__*/(0, _jsxRuntime.jsx)(RatingItem, (0, _extends2.default)({}, ratingItemProps, {
-              // The icon is already displayed as active
-              isActive: false,
-              itemValue: itemDecimalValue,
-              labelProps: {
-                style: items.length - 1 === indexDecimal ? {} : {
-                  width: itemDecimalValue === value ? `${(indexDecimal + 1) * precision * 100}%` : '0%',
-                  overflow: 'hidden',
-                  position: 'absolute'
-                }
-              }
-            }), itemDecimalValue);
-          })
-        }, itemValue);
-      }
-
-      return /*#__PURE__*/(0, _jsxRuntime.jsx)(RatingItem, (0, _extends2.default)({}, ratingItemProps, {
-        isActive: isActive,
-        itemValue: itemValue
-      }), itemValue);
-    }), !readOnly && !disabled && /*#__PURE__*/(0, _jsxRuntime.jsxs)(RatingLabel, {
-      className: (0, _clsx.default)(classes.label, classes.labelEmptyValue),
-      ownerState: ownerState,
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
-        className: classes.visuallyHidden,
-        value: "",
-        id: `${name}-empty`,
-        type: "radio",
-        name: name,
-        checked: valueRounded == null,
-        onFocus: () => setEmptyValueFocused(true),
-        onBlur: () => setEmptyValueFocused(false),
-        onChange: handleChange
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-        className: classes.visuallyHidden,
-        children: emptyLabelText
-      })]
-    })]
-  }));
-});
-"development" !== "production" ? Rating.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The default value. Use when the component is not controlled.
-   * @default null
-   */
-  defaultValue: _propTypes.default.number,
-
-  /**
-   * If `true`, the component is disabled.
-   * @default false
-   */
-  disabled: _propTypes.default.bool,
-
-  /**
-   * The icon to display when empty.
-   * @default <StarBorder fontSize="inherit" />
-   */
-  emptyIcon: _propTypes.default.node,
-
-  /**
-   * The label read when the rating input is empty.
-   * @default 'Empty'
-   */
-  emptyLabelText: _propTypes.default.node,
-
-  /**
-   * Accepts a function which returns a string value that provides a user-friendly name for the current value of the rating.
-   * This is important for screen reader users.
-   *
-   * For localization purposes, you can use the provided [translations](/guides/localization/).
-   * @param {number} value The rating label's value to format.
-   * @returns {string}
-   * @default function defaultLabelText(value) {
-   *   return `${value} Star${value !== 1 ? 's' : ''}`;
-   * }
-   */
-  getLabelText: _propTypes.default.func,
-
-  /**
-   * If `true`, only the selected icon will be highlighted.
-   * @default false
-   */
-  highlightSelectedOnly: _propTypes.default.bool,
-
-  /**
-   * The icon to display.
-   * @default <Star fontSize="inherit" />
-   */
-  icon: _propTypes.default.node,
-
-  /**
-   * The component containing the icon.
-   * @default function IconContainer(props) {
-   *   const { value, ...other } = props;
-   *   return <span {...other} />;
-   * }
-   */
-  IconContainerComponent: _propTypes.default.elementType,
-
-  /**
-   * Maximum rating.
-   * @default 5
-   */
-  max: _propTypes.default.number,
-
-  /**
-   * The name attribute of the radio `input` elements.
-   * This input `name` should be unique within the page.
-   * Being unique within a form is insufficient since the `name` is used to generated IDs.
-   */
-  name: _propTypes.default.string,
-
-  /**
-   * Callback fired when the value changes.
-   * @param {React.SyntheticEvent} event The event source of the callback.
-   * @param {number|null} value The new value.
-   */
-  onChange: _propTypes.default.func,
-
-  /**
-   * Callback function that is fired when the hover state changes.
-   * @param {React.SyntheticEvent} event The event source of the callback.
-   * @param {number} value The new value.
-   */
-  onChangeActive: _propTypes.default.func,
-
-  /**
-   * @ignore
-   */
-  onMouseLeave: _propTypes.default.func,
-
-  /**
-   * @ignore
-   */
-  onMouseMove: _propTypes.default.func,
-
-  /**
-   * The minimum increment value change allowed.
-   * @default 1
-   */
-  precision: (0, _utils.chainPropTypes)(_propTypes.default.number, props => {
-    if (props.precision < 0.1) {
-      return new Error(['MUI: The prop `precision` should be above 0.1.', 'A value below this limit has an imperceptible impact.'].join('\n'));
-    }
-
-    return null;
-  }),
-
-  /**
-   * Removes all hover effects and pointer events.
-   * @default false
-   */
-  readOnly: _propTypes.default.bool,
-
-  /**
-   * The size of the component.
-   * @default 'medium'
-   */
-  size: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['small', 'medium', 'large']), _propTypes.default.string]),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The rating value.
-   */
-  value: _propTypes.default.number
-} : void 0;
-var _default = Rating;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/useTheme":"../node_modules/@mui/material/styles/useTheme.js","../utils":"../node_modules/@mui/material/utils/index.js","../internal/svg-icons/Star":"../node_modules/@mui/material/internal/svg-icons/Star.js","../internal/svg-icons/StarBorder":"../node_modules/@mui/material/internal/svg-icons/StarBorder.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","./ratingClasses":"../node_modules/@mui/material/Rating/ratingClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Rating/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  ratingClasses: true
-};
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Rating.default;
-  }
-});
-Object.defineProperty(exports, "ratingClasses", {
-  enumerable: true,
-  get: function () {
-    return _ratingClasses.default;
-  }
-});
-
-var _Rating = _interopRequireDefault(require("./Rating"));
-
-var _ratingClasses = _interopRequireWildcard(require("./ratingClasses"));
-
-Object.keys(_ratingClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _ratingClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _ratingClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Rating":"../node_modules/@mui/material/Rating/Rating.js","./ratingClasses":"../node_modules/@mui/material/Rating/ratingClasses.js"}],"components/Ratingall.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = basicRating;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _Box = _interopRequireDefault(require("@mui/material/Box"));
-
-var _Rating = _interopRequireDefault(require("@mui/material/Rating"));
-
-var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function basicRating() {
-  var _a = React.useState(2),
-      value = _a[0],
-      setValue = _a[1];
-
-  return React.createElement(React.Fragment, null, React.createElement(_Box.default, {
-    sx: {
-      '& > legend': {
-        mt: 2
-      }
-    }
-  }, React.createElement(_Typography.default, {
-    component: "legend"
-  }, "Controlled  "), React.createElement(_Rating.default, {
-    name: "simple-controlled",
-    value: value,
-    onChange: function onChange(event, newValue) {
-      setValue(newValue);
-    }
-  }), React.createElement(_Typography.default, {
-    component: "legend"
-  }, "Read Only"), React.createElement(_Rating.default, {
-    value: value,
-    name: "read-only",
-    readOnly: true
-  }), React.createElement(_Typography.default, {
-    component: "legend"
-  }, "Disabled"), React.createElement(_Rating.default, {
-    name: "disabled",
-    value: value,
-    disabled: true
-  }), React.createElement(_Typography.default, {
-    component: "legend"
-  }, "No rating given"), React.createElement(_Rating.default, {
-    name: "no-rating",
-    value: null
-  })));
-}
-},{"react":"../node_modules/react/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Rating":"../node_modules/@mui/material/Rating/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -76012,7 +74656,167 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./AppBar":"../node_modules/@mui/material/AppBar/AppBar.js","./appBarClasses":"../node_modules/@mui/material/AppBar/appBarClasses.js"}],"../node_modules/@mui/icons-material/Menu.js":[function(require,module,exports) {
+},{"./AppBar":"../node_modules/@mui/material/AppBar/AppBar.js","./appBarClasses":"../node_modules/@mui/material/AppBar/appBarClasses.js"}],"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useScrollTrigger;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var React = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["getTrigger", "target"];
+
+function defaultTrigger(store, options) {
+  const {
+    disableHysteresis = false,
+    threshold = 100,
+    target
+  } = options;
+  const previous = store.current;
+
+  if (target) {
+    // Get vertical scroll
+    store.current = target.pageYOffset !== undefined ? target.pageYOffset : target.scrollTop;
+  }
+
+  if (!disableHysteresis && previous !== undefined) {
+    if (store.current < previous) {
+      return false;
+    }
+  }
+
+  return store.current > threshold;
+}
+
+const defaultTarget = typeof window !== 'undefined' ? window : null;
+
+function useScrollTrigger(options = {}) {
+  const {
+    getTrigger = defaultTrigger,
+    target = defaultTarget
+  } = options,
+        other = (0, _objectWithoutPropertiesLoose2.default)(options, _excluded);
+  const store = React.useRef();
+  const [trigger, setTrigger] = React.useState(() => getTrigger(store, other));
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setTrigger(getTrigger(store, (0, _extends2.default)({
+        target
+      }, other)));
+    };
+
+    handleScroll(); // Re-evaluate trigger when dependencies change
+
+    target.addEventListener('scroll', handleScroll);
+    return () => {
+      target.removeEventListener('scroll', handleScroll);
+    }; // See Option 3. https://github.com/facebook/react/issues/14476#issuecomment-471199055
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target, getTrigger, JSON.stringify(other)]);
+  return trigger;
+}
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js"}],"../node_modules/@mui/material/useScrollTrigger/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _useScrollTrigger.default;
+  }
+});
+
+var _useScrollTrigger = _interopRequireDefault(require("./useScrollTrigger"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js"}],"../node_modules/@mui/icons-material/GitHub.js":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"
+}), 'GitHub');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -76027,8 +74831,8 @@ var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-}), 'Menu');
+  d: "M8 11h8v2H8zm12.1 1H22c0-2.76-2.24-5-5-5h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1zM3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM19 12h-2v3h-3v2h3v3h2v-3h3v-2h-3z"
+}), 'AddLink');
 
 exports.default = _default;
 },{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
@@ -76544,25 +75348,25 @@ var _SignIn = _interopRequireDefault(require("./components/SignIn"));
 
 var _Badge = _interopRequireDefault(require("./components/Badge"));
 
-var _AllCom = _interopRequireDefault(require("./components/AllCom"));
-
-var _Fab = _interopRequireDefault(require("./components/Fab"));
-
-var _Ratingall = _interopRequireDefault(require("./components/Ratingall"));
+var _Logo = _interopRequireDefault(require("./components/Logo"));
 
 var _AppBar = _interopRequireDefault(require("@mui/material/AppBar"));
 
+var _useScrollTrigger = _interopRequireDefault(require("@mui/material/useScrollTrigger"));
+
 var _Box = _interopRequireDefault(require("@mui/material/Box"));
 
-var _Menu = _interopRequireDefault(require("@mui/icons-material/Menu"));
+var _Avatar = _interopRequireDefault(require("@mui/material/Avatar"));
+
+var _GitHub = _interopRequireDefault(require("@mui/icons-material/GitHub"));
+
+var _AddLink = _interopRequireDefault(require("@mui/icons-material/AddLink"));
+
+var _Link = _interopRequireDefault(require("@mui/material/Link"));
 
 var _Toolbar = _interopRequireDefault(require("@mui/material/Toolbar"));
 
 var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
-
-var _IconButton = _interopRequireDefault(require("@mui/material/IconButton"));
-
-var _Link = _interopRequireDefault(require("@mui/material/Link"));
 
 var _CssBaseline = _interopRequireDefault(require("@mui/material/CssBaseline"));
 
@@ -76574,8 +75378,32 @@ var _theme = require("./theme");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function ElevationScroll(props) {
+  var children = props.children,
+      window = props.window;
+  var trigger = (0, _useScrollTrigger.default)({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined
+  });
+  return _react.default.cloneElement(children, {
+    elevation: trigger ? 4 : 0
+  });
+}
+
 function App() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_styles.ThemeProvider, {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(ElevationScroll, null, _react.default.createElement(_AppBar.default, {
+    sx: {
+      bgcolor: 'warning',
+      transform: 'rotate(-45deg)',
+      textAlign: 'center',
+      alignItems: 'center',
+      ml: -5,
+      width: 550,
+      left: -171,
+      top: 36
+    }
+  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Typography.default, null, "Test Mode"))))), _react.default.createElement(_styles.ThemeProvider, {
     theme: _theme.defaultTheme
   }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_Box.default, {
     sx: {
@@ -76586,25 +75414,7 @@ function App() {
     sx: {
       bgcolor: 'background.pink'
     }
-  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_IconButton.default, {
-    size: "large",
-    "aria-label": "open drawer",
-    edge: "start",
-    color: "inherit",
-    sx: {
-      mr: 2
-    }
-  }, _react.default.createElement(_Menu.default, null)), _react.default.createElement(_Typography.default, {
-    component: "div",
-    variant: "h6",
-    noWrap: true,
-    sx: {
-      display: {
-        xs: 'none',
-        sm: 'block'
-      }
-    }
-  }, "RBL Practice"), _react.default.createElement(_Box.default, {
+  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Box.default, {
     sx: {
       flexGrow: 1
     }
@@ -76616,12 +75426,43 @@ function App() {
       }
     }
   }, _react.default.createElement(_Link.default, {
-    href: "/",
-    color: "secondary.dark"
-  }, "Home"), _react.default.createElement(_Link.default, {
-    href: "#",
-    color: "inherit"
-  }, "Link"))))), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
+    href: "#"
+  }, _react.default.createElement(_Avatar.default, {
+    sx: {
+      bgcolor: 'background.grey'
+    }
+  }, _react.default.createElement(_AddLink.default, null))), _react.default.createElement(_Link.default, {
+    href: "#"
+  }, _react.default.createElement(_Avatar.default, {
+    sx: {
+      bgcolor: 'background.grey'
+    }
+  }, _react.default.createElement(_GitHub.default, null))))), _react.default.createElement(_Box.default, {
+    sx: {
+      textAlign: 'center',
+      my: 5
+    }
+  }, _react.default.createElement(_Typography.default, {
+    component: "div",
+    variant: "h6",
+    noWrap: true,
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "RBL Practice"), _react.default.createElement(_Logo.default, null), _react.default.createElement(_Typography.default, {
+    component: "div",
+    variant: "h1",
+    noWrap: true,
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "Reff.Ly")))), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'row'
@@ -76687,29 +75528,7 @@ function App() {
       boxShadow: 1,
       mr: 1
     }
-  }, _react.default.createElement(_Badge.default, null)), _react.default.createElement(_Box.default, {
-    sx: {
-      bgcolor: 'background.lightGreen',
-      maxWidth: {
-        md: 200
-      },
-      padding: 2,
-      boxShadow: 1,
-      mr: 1
-    }
-  }, _react.default.createElement(_AllCom.default, null)), _react.default.createElement(_Box.default, {
-    sx: {
-      bgcolor: 'background.blueGrey',
-      boxShadow: 1,
-      padding: 1
-    }
-  }, _react.default.createElement(_Fab.default, null)), _react.default.createElement(_Box.default, {
-    sx: {
-      bgcolor: 'Background.lime',
-      boxShadow: 1,
-      padding: 1
-    }
-  }, _react.default.createElement(_Ratingall.default, null))), _react.default.createElement(_Box.default, {
+  }, _react.default.createElement(_Badge.default, null))), _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'row',
@@ -76719,7 +75538,7 @@ function App() {
 }
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/AllCom":"components/AllCom.tsx","./components/Fab":"components/Fab.tsx","./components/Ratingall":"components/Ratingall.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/Menu":"../node_modules/@mui/icons-material/Menu.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/icons-material/GitHub":"../node_modules/@mui/icons-material/GitHub.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -76747,7 +75566,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34939" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

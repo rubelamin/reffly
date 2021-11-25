@@ -5,49 +5,102 @@ import SecondHello from './components/SecondHello';
 import Allavatar from './components/Allavatar';
 import SignIn from './components/SignIn';
 import Badge from './components/Badge';
-import AllCom from './components/AllCom';
-import Fab from './components/Fab';
-import Ratingall from './components/Ratingall';
+import Logo from './components/Logo';
 
 import AppBar from '@mui/material/AppBar';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typhography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import Avatar from '@mui/material/Avatar';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import AddLinkIcon from "@mui/icons-material/AddLink";
 import Link from '@mui/material/Link';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { ThemeProvider} from '@mui/material/styles';
 import { defaultTheme } from './theme';
 
+interface Props {
+  window? : () => Window;
+  children: React.ReactElement;
+
+}
+function ElevationScroll(props: Props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target : window? window() : undefined,
+  });
+   return React.cloneElement(children, {
+     elevation : trigger ? 4 : 0,
+   });
+}
+
 function App() {
   
     return ( <>
+      <React.Fragment>
+        <CssBaseline />
+        <ElevationScroll>
+        <AppBar sx={{ 
+          bgcolor: 'warning', 
+          transform: 'rotate(-45deg)',
+          textAlign: 'center',
+          alignItems: 'center',
+          ml: -5,
+          width: 550,
+          left: -171,
+          top: 36,
+          }}>
+          <Toolbar>
+            <Typography>
+              Test Mode
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        </ElevationScroll>
+      </React.Fragment>
       <ThemeProvider theme ={ defaultTheme }>
         <CssBaseline />
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, }}>
         <AppBar position="static" sx={{ bgcolor: 'background.pink' }}>
           <Toolbar>
-            <IconButton 
-            size="large" aria-label="open drawer" edge="start" color="inherit" sx={{ mr: 2}}>
-              <MenuIcon />
-            </IconButton>
-            <Typhography component="div" variant="h6" noWrap
-             sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              RBL Practice
-            </Typhography>
+            
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
-              
-              <Link href="/" color="secondary.dark">Home</Link>
-              <Link href="#" color="inherit">Link</Link>
+              <Link href="#">
+              <Avatar sx={{ bgcolor: 'background.grey' }}>
+                <AddLinkIcon />
+              </Avatar>
+              </Link>
+
+              <Link href="#">
+              <Avatar sx={{ bgcolor: 'background.grey' }}>
+                <GitHubIcon />
+              </Avatar>
+              </Link>
             </Box>
             
           </Toolbar>
+          <Box sx={{ textAlign: 'center', my: 5, }}>
+         <Typography component="div" variant="h6" noWrap
+             sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              RBL Practice
+          </Typography>
+          <Logo />
+          <Typography component="div" variant="h1" noWrap
+             sx={{ display: { xs: 'none', sm: 'block', } }}
+            >
+              Reff.Ly
+          </Typography>
+          
+      </Box>
         </AppBar>
       </Box>
+      
 
       <Container >
         <Box sx={{ display: 'flex', flexDirection: 'row', }}>
@@ -113,32 +166,6 @@ function App() {
           >
           <Badge />
         </Box>
-
-        <Box sx={{ 
-          bgcolor: 'background.lightGreen',
-          maxWidth: { md: 200 },
-          padding: 2,
-          boxShadow: 1,
-          mr: 1,
-           }}
-           >
-         <AllCom />
-        </Box>
-          <Box sx={{
-            bgcolor: 'background.blueGrey',
-            boxShadow: 1,
-            padding: 1,
-          }}>
-            <Fab />
-          </Box>
-
-          <Box sx={{
-            bgcolor: 'Background.lime',
-            boxShadow: 1,
-            padding:1,
-          }}> 
-            <Ratingall />
-          </Box>
 
 
       </Box>

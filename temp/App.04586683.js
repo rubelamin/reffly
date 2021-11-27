@@ -74330,7 +74330,99 @@ function _default() {
     label: "Show Badge"
   }))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/ButtonGroup":"../node_modules/@mui/material/ButtonGroup/index.js","@mui/icons-material/Mail":"../node_modules/@mui/icons-material/Mail.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/IconButton":"../node_modules/@mui/material/IconButton/index.js","@mui/icons-material/ShoppingCart":"../node_modules/@mui/icons-material/ShoppingCart.js","@mui/icons-material/Add":"../node_modules/@mui/icons-material/Add.js","@mui/icons-material/Remove":"../node_modules/@mui/icons-material/Remove.js","@mui/material/Switch":"../node_modules/@mui/material/Switch/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js"}],"../node_modules/@mui/icons-material/InsertLink.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+}), 'InsertLink');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/GitHub.js":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"
+}), 'GitHub');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -74361,15 +74453,21 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Avatar = _interopRequireDefault(require("@mui/material/Avatar"));
 
-var _Stack = _interopRequireDefault(require("@mui/material/Stack"));
-
 var _styles = require("@mui/material/styles");
 
 var _Badge = _interopRequireDefault(require("@mui/material/Badge"));
 
 var _Box = _interopRequireDefault(require("@mui/material/Box"));
 
+var _InsertLink = _interopRequireDefault(require("@mui/icons-material/InsertLink"));
+
+var _GitHub = _interopRequireDefault(require("@mui/icons-material/GitHub"));
+
 var _AddLink = _interopRequireDefault(require("@mui/icons-material/AddLink"));
+
+var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
+
+var _Link = _interopRequireDefault(require("@mui/material/Link"));
 
 var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
 
@@ -74410,13 +74508,56 @@ var StyledBadge = (0, _styles.styled)(_Badge.default)(function (_a) {
 function _default() {
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Box.default, {
     sx: {
-      alignItems: 'center',
-      display: 'flex',
-      flexDirection: 'column'
+      flexGrow: 1,
+      my: 7
     }
-  }, _react.default.createElement(_Stack.default, {
-    direction: "row",
-    spacing: 1
+  }, _react.default.createElement(_Grid.default, {
+    container: true,
+    spacing: 2
+  }, _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 9
+  }), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 3,
+    sx: {
+      alignItems: 'center'
+    }
+  }, _react.default.createElement(StyledBadge, {
+    sx: {
+      float: 'left',
+      mr: 2
+    },
+    overlap: "circular",
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'right'
+    },
+    variant: "dot"
+  }, _react.default.createElement(_Link.default, {
+    href: "#"
+  }, _react.default.createElement(_Avatar.default, {
+    variant: "rounded",
+    sx: {
+      bgcolor: 'background.grey'
+    }
+  }, _react.default.createElement(_AddLink.default, {
+    sx: {
+      transform: 'rotate(-45deg)'
+    }
+  })))), _react.default.createElement(_Link.default, {
+    href: "#"
+  }, _react.default.createElement(_Avatar.default, {
+    variant: "rounded",
+    sx: {
+      bgcolor: 'background.grey'
+    }
+  }, _react.default.createElement(_GitHub.default, null)))), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 6,
+    sx: {
+      textAlign: 'right'
+    }
   }, _react.default.createElement(StyledBadge, {
     overlap: "circular",
     anchorOrigin: {
@@ -74424,14 +74565,38 @@ function _default() {
       horizontal: 'right'
     },
     variant: "dot"
-  }, _react.default.createElement(_Avatar.default, null, _react.default.createElement(_AddLink.default, null))), _react.default.createElement(_Typography.default, {
+  }, _react.default.createElement(_Avatar.default, {
+    sx: {
+      width: 70,
+      height: 70,
+      bgcolor: 'background.orange'
+    }
+  }, _react.default.createElement(_InsertLink.default, {
+    sx: {
+      fontSize: 50,
+      transform: 'rotate(-45deg)',
+      color: 'primary.black'
+    }
+  })))), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 6
+  }, _react.default.createElement(_Typography.default, {
+    variant: "h1",
     sx: {
       display: {
         xs: 'none',
         sm: 'block'
-      }
+      },
+      color: 'primary.grey',
+      fontFamily: 'Comforter Brush'
     }
-  }, "reffly")), _react.default.createElement(_Typography.default, {
+  }, "reffly")), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    sx: {
+      textAlign: 'center'
+    }
+  }, _react.default.createElement(_Typography.default, {
     component: "div",
     variant: "h6",
     noWrap: true,
@@ -74439,11 +74604,12 @@ function _default() {
       display: {
         xs: 'none',
         sm: 'block'
-      }
+      },
+      color: 'secondary.dark'
     }
-  }, "RBL Practice")));
+  }, "RBL Practice")))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Stack":"../node_modules/@mui/material/Stack/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/InsertLink":"../node_modules/@mui/icons-material/InsertLink.js","@mui/icons-material/GitHub":"../node_modules/@mui/icons-material/GitHub.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74788,80 +74954,7 @@ Object.defineProperty(exports, "default", {
 var _useScrollTrigger = _interopRequireDefault(require("./useScrollTrigger"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js"}],"../node_modules/@mui/icons-material/GitHub.js":[function(require,module,exports) {
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) {
-  if (typeof WeakMap !== "function") return null;
-  var cacheBabelInterop = new WeakMap();
-  var cacheNodeInterop = new WeakMap();
-  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
-    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
-  })(nodeInterop);
-}
-
-function _interopRequireWildcard(obj, nodeInterop) {
-  if (!nodeInterop && obj && obj.__esModule) {
-    return obj;
-  }
-
-  if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
-    return {
-      default: obj
-    };
-  }
-
-  var cache = _getRequireWildcardCache(nodeInterop);
-
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-
-  var newObj = {};
-  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-
-  for (var key in obj) {
-    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-
-  newObj.default = obj;
-
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-
-  return newObj;
-}
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"
-}), 'GitHub');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
+},{"./useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75237,7 +75330,9 @@ var refflyTheme = {
     primary: {
       main: '#1976d2',
       light: '#42a5f5',
-      dark: '#1565c0'
+      dark: '#1565c0',
+      black: '#000000',
+      grey: _colors.grey[900]
     },
     secondary: {
       main: '#9c27b0',
@@ -75294,7 +75389,7 @@ var refflyTheme = {
       orange: '#ff9800',
       deepOrange: '#ff5722',
       brown: '#795548',
-      grey: _colors.grey[500],
+      grey: _colors.grey[700],
       blueGrey: '#607d8b'
     },
     fontColor: {
@@ -75323,7 +75418,7 @@ var refflyTheme = {
   },
   typography: {
     h6: {
-      fontSize: '1.25rem'
+      fontSize: '1rem'
     },
     h5: {
       fontSize: '1.50rem'
@@ -75340,6 +75435,9 @@ var refflyTheme = {
     h1: {
       fontSize: '2.50rem'
     }
+  },
+  FontFace: {
+    fontFamily: 'Comforter Brush'
   },
   overrides: {
     MuiButton: {
@@ -75382,14 +75480,6 @@ var _useScrollTrigger = _interopRequireDefault(require("@mui/material/useScrollT
 
 var _Box = _interopRequireDefault(require("@mui/material/Box"));
 
-var _Avatar = _interopRequireDefault(require("@mui/material/Avatar"));
-
-var _GitHub = _interopRequireDefault(require("@mui/icons-material/GitHub"));
-
-var _AddLink = _interopRequireDefault(require("@mui/icons-material/AddLink"));
-
-var _Link = _interopRequireDefault(require("@mui/material/Link"));
-
 var _Toolbar = _interopRequireDefault(require("@mui/material/Toolbar"));
 
 var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
@@ -75431,54 +75521,12 @@ function App() {
     }
   }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Typography.default, null, "Test Mode"))))), _react.default.createElement(_styles.ThemeProvider, {
     theme: _theme.defaultTheme
-  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_Box.default, {
-    sx: {
-      flexGrow: 1
-    }
-  }, _react.default.createElement(_AppBar.default, {
+  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_AppBar.default, {
     position: "static",
     sx: {
-      bgcolor: 'background.pink'
+      bgcolor: 'background.default'
     }
-  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Box.default, {
-    sx: {
-      flexGrow: 1
-    }
-  }), _react.default.createElement(_Box.default, {
-    sx: {
-      display: {
-        xs: 'none',
-        md: 'flex'
-      }
-    }
-  }, _react.default.createElement(_Link.default, {
-    href: "#"
-  }, _react.default.createElement(_Avatar.default, {
-    sx: {
-      bgcolor: 'background.grey'
-    }
-  }, _react.default.createElement(_AddLink.default, null))), _react.default.createElement(_Link.default, {
-    href: "#"
-  }, _react.default.createElement(_Avatar.default, {
-    sx: {
-      bgcolor: 'background.grey'
-    }
-  }, _react.default.createElement(_GitHub.default, null))))), _react.default.createElement(_Box.default, {
-    sx: {
-      textAlign: 'center',
-      my: 5
-    }
-  }, _react.default.createElement(_Logo.default, null), _react.default.createElement(_Typography.default, {
-    component: "div",
-    variant: "h1",
-    noWrap: true,
-    sx: {
-      display: {
-        xs: 'none',
-        sm: 'block'
-      }
-    }
-  }, "Reff.Ly")))), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
+  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Logo.default, null))), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'row'
@@ -75554,7 +75602,7 @@ function App() {
 }
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/icons-material/GitHub":"../node_modules/@mui/icons-material/GitHub.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -75582,7 +75630,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38175" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39567" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

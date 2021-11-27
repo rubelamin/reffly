@@ -1,10 +1,13 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
-import AddLinkIcon from '@mui/icons-material/AddLink';
+import InsertLinkIcon from '@mui/icons-material/InsertLink';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import AddLinkIcon from "@mui/icons-material/AddLink";
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 
@@ -39,29 +42,62 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function() {
     return <>  
-      <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', }}> 
-        <Stack direction="row" spacing={1}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            variant="dot"
-          >
-            <Avatar>
-              <AddLinkIcon />
-            </Avatar>
-          </StyledBadge>
-          <Typography
-             sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              reffly
-          </Typography>
-       </Stack>  
-       <Typography component="div" variant="h6" noWrap
-             sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              RBL Practice
-          </Typography>
-      </Box>
+      
+      <Box sx={{ flexGrow: 1, my: 7, }} >
+          <Grid container spacing={2}>
+              <Grid item xs={9}></Grid>
+              <Grid item xs={3} sx={{ alignItems: 'center' }}>
+                <StyledBadge sx={{ float: 'left', mr: 2, }}
+                  overlap="circular"
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                  variant="dot"
+                  
+                 >
+                  <Link href="#">
+                  <Avatar variant="rounded" sx={{ bgcolor: 'background.grey', }}>
+                    <AddLinkIcon sx={{ transform: 'rotate(-45deg)' }} />
+                  </Avatar>
+                  </Link>
+                </StyledBadge>
+                  <Link href="#">
+                  <Avatar variant="rounded" sx={{ bgcolor: 'background.grey' }}>
+                    <GitHubIcon />
+                  </Avatar>
+                  </Link>
+              </Grid>
+              <Grid item xs={6} sx={{ textAlign: 'right' }}>
+              <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  variant="dot"
+                >
+                  <Avatar sx={{ width:70, height: 70, bgcolor: 'background.orange' }} >
+                    <InsertLinkIcon sx={{ 
+                      fontSize: 50, 
+                      transform: 'rotate(-45deg)',
+                      color: 'primary.black'
+                      }} />
+                  </Avatar>
+                </StyledBadge>
+                
+              </Grid>
+              <Grid item xs={6}>
+              <Typography variant="h1"
+                  sx={{ display: { xs: 'none', sm: 'block' }, 
+                  color: 'primary.grey', fontFamily: 'Comforter Brush' }}
+                  >
+                    reffly
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sx={{ textAlign: 'center' }}>
+              <Typography component="div" variant="h6" noWrap
+                sx={{ display: { xs: 'none', sm: 'block' }, color: 'secondary.dark', }}
+                >
+                  RBL Practice
+              </Typography>
+              </Grid>
+          </Grid>
+        </Box>
          
      </>
 }

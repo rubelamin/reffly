@@ -10,10 +10,6 @@ import Logo from './components/Logo';
 import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import AddLinkIcon from "@mui/icons-material/AddLink";
-import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -64,38 +60,15 @@ function App() {
       </React.Fragment>
       <ThemeProvider theme ={ defaultTheme }>
         <CssBaseline />
-      <Box sx={{ flexGrow: 1, }}>
-        <AppBar position="static" sx={{ bgcolor: 'background.pink' }}>
+      
+        <AppBar position="static" sx={{ bgcolor: 'background.default' }}>
           <Toolbar>
             
-            <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
-              <Link href="#">
-              <Avatar sx={{ bgcolor: 'background.grey' }}>
-                <AddLinkIcon />
-              </Avatar>
-              </Link>
-
-              <Link href="#">
-              <Avatar sx={{ bgcolor: 'background.grey' }}>
-                <GitHubIcon />
-              </Avatar>
-              </Link>
-            </Box>
+            <Logo />
             
           </Toolbar>
-          <Box sx={{ textAlign: 'center', my: 5, }}>
-
-          <Logo />
-          <Typography component="div" variant="h1" noWrap
-             sx={{ display: { xs: 'none', sm: 'block', } }}
-            >
-              Reff.Ly
-          </Typography>
-          
-      </Box>
         </AppBar>
-      </Box>
+      
       
 
       <Container >

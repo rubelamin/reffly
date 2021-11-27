@@ -19,6 +19,8 @@ export const refflyTheme = {
       main: '#1976d2',
       light: '#42a5f5',
       dark: '#1565c0',
+      black: '#000000',
+      grey: grey[900],
     },
     secondary: {
       main: '#9c27b0',
@@ -75,7 +77,7 @@ export const refflyTheme = {
       orange: '#ff9800',
       deepOrange: '#ff5722',
       brown: '#795548',
-      grey: grey[500],
+      grey: grey[700],
       blueGrey: '#607d8b',
 
     },
@@ -104,12 +106,15 @@ export const refflyTheme = {
     },
   },
   typography: {
-    h6: { fontSize: '1.25rem' },
+    h6: { fontSize: '1rem' },
     h5: { fontSize: '1.50rem' },
     h4: { fontSize: '1.75rem' },
     h3: { fontSize: '2rem' },
     h2: { fontSize: '2.25rem' },
     h1: { fontSize: '2.50rem' },
+  },
+  FontFace: {
+    fontFamily: 'Comforter Brush',
   },
   overrides: {
     MuiButton: {

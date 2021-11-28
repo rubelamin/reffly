@@ -74569,7 +74569,7 @@ function _default() {
     sx: {
       width: 70,
       height: 70,
-      bgcolor: 'background.orange'
+      bgcolor: 'warning.main'
     }
   }, _react.default.createElement(_InsertLink.default, {
     sx: {
@@ -74581,14 +74581,15 @@ function _default() {
     item: true,
     xs: 6
   }, _react.default.createElement(_Typography.default, {
-    variant: "h1",
+    variant: "h2",
     sx: {
       display: {
         xs: 'none',
         sm: 'block'
       },
       color: 'primary.grey',
-      fontFamily: 'Comforter Brush'
+      fontFamily: 'Beth Ellen',
+      mt: 1
     }
   }, "reffly")), _react.default.createElement(_Grid.default, {
     item: true,
@@ -74867,94 +74868,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./AppBar":"../node_modules/@mui/material/AppBar/AppBar.js","./appBarClasses":"../node_modules/@mui/material/AppBar/appBarClasses.js"}],"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = useScrollTrigger;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var React = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["getTrigger", "target"];
-
-function defaultTrigger(store, options) {
-  const {
-    disableHysteresis = false,
-    threshold = 100,
-    target
-  } = options;
-  const previous = store.current;
-
-  if (target) {
-    // Get vertical scroll
-    store.current = target.pageYOffset !== undefined ? target.pageYOffset : target.scrollTop;
-  }
-
-  if (!disableHysteresis && previous !== undefined) {
-    if (store.current < previous) {
-      return false;
-    }
-  }
-
-  return store.current > threshold;
-}
-
-const defaultTarget = typeof window !== 'undefined' ? window : null;
-
-function useScrollTrigger(options = {}) {
-  const {
-    getTrigger = defaultTrigger,
-    target = defaultTarget
-  } = options,
-        other = (0, _objectWithoutPropertiesLoose2.default)(options, _excluded);
-  const store = React.useRef();
-  const [trigger, setTrigger] = React.useState(() => getTrigger(store, other));
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setTrigger(getTrigger(store, (0, _extends2.default)({
-        target
-      }, other)));
-    };
-
-    handleScroll(); // Re-evaluate trigger when dependencies change
-
-    target.addEventListener('scroll', handleScroll);
-    return () => {
-      target.removeEventListener('scroll', handleScroll);
-    }; // See Option 3. https://github.com/facebook/react/issues/14476#issuecomment-471199055
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target, getTrigger, JSON.stringify(other)]);
-  return trigger;
-}
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js"}],"../node_modules/@mui/material/useScrollTrigger/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _useScrollTrigger.default;
-  }
-});
-
-var _useScrollTrigger = _interopRequireDefault(require("./useScrollTrigger"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/useScrollTrigger.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
+},{"./AppBar":"../node_modules/@mui/material/AppBar/AppBar.js","./appBarClasses":"../node_modules/@mui/material/AppBar/appBarClasses.js"}],"../node_modules/@mui/material/Toolbar/toolbarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75476,8 +75390,6 @@ var _Logo = _interopRequireDefault(require("./components/Logo"));
 
 var _AppBar = _interopRequireDefault(require("@mui/material/AppBar"));
 
-var _useScrollTrigger = _interopRequireDefault(require("@mui/material/useScrollTrigger"));
-
 var _Box = _interopRequireDefault(require("@mui/material/Box"));
 
 var _Toolbar = _interopRequireDefault(require("@mui/material/Toolbar"));
@@ -75494,39 +75406,28 @@ var _theme = require("./theme");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function ElevationScroll(props) {
-  var children = props.children,
-      window = props.window;
-  var trigger = (0, _useScrollTrigger.default)({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined
-  });
-  return _react.default.cloneElement(children, {
-    elevation: trigger ? 4 : 0
-  });
-}
-
 function App() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(ElevationScroll, null, _react.default.createElement(_AppBar.default, {
-    sx: {
-      bgcolor: 'warning',
-      transform: 'rotate(-45deg)',
-      textAlign: 'center',
-      alignItems: 'center',
-      ml: -5,
-      width: 550,
-      left: -171,
-      top: 36
-    }
-  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Typography.default, null, "Test Mode"))))), _react.default.createElement(_styles.ThemeProvider, {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_styles.ThemeProvider, {
     theme: _theme.defaultTheme
   }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_AppBar.default, {
     position: "static",
     sx: {
       bgcolor: 'background.default'
     }
-  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Logo.default, null))), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
+  }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Logo.default, null))), _react.default.createElement(_Box.default, {
+    sx: {
+      bgcolor: 'warning.main',
+      transform: 'rotate(-45deg)',
+      textAlign: 'center',
+      alignItems: 'center',
+      ml: -5,
+      width: 450,
+      left: -130,
+      top: 36,
+      position: 'fixed',
+      py: 2
+    }
+  }, _react.default.createElement(_Typography.default, null, "Right Test")), _react.default.createElement(_Container.default, null, _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'row'
@@ -75602,7 +75503,7 @@ function App() {
 }
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/useScrollTrigger":"../node_modules/@mui/material/useScrollTrigger/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

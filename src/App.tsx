@@ -8,7 +8,6 @@ import Badge from './components/Badge';
 import Logo from './components/Logo';
 
 import AppBar from '@mui/material/AppBar';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -17,47 +16,12 @@ import Container from '@mui/material/Container';
 import { ThemeProvider} from '@mui/material/styles';
 import { defaultTheme } from './theme';
 
-interface Props {
-  window? : () => Window;
-  children: React.ReactElement;
 
-}
-function ElevationScroll(props: Props) {
-  const { children, window } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target : window? window() : undefined,
-  });
-   return React.cloneElement(children, {
-     elevation : trigger ? 4 : 0,
-   });
-}
 
 function App() {
   
     return ( <>
-      <React.Fragment>
-        <CssBaseline />
-        <ElevationScroll>
-        <AppBar sx={{ 
-          bgcolor: 'warning', 
-          transform: 'rotate(-45deg)',
-          textAlign: 'center',
-          alignItems: 'center',
-          ml: -5,
-          width: 550,
-          left: -171,
-          top: 36,
-          }}>
-          <Toolbar>
-            <Typography>
-              Test Mode
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        </ElevationScroll>
-      </React.Fragment>
+      
       <ThemeProvider theme ={ defaultTheme }>
         <CssBaseline />
       
@@ -68,7 +32,25 @@ function App() {
             
           </Toolbar>
         </AppBar>
-      
+
+      <Box
+        sx={{ 
+          bgcolor: 'warning.main', 
+          transform: 'rotate(-45deg)',
+          textAlign: 'center',
+          alignItems: 'center',
+          ml: -5,
+          width: 450,
+          left: -130,
+          top: 36,
+          position: 'fixed',
+          py: 2,
+          }}
+      >
+            <Typography>
+              Right Test
+            </Typography>
+      </Box>
       
 
       <Container >

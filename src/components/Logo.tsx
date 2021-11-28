@@ -71,7 +71,7 @@ export default function() {
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot"
                 >
-                  <Avatar sx={{ width:70, height: 70, bgcolor: 'background.orange' }} >
+                  <Avatar sx={{ width:70, height: 70, bgcolor: 'warning.main' }} >
                     <InsertLinkIcon sx={{ 
                       fontSize: 50, 
                       transform: 'rotate(-45deg)',
@@ -82,9 +82,9 @@ export default function() {
                 
               </Grid>
               <Grid item xs={6}>
-              <Typography variant="h1"
+              <Typography variant="h2"
                   sx={{ display: { xs: 'none', sm: 'block' }, 
-                  color: 'primary.grey', fontFamily: 'Comforter Brush' }}
+                  color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
                   >
                     reffly
                 </Typography>

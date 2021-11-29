@@ -44,28 +44,34 @@ export default function() {
     return <>  
       
       <Box sx={{ flexGrow: 1, my: 7, }} >
-          <Grid container spacing={2}>
-              <Grid item xs={9}></Grid>
-              <Grid item xs={3} sx={{ alignItems: 'center' }}>
-                <StyledBadge sx={{ float: 'left', mr: 2, }}
-                  overlap="circular"
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
-                  variant="dot"
-                  
-                 >
+          <Grid container spacing={1}>
+              <Grid item xs={12} md={9}></Grid>
+              <Grid item xs={12} md={1} sx={{ textAlign: 'right', }}>
+                <Box >
+                  <StyledBadge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                    variant="dot"
+                    
+                  >
+                    <Link href="#">
+                    <Avatar variant="rounded" sx={{ bgcolor: 'background.grey', }}>
+                      <AddLinkIcon sx={{ transform: 'rotate(-45deg)' }} />
+                    </Avatar>
+                    </Link>
+                  </StyledBadge>
+                </Box>
+                </Grid>
+                <Grid item xs={12} md={2}>
+                <Box>
                   <Link href="#">
-                  <Avatar variant="rounded" sx={{ bgcolor: 'background.grey', }}>
-                    <AddLinkIcon sx={{ transform: 'rotate(-45deg)' }} />
-                  </Avatar>
+                    <Avatar variant="rounded" sx={{ bgcolor: 'background.grey' }}>
+                      <GitHubIcon />
+                    </Avatar>
                   </Link>
-                </StyledBadge>
-                  <Link href="#">
-                  <Avatar variant="rounded" sx={{ bgcolor: 'background.grey' }}>
-                    <GitHubIcon />
-                  </Avatar>
-                  </Link>
+                </Box>
               </Grid>
-              <Grid item xs={6} sx={{ textAlign: 'right' }}>
+              <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
               <StyledBadge
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -81,10 +87,9 @@ export default function() {
                 </StyledBadge>
                 
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} md={6}>
               <Typography variant="h2"
-                  sx={{ display: { xs: 'none', sm: 'block' }, 
-                  color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
+                  sx={{ color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
                   >
                     reffly
                 </Typography>

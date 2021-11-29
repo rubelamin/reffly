@@ -59,7 +59,8 @@ export const refflyTheme = {
     },
     background: {
       default: '#ECEFF1',
-      paper: grey[200],
+      dark: '#d3e1eb',
+      paper: '#ffffff',
       red: red[800],
       pink: '#e91e63',
       purple: '#9c27b0',
@@ -112,6 +113,8 @@ export const refflyTheme = {
     h3: { fontSize: '2rem' },
     h2: { fontSize: '2.25rem' },
     h1: { fontSize: '2.50rem' },
+    body1: { fontSize: '14px'},
+    body2: { fontSize: '12px' },
   },
   FontFace: {
     fontFamily: 'Comforter Brush',

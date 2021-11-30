@@ -57291,18 +57291,1357 @@ function _default() {
         md: 'block'
       }
     }
-  }, " "), _react.default.createElement(_Grid.default, {
-    item: true,
-    xs: 12,
-    sx: {
-      textAlign: 'center',
-      py: 5
-    }
-  }, _react.default.createElement(_Typography.default, {
-    variant: "h2"
-  }, "FOR ENTERPRISE"))));
+  }, " ")));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Card":"../node_modules/@mui/material/Card/index.js","@mui/material/CardMedia":"../node_modules/@mui/material/CardMedia/index.js","@mui/material/CardContent":"../node_modules/@mui/material/CardContent/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"components/SecondHello.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Card":"../node_modules/@mui/material/Card/index.js","@mui/material/CardMedia":"../node_modules/@mui/material/CardMedia/index.js","@mui/material/CardContent":"../node_modules/@mui/material/CardContent/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/Badge/Badge.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.badgeClasses = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _utils = require("@mui/utils");
+
+var _base = require("@mui/base");
+
+var _BadgeUnstyled = _interopRequireWildcard(require("@mui/base/BadgeUnstyled"));
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["components", "componentsProps", "color", "invisible", "badgeContent", "showZero", "variant"];
+const badgeClasses = (0, _extends2.default)({}, _BadgeUnstyled.badgeUnstyledClasses, (0, _base.generateUtilityClasses)('MuiBadge', ['colorError', 'colorInfo', 'colorPrimary', 'colorSecondary', 'colorSuccess', 'colorWarning']));
+exports.badgeClasses = badgeClasses;
+const RADIUS_STANDARD = 10;
+const RADIUS_DOT = 4;
+
+const extendUtilityClasses = ownerState => {
+  const {
+    color,
+    classes = {}
+  } = ownerState;
+  return (0, _extends2.default)({}, classes, {
+    badge: (0, _clsx.default)(classes.badge, color !== 'default' && [(0, _BadgeUnstyled.getBadgeUtilityClass)(`color${(0, _capitalize.default)(color)}`), classes[`color${(0, _capitalize.default)(color)}`]])
+  });
+};
+
+const BadgeRoot = (0, _styled.default)('span', {
+  name: 'MuiBadge',
+  slot: 'Root',
+  overridesResolver: (props, styles) => styles.root
+})({
+  position: 'relative',
+  display: 'inline-flex',
+  // For correct alignment with the text.
+  verticalAlign: 'middle',
+  flexShrink: 0
+});
+const BadgeBadge = (0, _styled.default)('span', {
+  name: 'MuiBadge',
+  slot: 'Badge',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.badge, styles[ownerState.variant], styles[`anchorOrigin${(0, _capitalize.default)(ownerState.anchorOrigin.vertical)}${(0, _capitalize.default)(ownerState.anchorOrigin.horizontal)}${(0, _capitalize.default)(ownerState.overlap)}`], ownerState.color !== 'default' && styles[`color${(0, _capitalize.default)(ownerState.color)}`], ownerState.invisible && styles.invisible];
+  }
+})(({
+  theme,
+  ownerState
+}) => (0, _extends2.default)({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignContent: 'center',
+  alignItems: 'center',
+  position: 'absolute',
+  boxSizing: 'border-box',
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: theme.typography.fontWeightMedium,
+  fontSize: theme.typography.pxToRem(12),
+  minWidth: RADIUS_STANDARD * 2,
+  lineHeight: 1,
+  padding: '0 6px',
+  height: RADIUS_STANDARD * 2,
+  borderRadius: RADIUS_STANDARD,
+  zIndex: 1,
+  // Render the badge on top of potential ripples.
+  transition: theme.transitions.create('transform', {
+    easing: theme.transitions.easing.easeInOut,
+    duration: theme.transitions.duration.enteringScreen
+  })
+}, ownerState.color !== 'default' && {
+  backgroundColor: theme.palette[ownerState.color].main,
+  color: theme.palette[ownerState.color].contrastText
+}, ownerState.variant === 'dot' && {
+  borderRadius: RADIUS_DOT,
+  height: RADIUS_DOT * 2,
+  minWidth: RADIUS_DOT * 2,
+  padding: 0
+}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'rectangular' && {
+  top: 0,
+  right: 0,
+  transform: 'scale(1) translate(50%, -50%)',
+  transformOrigin: '100% 0%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(50%, -50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'rectangular' && {
+  bottom: 0,
+  right: 0,
+  transform: 'scale(1) translate(50%, 50%)',
+  transformOrigin: '100% 100%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(50%, 50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'rectangular' && {
+  top: 0,
+  left: 0,
+  transform: 'scale(1) translate(-50%, -50%)',
+  transformOrigin: '0% 0%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(-50%, -50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'rectangular' && {
+  bottom: 0,
+  left: 0,
+  transform: 'scale(1) translate(-50%, 50%)',
+  transformOrigin: '0% 100%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(-50%, 50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'circular' && {
+  top: '14%',
+  right: '14%',
+  transform: 'scale(1) translate(50%, -50%)',
+  transformOrigin: '100% 0%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(50%, -50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'circular' && {
+  bottom: '14%',
+  right: '14%',
+  transform: 'scale(1) translate(50%, 50%)',
+  transformOrigin: '100% 100%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(50%, 50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'circular' && {
+  top: '14%',
+  left: '14%',
+  transform: 'scale(1) translate(-50%, -50%)',
+  transformOrigin: '0% 0%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(-50%, -50%)'
+  }
+}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'circular' && {
+  bottom: '14%',
+  left: '14%',
+  transform: 'scale(1) translate(-50%, 50%)',
+  transformOrigin: '0% 100%',
+  [`&.${badgeClasses.invisible}`]: {
+    transform: 'scale(0) translate(-50%, 50%)'
+  }
+}, ownerState.invisible && {
+  transition: theme.transitions.create('transform', {
+    easing: theme.transitions.easing.easeInOut,
+    duration: theme.transitions.duration.leavingScreen
+  })
+}));
+const Badge = /*#__PURE__*/React.forwardRef(function Badge(inProps, ref) {
+  var _componentsProps$root, _componentsProps$badg;
+
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiBadge'
+  });
+  const {
+    components = {},
+    componentsProps = {},
+    color: colorProp = 'default',
+    invisible: invisibleProp,
+    badgeContent: badgeContentProp,
+    showZero = false,
+    variant: variantProp = 'standard'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const prevProps = (0, _utils.usePreviousProps)({
+    color: colorProp
+  });
+  let invisible = invisibleProp;
+
+  if (invisibleProp == null && (badgeContentProp === 0 && !showZero || badgeContentProp == null && variantProp !== 'dot')) {
+    invisible = true;
+  }
+
+  const {
+    color = colorProp
+  } = invisible ? prevProps : props;
+  const ownerState = (0, _extends2.default)({}, props, {
+    invisible,
+    color
+  });
+  const classes = extendUtilityClasses(ownerState);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_BadgeUnstyled.default, (0, _extends2.default)({
+    invisible: invisibleProp,
+    badgeContent: badgeContentProp,
+    showZero: showZero,
+    variant: variantProp
+  }, other, {
+    components: (0, _extends2.default)({
+      Root: BadgeRoot,
+      Badge: BadgeBadge
+    }, components),
+    componentsProps: {
+      root: (0, _extends2.default)({}, componentsProps.root, (!components.Root || !(0, _base.isHostComponent)(components.Root)) && {
+        ownerState: (0, _extends2.default)({}, (_componentsProps$root = componentsProps.root) == null ? void 0 : _componentsProps$root.ownerState, {
+          color
+        })
+      }),
+      badge: (0, _extends2.default)({}, componentsProps.badge, (!components.Thumb || !(0, _base.isHostComponent)(components.Thumb)) && {
+        ownerState: (0, _extends2.default)({}, (_componentsProps$badg = componentsProps.badge) == null ? void 0 : _componentsProps$badg.ownerState, {
+          color
+        })
+      })
+    },
+    classes: classes,
+    ref: ref
+  }));
+});
+"development" !== "production" ? Badge.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The anchor of the badge.
+   * @default {
+   *   vertical: 'top',
+   *   horizontal: 'right',
+   * }
+   */
+  anchorOrigin: _propTypes.default.shape({
+    horizontal: _propTypes.default.oneOf(['left', 'right']).isRequired,
+    vertical: _propTypes.default.oneOf(['bottom', 'top']).isRequired
+  }),
+
+  /**
+   * The content rendered within the badge.
+   */
+  badgeContent: _propTypes.default.node,
+
+  /**
+   * The badge will be added relative to this node.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   * @default 'default'
+   */
+  color: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), _propTypes.default.string]),
+
+  /**
+   * The components used for each slot inside the Badge.
+   * Either a string to use a HTML element or a component.
+   * @default {}
+   */
+  components: _propTypes.default.shape({
+    Badge: _propTypes.default.elementType,
+    Root: _propTypes.default.elementType
+  }),
+
+  /**
+   * The props used for each slot inside the Badge.
+   * @default {}
+   */
+  componentsProps: _propTypes.default.object,
+
+  /**
+   * If `true`, the badge is invisible.
+   */
+  invisible: _propTypes.default.bool,
+
+  /**
+   * Max count to show.
+   * @default 99
+   */
+  max: _propTypes.default.number,
+
+  /**
+   * Wrapped shape the badge should overlap.
+   * @default 'rectangular'
+   */
+  overlap: _propTypes.default.oneOf(['circular', 'rectangular']),
+
+  /**
+   * Controls whether the badge is hidden when `badgeContent` is zero.
+   * @default false
+   */
+  showZero: _propTypes.default.bool,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * The variant to use.
+   * @default 'standard'
+   */
+  variant: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['dot', 'standard']), _propTypes.default.string])
+} : void 0;
+var _default = Badge;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/base/BadgeUnstyled":"../node_modules/@mui/base/BadgeUnstyled/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Badge/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {};
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _Badge.default;
+  }
+});
+
+var _Badge = _interopRequireWildcard(require("./Badge"));
+
+Object.keys(_Badge).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _Badge[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _Badge[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+},{"./Badge":"../node_modules/@mui/material/Badge/Badge.js"}],"../node_modules/@mui/material/ImageList/imageListClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getImageListUtilityClass = getImageListUtilityClass;
+
+var _base = require("@mui/base");
+
+function getImageListUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiImageList', slot);
+}
+
+const imageListClasses = (0, _base.generateUtilityClasses)('MuiImageList', ['root', 'masonry', 'quilted', 'standard', 'woven']);
+var _default = imageListClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/ImageList/ImageListContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+/**
+ * @ignore - internal component.
+ * @type {React.Context<{} | {expanded: boolean, disabled: boolean, toggle: () => void}>}
+ */
+const ImageListContext = /*#__PURE__*/React.createContext({});
+
+if ("development" !== 'production') {
+  ImageListContext.displayName = 'ImageListContext';
+}
+
+var _default = ImageListContext;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../node_modules/@mui/material/ImageList/ImageList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _base = require("@mui/base");
+
+var _utils = require("@mui/utils");
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _imageListClasses = require("./imageListClasses");
+
+var _ImageListContext = _interopRequireDefault(require("./ImageListContext"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ['root', variant]
+  };
+  return (0, _base.unstable_composeClasses)(slots, _imageListClasses.getImageListUtilityClass, classes);
+};
+
+const ImageListRoot = (0, _styled.default)('ul', {
+  name: 'MuiImageList',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[ownerState.variant]];
+  }
+})(({
+  ownerState
+}) => {
+  return (0, _extends2.default)({
+    display: 'grid',
+    overflowY: 'auto',
+    listStyle: 'none',
+    padding: 0,
+    // Add iOS momentum scrolling for iOS < 13.0
+    WebkitOverflowScrolling: 'touch'
+  }, ownerState.variant === 'masonry' && {
+    display: 'block'
+  });
+});
+const ImageList = /*#__PURE__*/React.forwardRef(function ImageList(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiImageList'
+  });
+  const {
+    children,
+    className,
+    cols = 2,
+    component = 'ul',
+    rowHeight = 'auto',
+    gap = 4,
+    style: styleProp,
+    variant = 'standard'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const contextValue = React.useMemo(() => ({
+    rowHeight,
+    gap,
+    variant
+  }), [rowHeight, gap, variant]);
+  React.useEffect(() => {
+    if ("development" !== 'production') {
+      // Detect Internet Explorer 8+
+      if (document !== undefined && 'objectFit' in document.documentElement.style === false) {
+        console.error(['MUI: ImageList v5+ no longer natively supports Internet Explorer.', 'Use v4 of this component instead, or polyfill CSS object-fit.'].join('\n'));
+      }
+    }
+  }, []);
+  const style = variant === 'masonry' ? (0, _extends2.default)({
+    columnCount: cols,
+    columnGap: gap
+  }, styleProp) : (0, _extends2.default)({
+    gridTemplateColumns: `repeat(${cols}, 1fr)`,
+    gap
+  }, styleProp);
+  const ownerState = (0, _extends2.default)({}, props, {
+    component,
+    gap,
+    rowHeight,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(ImageListRoot, (0, _extends2.default)({
+    as: component,
+    className: (0, _clsx.default)(classes.root, classes[variant], className),
+    ref: ref,
+    style: style,
+    ownerState: ownerState
+  }, other, {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_ImageListContext.default.Provider, {
+      value: contextValue,
+      children: children
+    })
+  }));
+});
+"development" !== "production" ? ImageList.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component, normally `ImageListItem`s.
+   */
+  children: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * Number of columns.
+   * @default 2
+   */
+  cols: _utils.integerPropType,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * The gap between items in px.
+   * @default 4
+   */
+  gap: _propTypes.default.number,
+
+  /**
+   * The height of one row in px.
+   * @default 'auto'
+   */
+  rowHeight: _propTypes.default.oneOfType([_propTypes.default.oneOf(['auto']), _propTypes.default.number]),
+
+  /**
+   * @ignore
+   */
+  style: _propTypes.default.object,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * The variant to use.
+   * @default 'standard'
+   */
+  variant: _propTypes.default.oneOf(['masonry', 'quilted', 'standard', 'woven'])
+} : void 0;
+var _default = ImageList;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","prop-types":"../node_modules/prop-types/index.js","react":"../node_modules/react/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","./imageListClasses":"../node_modules/@mui/material/ImageList/imageListClasses.js","./ImageListContext":"../node_modules/@mui/material/ImageList/ImageListContext.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/ImageList/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  imageListClasses: true
+};
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _ImageList.default;
+  }
+});
+Object.defineProperty(exports, "imageListClasses", {
+  enumerable: true,
+  get: function () {
+    return _imageListClasses.default;
+  }
+});
+
+var _ImageList = _interopRequireDefault(require("./ImageList"));
+
+var _imageListClasses = _interopRequireWildcard(require("./imageListClasses"));
+
+Object.keys(_imageListClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _imageListClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _imageListClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./ImageList":"../node_modules/@mui/material/ImageList/ImageList.js","./imageListClasses":"../node_modules/@mui/material/ImageList/imageListClasses.js"}],"../node_modules/@mui/material/ImageListItem/imageListItemClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getImageListItemUtilityClass = getImageListItemUtilityClass;
+
+var _base = require("@mui/base");
+
+function getImageListItemUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiImageListItem', slot);
+}
+
+const imageListItemClasses = (0, _base.generateUtilityClasses)('MuiImageListItem', ['root', 'img', 'standard', 'woven', 'masonry', 'quilted']);
+var _default = imageListItemClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/ImageListItem/ImageListItem.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _base = require("@mui/base");
+
+var _utils = require("@mui/utils");
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactIs = require("react-is");
+
+var _ImageListContext = _interopRequireDefault(require("../ImageList/ImageListContext"));
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _isMuiElement = _interopRequireDefault(require("../utils/isMuiElement"));
+
+var _imageListItemClasses = _interopRequireWildcard(require("./imageListItemClasses"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["children", "className", "cols", "component", "rows", "style"];
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ['root', variant],
+    img: ['img']
+  };
+  return (0, _base.unstable_composeClasses)(slots, _imageListItemClasses.getImageListItemUtilityClass, classes);
+};
+
+const ImageListItemRoot = (0, _styled.default)('li', {
+  name: 'MuiImageListItem',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [{
+      [`& .${_imageListItemClasses.default.img}`]: styles.img
+    }, styles.root, styles[ownerState.variant]];
+  }
+})(({
+  ownerState
+}) => (0, _extends2.default)({
+  display: 'inline-block',
+  position: 'relative',
+  lineHeight: 0
+}, ownerState.variant === 'standard' && {
+  // For titlebar under list item
+  display: 'flex',
+  flexDirection: 'column'
+}, ownerState.variant === 'woven' && {
+  height: '100%',
+  alignSelf: 'center',
+  '&:nth-of-type(even)': {
+    height: '70%'
+  }
+}, {
+  [`& .${_imageListItemClasses.default.img}`]: (0, _extends2.default)({
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%'
+  }, ownerState.variant === 'standard' && {
+    height: 'auto',
+    flexGrow: 1
+  })
+}));
+const ImageListItem = /*#__PURE__*/React.forwardRef(function ImageListItem(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiImageListItem'
+  }); // TODO: - Use jsdoc @default?: "cols rows default values are for docs only"
+
+  const {
+    children,
+    className,
+    cols = 1,
+    component = 'li',
+    rows = 1,
+    style
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const {
+    rowHeight = 'auto',
+    gap,
+    variant
+  } = React.useContext(_ImageListContext.default);
+  let height = 'auto';
+
+  if (variant === 'woven') {
+    height = undefined;
+  } else if (rowHeight !== 'auto') {
+    height = rowHeight * rows + gap * (rows - 1);
+  }
+
+  const ownerState = (0, _extends2.default)({}, props, {
+    cols,
+    component,
+    gap,
+    rowHeight,
+    rows,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(ImageListItemRoot, (0, _extends2.default)({
+    as: component,
+    className: (0, _clsx.default)(classes.root, classes[variant], className),
+    ref: ref,
+    style: (0, _extends2.default)({
+      height,
+      gridColumnEnd: variant !== 'masonry' ? `span ${cols}` : undefined,
+      gridRowEnd: variant !== 'masonry' ? `span ${rows}` : undefined,
+      marginBottom: variant === 'masonry' ? gap : undefined
+    }, style),
+    ownerState: ownerState
+  }, other, {
+    children: React.Children.map(children, child => {
+      if (! /*#__PURE__*/React.isValidElement(child)) {
+        return null;
+      }
+
+      if ("development" !== 'production') {
+        if ((0, _reactIs.isFragment)(child)) {
+          console.error(["MUI: The ImageListItem component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+        }
+      }
+
+      if (child.type === 'img' || (0, _isMuiElement.default)(child, ['Image'])) {
+        return /*#__PURE__*/React.cloneElement(child, {
+          className: (0, _clsx.default)(classes.img, child.props.className)
+        });
+      }
+
+      return child;
+    })
+  }));
+});
+"development" !== "production" ? ImageListItem.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component, normally an `<img>`.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * Width of the item in number of grid columns.
+   * @default 1
+   */
+  cols: _utils.integerPropType,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * Height of the item in number of grid rows.
+   * @default 1
+   */
+  rows: _utils.integerPropType,
+
+  /**
+   * @ignore
+   */
+  style: _propTypes.default.object,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
+} : void 0;
+var _default = ImageListItem;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","prop-types":"../node_modules/prop-types/index.js","react":"../node_modules/react/index.js","react-is":"../node_modules/react-is/index.js","../ImageList/ImageListContext":"../node_modules/@mui/material/ImageList/ImageListContext.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../utils/isMuiElement":"../node_modules/@mui/material/utils/isMuiElement.js","./imageListItemClasses":"../node_modules/@mui/material/ImageListItem/imageListItemClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/ImageListItem/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  imageListItemClasses: true
+};
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _ImageListItem.default;
+  }
+});
+Object.defineProperty(exports, "imageListItemClasses", {
+  enumerable: true,
+  get: function () {
+    return _imageListItemClasses.default;
+  }
+});
+
+var _ImageListItem = _interopRequireDefault(require("./ImageListItem"));
+
+var _imageListItemClasses = _interopRequireWildcard(require("./imageListItemClasses"));
+
+Object.keys(_imageListItemClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _imageListItemClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _imageListItemClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./ImageListItem":"../node_modules/@mui/material/ImageListItem/ImageListItem.js","./imageListItemClasses":"../node_modules/@mui/material/ImageListItem/imageListItemClasses.js"}],"../node_modules/@mui/material/internal/svg-icons/Person.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("../../utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+/**
+ * @ignore - internal component.
+ */
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+}), 'Person');
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../../utils/createSvgIcon":"../node_modules/@mui/material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Avatar/avatarClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getAvatarUtilityClass = getAvatarUtilityClass;
+
+var _base = require("@mui/base");
+
+function getAvatarUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiAvatar', slot);
+}
+
+const avatarClasses = (0, _base.generateUtilityClasses)('MuiAvatar', ['root', 'colorDefault', 'circular', 'rounded', 'square', 'img', 'fallback']);
+var _default = avatarClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Avatar/Avatar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _base = require("@mui/base");
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _Person = _interopRequireDefault(require("../internal/svg-icons/Person"));
+
+var _avatarClasses = require("./avatarClasses");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["alt", "children", "className", "component", "imgProps", "sizes", "src", "srcSet", "variant"];
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    variant,
+    colorDefault
+  } = ownerState;
+  const slots = {
+    root: ['root', variant, colorDefault && 'colorDefault'],
+    img: ['img'],
+    fallback: ['fallback']
+  };
+  return (0, _base.unstable_composeClasses)(slots, _avatarClasses.getAvatarUtilityClass, classes);
+};
+
+const AvatarRoot = (0, _styled.default)('div', {
+  name: 'MuiAvatar',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[ownerState.variant], ownerState.colorDefault && styles.colorDefault];
+  }
+})(({
+  theme,
+  ownerState
+}) => (0, _extends2.default)({
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
+  width: 40,
+  height: 40,
+  fontFamily: theme.typography.fontFamily,
+  fontSize: theme.typography.pxToRem(20),
+  lineHeight: 1,
+  borderRadius: '50%',
+  overflow: 'hidden',
+  userSelect: 'none'
+}, ownerState.variant === 'rounded' && {
+  borderRadius: theme.shape.borderRadius
+}, ownerState.variant === 'square' && {
+  borderRadius: 0
+}, ownerState.colorDefault && {
+  color: theme.palette.background.default,
+  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[400] : theme.palette.grey[600]
+}));
+const AvatarImg = (0, _styled.default)('img', {
+  name: 'MuiAvatar',
+  slot: 'Img',
+  overridesResolver: (props, styles) => styles.img
+})({
+  width: '100%',
+  height: '100%',
+  textAlign: 'center',
+  // Handle non-square image. The property isn't supported by IE11.
+  objectFit: 'cover',
+  // Hide alt text.
+  color: 'transparent',
+  // Hide the image broken icon, only works on Chrome.
+  textIndent: 10000
+});
+const AvatarFallback = (0, _styled.default)(_Person.default, {
+  name: 'MuiAvatar',
+  slot: 'Fallback',
+  overridesResolver: (props, styles) => styles.fallback
+})({
+  width: '75%',
+  height: '75%'
+});
+
+function useLoaded({
+  crossOrigin,
+  referrerPolicy,
+  src,
+  srcSet
+}) {
+  const [loaded, setLoaded] = React.useState(false);
+  React.useEffect(() => {
+    if (!src && !srcSet) {
+      return undefined;
+    }
+
+    setLoaded(false);
+    let active = true;
+    const image = new Image();
+
+    image.onload = () => {
+      if (!active) {
+        return;
+      }
+
+      setLoaded('loaded');
+    };
+
+    image.onerror = () => {
+      if (!active) {
+        return;
+      }
+
+      setLoaded('error');
+    };
+
+    image.crossOrigin = crossOrigin;
+    image.referrerPolicy = referrerPolicy;
+    image.src = src;
+
+    if (srcSet) {
+      image.srcset = srcSet;
+    }
+
+    return () => {
+      active = false;
+    };
+  }, [crossOrigin, referrerPolicy, src, srcSet]);
+  return loaded;
+}
+
+const Avatar = /*#__PURE__*/React.forwardRef(function Avatar(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiAvatar'
+  });
+  const {
+    alt,
+    children: childrenProp,
+    className,
+    component = 'div',
+    imgProps,
+    sizes,
+    src,
+    srcSet,
+    variant = 'circular'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  let children = null; // Use a hook instead of onError on the img element to support server-side rendering.
+
+  const loaded = useLoaded((0, _extends2.default)({}, imgProps, {
+    src,
+    srcSet
+  }));
+  const hasImg = src || srcSet;
+  const hasImgNotFailing = hasImg && loaded !== 'error';
+  const ownerState = (0, _extends2.default)({}, props, {
+    colorDefault: !hasImgNotFailing,
+    component,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+
+  if (hasImgNotFailing) {
+    children = /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarImg, (0, _extends2.default)({
+      alt: alt,
+      src: src,
+      srcSet: srcSet,
+      sizes: sizes,
+      ownerState: ownerState,
+      className: classes.img
+    }, imgProps));
+  } else if (childrenProp != null) {
+    children = childrenProp;
+  } else if (hasImg && alt) {
+    children = alt[0];
+  } else {
+    children = /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarFallback, {
+      className: classes.fallback
+    });
+  }
+
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarRoot, (0, _extends2.default)({
+    as: component,
+    ownerState: ownerState,
+    className: (0, _clsx.default)(classes.root, className),
+    ref: ref
+  }, other, {
+    children: children
+  }));
+});
+"development" !== "production" ? Avatar.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Used in combination with `src` or `srcSet` to
+   * provide an alt attribute for the rendered `img` element.
+   */
+  alt: _propTypes.default.string,
+
+  /**
+   * Used to render icon or text elements inside the Avatar if `src` is not set.
+   * This can be an element, or just a string.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes) applied to the `img` element if the component is used to display an image.
+   * It can be used to listen for the loading error event.
+   */
+  imgProps: _propTypes.default.object,
+
+  /**
+   * The `sizes` attribute for the `img` element.
+   */
+  sizes: _propTypes.default.string,
+
+  /**
+   * The `src` attribute for the `img` element.
+   */
+  src: _propTypes.default.string,
+
+  /**
+   * The `srcSet` attribute for the `img` element.
+   * Use this attribute for responsive image display.
+   */
+  srcSet: _propTypes.default.string,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * The shape of the avatar.
+   * @default 'circular'
+   */
+  variant: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['circular', 'rounded', 'square']), _propTypes.default.string])
+} : void 0;
+var _default = Avatar;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../internal/svg-icons/Person":"../node_modules/@mui/material/internal/svg-icons/Person.js","./avatarClasses":"../node_modules/@mui/material/Avatar/avatarClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Avatar/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  avatarClasses: true
+};
+Object.defineProperty(exports, "avatarClasses", {
+  enumerable: true,
+  get: function () {
+    return _avatarClasses.default;
+  }
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _Avatar.default;
+  }
+});
+
+var _Avatar = _interopRequireDefault(require("./Avatar"));
+
+var _avatarClasses = _interopRequireWildcard(require("./avatarClasses"));
+
+Object.keys(_avatarClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _avatarClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _avatarClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./Avatar":"../node_modules/@mui/material/Avatar/Avatar.js","./avatarClasses":"../node_modules/@mui/material/Avatar/avatarClasses.js"}],"../node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+},{}],"../node_modules/@mui/icons-material/utils/createSvgIcon.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _utils.createSvgIcon;
+  }
+});
+
+var _utils = require("@mui/material/utils");
+},{"@mui/material/utils":"../node_modules/@mui/material/utils/index.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M8 11h8v2H8zm12.1 1H22c0-2.76-2.24-5-5-5h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1zM3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM19 12h-2v3h-3v2h3v3h2v-3h3v-2h-3z"
+}), 'AddLink');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"components/SecondHello.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57312,15 +58651,123 @@ exports.default = _default;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
+
+var _Box = _interopRequireDefault(require("@mui/material/Box"));
+
+var _styles = require("@mui/material/styles");
+
+var _Badge = _interopRequireDefault(require("@mui/material/Badge"));
+
+var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
+
+var _ImageList = _interopRequireDefault(require("@mui/material/ImageList"));
+
+var _ImageListItem = _interopRequireDefault(require("@mui/material/ImageListItem"));
+
+var _Avatar = _interopRequireDefault(require("@mui/material/Avatar"));
+
+var _AddLink = _interopRequireDefault(require("@mui/icons-material/AddLink"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var StyledBadge = (0, _styles.styled)(_Badge.default)(function (_a) {
+  var theme = _a.theme;
+  return {
+    '& .MuiBadge-badge': {
+      backgroundColor: '#44b700',
+      color: '#44b700',
+      boxShadow: "0 0 0 2px " + theme.palette.background.paper,
+      '&::after': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        borderRadius: '50%',
+        width: '100%',
+        height: '100%',
+        animation: 'ripple 1.2s infinite ese-in-out',
+        border: '1px solid currentColor',
+        content: '""'
+      }
+    },
+    '@keyframes ripple': {
+      '0%': {
+        transform: 'scale(.8)',
+        opacity: '1'
+      },
+      '100%': {
+        transform: 'scale(2.4)',
+        opacity: '0'
+      }
+    }
+  };
+});
+
 function _default() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("h3", null, "Below Form"), _react.default.createElement("h4", null, "Below Form"), _react.default.createElement("input", {
-    type: "text",
-    placeholder: "First Name"
-  }));
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Grid.default, {
+    container: true,
+    spacing: 1
+  }, _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    sx: {
+      textAlign: 'center'
+    }
+  }, _react.default.createElement(_Typography.default, {
+    variant: "h2"
+  }, "FOR ENTERPRISE")), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    md: 6,
+    sx: {
+      textAlign: 'right'
+    }
+  }, _react.default.createElement(_Typography.default, {
+    variant: "h3",
+    sx: {
+      py: 4
+    }
+  }, "Self host reffly for full features including Link tracking Statistics, Branding & more...or Try reffly plus"), _react.default.createElement(_Box.default, {
+    sx: {
+      display: 'flex',
+      flexDirection: 'row-reverse',
+      alignItems: 'center'
+    }
+  }, _react.default.createElement(_Box.default, {
+    sx: {
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }, _react.default.createElement(_Typography.default, null, "reflly")), _react.default.createElement(_Box.default, {
+    sx: {
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }, _react.default.createElement(StyledBadge, {
+    overlap: "circular",
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'right'
+    },
+    variant: "dot"
+  }, _react.default.createElement(_Avatar.default, {
+    sx: {
+      bgcolor: 'background.teal'
+    }
+  }, _react.default.createElement(_AddLink.default, {
+    sx: {
+      transform: 'rotate(-45deg)'
+    }
+  })))))), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    md: 6
+  }, _react.default.createElement(_ImageList.default, null, _react.default.createElement(_ImageListItem.default, null, _react.default.createElement("img", {
+    src: "https://www.reff.ly/images/others/nicechartjs-v1.png",
+    alt: "middle image"
+  }))))));
 }
-},{"react":"../node_modules/react/index.js"}],"../node_modules/tslib/tslib.es6.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/ImageList":"../node_modules/@mui/material/ImageList/index.js","@mui/material/ImageListItem":"../node_modules/@mui/material/ImageListItem/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js"}],"../node_modules/tslib/tslib.es6.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57806,386 +59253,7 @@ function __classPrivateFieldSet(receiver, state, value, kind, f) {
   if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
   return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
 }
-},{}],"../node_modules/@mui/material/internal/svg-icons/Person.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("../../utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-/**
- * @ignore - internal component.
- */
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-}), 'Person');
-
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../utils/createSvgIcon":"../node_modules/@mui/material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Avatar/avatarClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getAvatarUtilityClass = getAvatarUtilityClass;
-
-var _base = require("@mui/base");
-
-function getAvatarUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiAvatar', slot);
-}
-
-const avatarClasses = (0, _base.generateUtilityClasses)('MuiAvatar', ['root', 'colorDefault', 'circular', 'rounded', 'square', 'img', 'fallback']);
-var _default = avatarClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Avatar/Avatar.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _base = require("@mui/base");
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _Person = _interopRequireDefault(require("../internal/svg-icons/Person"));
-
-var _avatarClasses = require("./avatarClasses");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["alt", "children", "className", "component", "imgProps", "sizes", "src", "srcSet", "variant"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    variant,
-    colorDefault
-  } = ownerState;
-  const slots = {
-    root: ['root', variant, colorDefault && 'colorDefault'],
-    img: ['img'],
-    fallback: ['fallback']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _avatarClasses.getAvatarUtilityClass, classes);
-};
-
-const AvatarRoot = (0, _styled.default)('div', {
-  name: 'MuiAvatar',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[ownerState.variant], ownerState.colorDefault && styles.colorDefault];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexShrink: 0,
-  width: 40,
-  height: 40,
-  fontFamily: theme.typography.fontFamily,
-  fontSize: theme.typography.pxToRem(20),
-  lineHeight: 1,
-  borderRadius: '50%',
-  overflow: 'hidden',
-  userSelect: 'none'
-}, ownerState.variant === 'rounded' && {
-  borderRadius: theme.shape.borderRadius
-}, ownerState.variant === 'square' && {
-  borderRadius: 0
-}, ownerState.colorDefault && {
-  color: theme.palette.background.default,
-  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[400] : theme.palette.grey[600]
-}));
-const AvatarImg = (0, _styled.default)('img', {
-  name: 'MuiAvatar',
-  slot: 'Img',
-  overridesResolver: (props, styles) => styles.img
-})({
-  width: '100%',
-  height: '100%',
-  textAlign: 'center',
-  // Handle non-square image. The property isn't supported by IE11.
-  objectFit: 'cover',
-  // Hide alt text.
-  color: 'transparent',
-  // Hide the image broken icon, only works on Chrome.
-  textIndent: 10000
-});
-const AvatarFallback = (0, _styled.default)(_Person.default, {
-  name: 'MuiAvatar',
-  slot: 'Fallback',
-  overridesResolver: (props, styles) => styles.fallback
-})({
-  width: '75%',
-  height: '75%'
-});
-
-function useLoaded({
-  crossOrigin,
-  referrerPolicy,
-  src,
-  srcSet
-}) {
-  const [loaded, setLoaded] = React.useState(false);
-  React.useEffect(() => {
-    if (!src && !srcSet) {
-      return undefined;
-    }
-
-    setLoaded(false);
-    let active = true;
-    const image = new Image();
-
-    image.onload = () => {
-      if (!active) {
-        return;
-      }
-
-      setLoaded('loaded');
-    };
-
-    image.onerror = () => {
-      if (!active) {
-        return;
-      }
-
-      setLoaded('error');
-    };
-
-    image.crossOrigin = crossOrigin;
-    image.referrerPolicy = referrerPolicy;
-    image.src = src;
-
-    if (srcSet) {
-      image.srcset = srcSet;
-    }
-
-    return () => {
-      active = false;
-    };
-  }, [crossOrigin, referrerPolicy, src, srcSet]);
-  return loaded;
-}
-
-const Avatar = /*#__PURE__*/React.forwardRef(function Avatar(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiAvatar'
-  });
-  const {
-    alt,
-    children: childrenProp,
-    className,
-    component = 'div',
-    imgProps,
-    sizes,
-    src,
-    srcSet,
-    variant = 'circular'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  let children = null; // Use a hook instead of onError on the img element to support server-side rendering.
-
-  const loaded = useLoaded((0, _extends2.default)({}, imgProps, {
-    src,
-    srcSet
-  }));
-  const hasImg = src || srcSet;
-  const hasImgNotFailing = hasImg && loaded !== 'error';
-  const ownerState = (0, _extends2.default)({}, props, {
-    colorDefault: !hasImgNotFailing,
-    component,
-    variant
-  });
-  const classes = useUtilityClasses(ownerState);
-
-  if (hasImgNotFailing) {
-    children = /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarImg, (0, _extends2.default)({
-      alt: alt,
-      src: src,
-      srcSet: srcSet,
-      sizes: sizes,
-      ownerState: ownerState,
-      className: classes.img
-    }, imgProps));
-  } else if (childrenProp != null) {
-    children = childrenProp;
-  } else if (hasImg && alt) {
-    children = alt[0];
-  } else {
-    children = /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarFallback, {
-      className: classes.fallback
-    });
-  }
-
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(AvatarRoot, (0, _extends2.default)({
-    as: component,
-    ownerState: ownerState,
-    className: (0, _clsx.default)(classes.root, className),
-    ref: ref
-  }, other, {
-    children: children
-  }));
-});
-"development" !== "production" ? Avatar.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * Used in combination with `src` or `srcSet` to
-   * provide an alt attribute for the rendered `img` element.
-   */
-  alt: _propTypes.default.string,
-
-  /**
-   * Used to render icon or text elements inside the Avatar if `src` is not set.
-   * This can be an element, or just a string.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes) applied to the `img` element if the component is used to display an image.
-   * It can be used to listen for the loading error event.
-   */
-  imgProps: _propTypes.default.object,
-
-  /**
-   * The `sizes` attribute for the `img` element.
-   */
-  sizes: _propTypes.default.string,
-
-  /**
-   * The `src` attribute for the `img` element.
-   */
-  src: _propTypes.default.string,
-
-  /**
-   * The `srcSet` attribute for the `img` element.
-   * Use this attribute for responsive image display.
-   */
-  srcSet: _propTypes.default.string,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The shape of the avatar.
-   * @default 'circular'
-   */
-  variant: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['circular', 'rounded', 'square']), _propTypes.default.string])
-} : void 0;
-var _default = Avatar;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../internal/svg-icons/Person":"../node_modules/@mui/material/internal/svg-icons/Person.js","./avatarClasses":"../node_modules/@mui/material/Avatar/avatarClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Avatar/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  avatarClasses: true
-};
-Object.defineProperty(exports, "avatarClasses", {
-  enumerable: true,
-  get: function () {
-    return _avatarClasses.default;
-  }
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Avatar.default;
-  }
-});
-
-var _Avatar = _interopRequireDefault(require("./Avatar"));
-
-var _avatarClasses = _interopRequireWildcard(require("./avatarClasses"));
-
-Object.keys(_avatarClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _avatarClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _avatarClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Avatar":"../node_modules/@mui/material/Avatar/Avatar.js","./avatarClasses":"../node_modules/@mui/material/Avatar/avatarClasses.js"}],"../node_modules/@mui/material/colors/pink.js":[function(require,module,exports) {
+},{}],"../node_modules/@mui/material/colors/pink.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58855,30 +59923,7 @@ Object.defineProperty(exports, "default", {
 var _Stack = _interopRequireDefault(require("./Stack"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Stack":"../node_modules/@mui/material/Stack/Stack.js"}],"../node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-},{}],"../node_modules/@mui/icons-material/utils/createSvgIcon.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function get() {
-    return _utils.createSvgIcon;
-  }
-});
-
-var _utils = require("@mui/material/utils");
-},{"@mui/material/utils":"../node_modules/@mui/material/utils/index.js"}],"../node_modules/@mui/icons-material/Folder.js":[function(require,module,exports) {
+},{"./Stack":"../node_modules/@mui/material/Stack/Stack.js"}],"../node_modules/@mui/icons-material/Folder.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -59198,373 +60243,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./AvatarGroup":"../node_modules/@mui/material/AvatarGroup/AvatarGroup.js","./avatarGroupClasses":"../node_modules/@mui/material/AvatarGroup/avatarGroupClasses.js"}],"../node_modules/@mui/material/Badge/Badge.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.badgeClasses = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _BadgeUnstyled = _interopRequireWildcard(require("@mui/base/BadgeUnstyled"));
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["components", "componentsProps", "color", "invisible", "badgeContent", "showZero", "variant"];
-const badgeClasses = (0, _extends2.default)({}, _BadgeUnstyled.badgeUnstyledClasses, (0, _base.generateUtilityClasses)('MuiBadge', ['colorError', 'colorInfo', 'colorPrimary', 'colorSecondary', 'colorSuccess', 'colorWarning']));
-exports.badgeClasses = badgeClasses;
-const RADIUS_STANDARD = 10;
-const RADIUS_DOT = 4;
-
-const extendUtilityClasses = ownerState => {
-  const {
-    color,
-    classes = {}
-  } = ownerState;
-  return (0, _extends2.default)({}, classes, {
-    badge: (0, _clsx.default)(classes.badge, color !== 'default' && [(0, _BadgeUnstyled.getBadgeUtilityClass)(`color${(0, _capitalize.default)(color)}`), classes[`color${(0, _capitalize.default)(color)}`]])
-  });
-};
-
-const BadgeRoot = (0, _styled.default)('span', {
-  name: 'MuiBadge',
-  slot: 'Root',
-  overridesResolver: (props, styles) => styles.root
-})({
-  position: 'relative',
-  display: 'inline-flex',
-  // For correct alignment with the text.
-  verticalAlign: 'middle',
-  flexShrink: 0
-});
-const BadgeBadge = (0, _styled.default)('span', {
-  name: 'MuiBadge',
-  slot: 'Badge',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.badge, styles[ownerState.variant], styles[`anchorOrigin${(0, _capitalize.default)(ownerState.anchorOrigin.vertical)}${(0, _capitalize.default)(ownerState.anchorOrigin.horizontal)}${(0, _capitalize.default)(ownerState.overlap)}`], ownerState.color !== 'default' && styles[`color${(0, _capitalize.default)(ownerState.color)}`], ownerState.invisible && styles.invisible];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  alignContent: 'center',
-  alignItems: 'center',
-  position: 'absolute',
-  boxSizing: 'border-box',
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: theme.typography.fontWeightMedium,
-  fontSize: theme.typography.pxToRem(12),
-  minWidth: RADIUS_STANDARD * 2,
-  lineHeight: 1,
-  padding: '0 6px',
-  height: RADIUS_STANDARD * 2,
-  borderRadius: RADIUS_STANDARD,
-  zIndex: 1,
-  // Render the badge on top of potential ripples.
-  transition: theme.transitions.create('transform', {
-    easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.enteringScreen
-  })
-}, ownerState.color !== 'default' && {
-  backgroundColor: theme.palette[ownerState.color].main,
-  color: theme.palette[ownerState.color].contrastText
-}, ownerState.variant === 'dot' && {
-  borderRadius: RADIUS_DOT,
-  height: RADIUS_DOT * 2,
-  minWidth: RADIUS_DOT * 2,
-  padding: 0
-}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'rectangular' && {
-  top: 0,
-  right: 0,
-  transform: 'scale(1) translate(50%, -50%)',
-  transformOrigin: '100% 0%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(50%, -50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'rectangular' && {
-  bottom: 0,
-  right: 0,
-  transform: 'scale(1) translate(50%, 50%)',
-  transformOrigin: '100% 100%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(50%, 50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'rectangular' && {
-  top: 0,
-  left: 0,
-  transform: 'scale(1) translate(-50%, -50%)',
-  transformOrigin: '0% 0%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(-50%, -50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'rectangular' && {
-  bottom: 0,
-  left: 0,
-  transform: 'scale(1) translate(-50%, 50%)',
-  transformOrigin: '0% 100%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(-50%, 50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'circular' && {
-  top: '14%',
-  right: '14%',
-  transform: 'scale(1) translate(50%, -50%)',
-  transformOrigin: '100% 0%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(50%, -50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'right' && ownerState.overlap === 'circular' && {
-  bottom: '14%',
-  right: '14%',
-  transform: 'scale(1) translate(50%, 50%)',
-  transformOrigin: '100% 100%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(50%, 50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'top' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'circular' && {
-  top: '14%',
-  left: '14%',
-  transform: 'scale(1) translate(-50%, -50%)',
-  transformOrigin: '0% 0%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(-50%, -50%)'
-  }
-}, ownerState.anchorOrigin.vertical === 'bottom' && ownerState.anchorOrigin.horizontal === 'left' && ownerState.overlap === 'circular' && {
-  bottom: '14%',
-  left: '14%',
-  transform: 'scale(1) translate(-50%, 50%)',
-  transformOrigin: '0% 100%',
-  [`&.${badgeClasses.invisible}`]: {
-    transform: 'scale(0) translate(-50%, 50%)'
-  }
-}, ownerState.invisible && {
-  transition: theme.transitions.create('transform', {
-    easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.leavingScreen
-  })
-}));
-const Badge = /*#__PURE__*/React.forwardRef(function Badge(inProps, ref) {
-  var _componentsProps$root, _componentsProps$badg;
-
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiBadge'
-  });
-  const {
-    components = {},
-    componentsProps = {},
-    color: colorProp = 'default',
-    invisible: invisibleProp,
-    badgeContent: badgeContentProp,
-    showZero = false,
-    variant: variantProp = 'standard'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const prevProps = (0, _utils.usePreviousProps)({
-    color: colorProp
-  });
-  let invisible = invisibleProp;
-
-  if (invisibleProp == null && (badgeContentProp === 0 && !showZero || badgeContentProp == null && variantProp !== 'dot')) {
-    invisible = true;
-  }
-
-  const {
-    color = colorProp
-  } = invisible ? prevProps : props;
-  const ownerState = (0, _extends2.default)({}, props, {
-    invisible,
-    color
-  });
-  const classes = extendUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_BadgeUnstyled.default, (0, _extends2.default)({
-    invisible: invisibleProp,
-    badgeContent: badgeContentProp,
-    showZero: showZero,
-    variant: variantProp
-  }, other, {
-    components: (0, _extends2.default)({
-      Root: BadgeRoot,
-      Badge: BadgeBadge
-    }, components),
-    componentsProps: {
-      root: (0, _extends2.default)({}, componentsProps.root, (!components.Root || !(0, _base.isHostComponent)(components.Root)) && {
-        ownerState: (0, _extends2.default)({}, (_componentsProps$root = componentsProps.root) == null ? void 0 : _componentsProps$root.ownerState, {
-          color
-        })
-      }),
-      badge: (0, _extends2.default)({}, componentsProps.badge, (!components.Thumb || !(0, _base.isHostComponent)(components.Thumb)) && {
-        ownerState: (0, _extends2.default)({}, (_componentsProps$badg = componentsProps.badge) == null ? void 0 : _componentsProps$badg.ownerState, {
-          color
-        })
-      })
-    },
-    classes: classes,
-    ref: ref
-  }));
-});
-"development" !== "production" ? Badge.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The anchor of the badge.
-   * @default {
-   *   vertical: 'top',
-   *   horizontal: 'right',
-   * }
-   */
-  anchorOrigin: _propTypes.default.shape({
-    horizontal: _propTypes.default.oneOf(['left', 'right']).isRequired,
-    vertical: _propTypes.default.oneOf(['bottom', 'top']).isRequired
-  }),
-
-  /**
-   * The content rendered within the badge.
-   */
-  badgeContent: _propTypes.default.node,
-
-  /**
-   * The badge will be added relative to this node.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * @default 'default'
-   */
-  color: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), _propTypes.default.string]),
-
-  /**
-   * The components used for each slot inside the Badge.
-   * Either a string to use a HTML element or a component.
-   * @default {}
-   */
-  components: _propTypes.default.shape({
-    Badge: _propTypes.default.elementType,
-    Root: _propTypes.default.elementType
-  }),
-
-  /**
-   * The props used for each slot inside the Badge.
-   * @default {}
-   */
-  componentsProps: _propTypes.default.object,
-
-  /**
-   * If `true`, the badge is invisible.
-   */
-  invisible: _propTypes.default.bool,
-
-  /**
-   * Max count to show.
-   * @default 99
-   */
-  max: _propTypes.default.number,
-
-  /**
-   * Wrapped shape the badge should overlap.
-   * @default 'rectangular'
-   */
-  overlap: _propTypes.default.oneOf(['circular', 'rectangular']),
-
-  /**
-   * Controls whether the badge is hidden when `badgeContent` is zero.
-   * @default false
-   */
-  showZero: _propTypes.default.bool,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The variant to use.
-   * @default 'standard'
-   */
-  variant: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['dot', 'standard']), _propTypes.default.string])
-} : void 0;
-var _default = Badge;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/base/BadgeUnstyled":"../node_modules/@mui/base/BadgeUnstyled/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Badge/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {};
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Badge.default;
-  }
-});
-
-var _Badge = _interopRequireWildcard(require("./Badge"));
-
-Object.keys(_Badge).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _Badge[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _Badge[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./Badge":"../node_modules/@mui/material/Badge/Badge.js"}],"components/Allavatar.tsx":[function(require,module,exports) {
+},{"./AvatarGroup":"../node_modules/@mui/material/AvatarGroup/AvatarGroup.js","./avatarGroupClasses":"../node_modules/@mui/material/AvatarGroup/avatarGroupClasses.js"}],"components/Allavatar.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74031,26 +74710,7 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("p
 }), 'GitHub');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/icons-material/AddLink.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M8 11h8v2H8zm12.1 1H22c0-2.76-2.24-5-5-5h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1zM3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM19 12h-2v3h-3v2h3v3h2v-3h3v-2h-3z"
-}), 'AddLink');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Link/linkClasses.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Link/linkClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75672,7 +76332,20 @@ function App() {
     sx: {
       py: 7
     }
-  }, _react.default.createElement(_SayHello.default, null)))))), _react.default.createElement(_Container.default, {
+  }, _react.default.createElement(_SayHello.default, null)))))), _react.default.createElement(_Box.default, {
+    sx: {
+      flexGrow: 1,
+      bgcolor: 'background.dark',
+      py: 5
+    }
+  }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Grid.default, {
+    container: true,
+    spacing: 0
+  }, _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    md: 12
+  }, _react.default.createElement(_SecondHello.default, null))))), _react.default.createElement(_Container.default, {
     maxWidth: false
   }, _react.default.createElement(_Box.default, {
     sx: {
@@ -75682,16 +76355,6 @@ function App() {
     container: true,
     spacing: 1
   }, _react.default.createElement(_Grid.default, {
-    item: true,
-    xs: 12,
-    md: 4
-  }, _react.default.createElement(_Box.default, {
-    sx: {
-      bgcolor: 'background.indigo',
-      padding: 2,
-      boxShadow: 1
-    }
-  }, _react.default.createElement(_SecondHello.default, null))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
     md: 4
@@ -75751,7 +76414,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42485" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

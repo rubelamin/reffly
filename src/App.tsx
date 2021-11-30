@@ -86,20 +86,20 @@ function App() {
           </Grid>
         </Box>
       </Container>
+      
+      <Box sx={{ flexGrow: 1, bgcolor: 'background.dark', py: 5, }}>
+        <Container>
+              <Grid container spacing={0} >
+                <Grid item xs={12} md={12}>
+                  <SecondHello/>
+                </Grid>
+              </Grid>
+        </Container>
+      </Box>
+      
       <Container maxWidth={false} >
         <Box sx={{ flexGrow: 1, }}>
             <Grid container spacing={1} >
-              <Grid item xs={12} md={4}>
-                <Box sx={{ 
-                  bgcolor: 'background.indigo',
-                  padding: 2,
-                  boxShadow: 1,
-                  }}
-              
-                  >
-                  <SecondHello/>
-                </Box>
-              </Grid>
               <Grid item xs={12} md={4}>
                 <Box sx={{ 
                   bgcolor: 'background.blue',

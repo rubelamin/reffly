@@ -51,13 +51,15 @@ export default function() {
           </Grid>
           <Grid item xs={12} md={6} sx={{ textAlign: 'right', }}>
             <Typography variant="h3" sx={{ py: 4, }}>
-                Self host reffly for full features including Link tracking Statistics, 
-                Branding & more...or Try reffly plus
+                Self host <i><b>reffly</b></i> for full features including Link tracking Statistics, 
+                Branding & more...or Try <i><b>reffly plus</b></i>
             </Typography>
 
             <Box sx={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', }}>
-              <Typography>reflly</Typography>
+              <Typography variant="h1"
+              sx={{ color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
+              >reflly+</Typography>
               </Box>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <StyledBadge
@@ -75,8 +77,8 @@ export default function() {
             </Box>
 
           </Grid>
-          <Grid item xs={12} md={6}>
-            <ImageList>
+          <Grid item xs={12} md={6} sx={{ pl: 8,}}>
+            <ImageList sx={{ width: '100%', }} cols={1}>
               <ImageListItem>
                 <img 
                   src="https://www.reff.ly/images/others/nicechartjs-v1.png"

@@ -40,14 +40,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
   }));
 
+
 export default function() {
     return <>  
       
-      <Box sx={{ flexGrow: 1, my: 7, }} >
+      <Box sx={{ flexGrow: 1, my: 5, }} >
           <Grid container spacing={1}>
-              <Grid item xs={12} md={9}></Grid>
-              <Grid item xs={12} md={1} sx={{ textAlign: 'right', }}>
-                <Box >
+              <Grid item xs={12} md={10}></Grid>
+              <Grid item xs={8} sx={{ display: { xs: 'flex', md:'none'}}}></Grid>
+              <Grid item xs={4} md={2} sx={{ textAlign: 'right', display: 'flex' }}>
+                <Box sx={{ pr: 2}}>
                   <StyledBadge
                     overlap="circular"
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
@@ -56,13 +58,12 @@ export default function() {
                   >
                     <Link href="#">
                     <Avatar variant="rounded" sx={{ bgcolor: 'background.grey', }}>
-                      <AddLinkIcon sx={{ transform: 'rotate(-45deg)' }} />
+                      <AddLinkIcon sx={{ transform: 'rotate(-45deg)', fontSize: 35, }} />
                     </Avatar>
                     </Link>
                   </StyledBadge>
                 </Box>
-                </Grid>
-                <Grid item xs={12} md={2}>
+                
                 <Box>
                   <Link href="#">
                     <Avatar variant="rounded" sx={{ bgcolor: 'background.grey' }}>
@@ -71,34 +72,45 @@ export default function() {
                   </Link>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-              <StyledBadge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                  variant="dot"
-                >
-                  <Avatar sx={{ width:70, height: 70, bgcolor: 'warning.main' }} >
-                    <InsertLinkIcon sx={{ 
-                      fontSize: 50, 
-                      transform: 'rotate(-45deg)',
-                      color: 'primary.black'
-                      }} />
-                  </Avatar>
-                </StyledBadge>
-                
-              </Grid>
-              <Grid item xs={12} md={6}>
-              <Typography variant="h2"
-                  sx={{ color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
-                  >
-                    reffly
-                </Typography>
+              <Grid item xs={12} md={12} sx={{ textAlign: 'center', mt: 5,}}>
+                <Grid container sx={{ justifyContent: 'center', }}>
+                  
+                    <Badge
+                        overlap="circular"
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+ 
+                        badgeContent=" "
+                        color="fontColor"
+                      >
+                        <Avatar sx={{ width:80, height: 80, bgcolor: 'warning.light' }} >
+                          <InsertLinkIcon sx={{ 
+                            fontSize: 70, 
+                            transform: 'rotate(-50deg)',
+                            color: 'primary.grey'
+                            }} />
+                        </Avatar>
+                    </Badge>
+                               
+                    <Typography variant="h2"
+                        sx={{ 
+                          color: 'primary.grey', 
+                          fontFamily: 'Beth Ellen', 
+                          mt:1,
+                          fontSize: 40,
+                          fontWeight: 'bold'
+                        
+                        }}
+                        >
+                          reffly
+                    </Typography>
+                  
+                </Grid>
               </Grid>
               <Grid item xs={12} sx={{ textAlign: 'center' }}>
-              <Typography component="div" variant="h6" noWrap
-                sx={{ display: { xs: 'none', sm: 'block' }, color: 'secondary.dark', }}
+              <Typography component="div" variant="body1" noWrap
+                sx={{ display: { xs: 'none', sm: 'block' }, color: 'primary.grey', }}
                 >
-                  RBL Practice
+                  Free, Open source, Community driven!
               </Typography>
               </Grid>
           </Grid>

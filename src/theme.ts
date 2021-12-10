@@ -26,6 +26,7 @@ export const refflyTheme = {
       main: '#9c27b0',
       light: '#ba68c8',
       dark: '#7b1fa2',
+      white: '#ffffff',
     },
     error: {
       main: '#d32f2f',
@@ -78,7 +79,7 @@ export const refflyTheme = {
       orange: '#ff9800',
       deepOrange: '#ff5722',
       brown: '#795548',
-      grey: grey[700],
+      grey: grey[800],
       blueGrey: '#607d8b',
 
     },
@@ -113,8 +114,17 @@ export const refflyTheme = {
     h3: { fontSize: '2rem' },
     h2: { fontSize: '2.25rem' },
     h1: { fontSize: '2.50rem' },
-    body1: { fontSize: '14px'},
+    body1: { 
+      fontSize: '1rem',
+      color: 'rgba(0, 0, 0, 0.87)',
+    },
     body2: { fontSize: '12px' },
+    fontFamily: [
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
   },
   FontFace: {
     fontFamily: 'Comforter Brush',

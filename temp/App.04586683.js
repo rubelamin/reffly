@@ -56055,860 +56055,7 @@ Object.defineProperty(exports, "default", {
 var _Box = _interopRequireDefault(require("./Box"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Box":"../node_modules/@mui/material/Box/Box.js"}],"../node_modules/@mui/material/Paper/paperClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getPaperUtilityClass = getPaperUtilityClass;
-
-var _base = require("@mui/base");
-
-function getPaperUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiPaper', slot);
-}
-
-const paperClasses = (0, _base.generateUtilityClasses)('MuiPaper', ['root', 'rounded', 'outlined', 'elevation', 'elevation0', 'elevation1', 'elevation2', 'elevation3', 'elevation4', 'elevation5', 'elevation6', 'elevation7', 'elevation8', 'elevation9', 'elevation10', 'elevation11', 'elevation12', 'elevation13', 'elevation14', 'elevation15', 'elevation16', 'elevation17', 'elevation18', 'elevation19', 'elevation20', 'elevation21', 'elevation22', 'elevation23', 'elevation24']);
-var _default = paperClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Paper/Paper.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _system = require("@mui/system");
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _useTheme = _interopRequireDefault(require("../styles/useTheme"));
-
-var _paperClasses = require("./paperClasses");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["className", "component", "elevation", "square", "variant"];
-
-const getOverlayAlpha = elevation => {
-  let alphaValue;
-
-  if (elevation < 1) {
-    alphaValue = 5.11916 * elevation ** 2;
-  } else {
-    alphaValue = 4.5 * Math.log(elevation + 1) + 2;
-  }
-
-  return (alphaValue / 100).toFixed(2);
-};
-
-const useUtilityClasses = ownerState => {
-  const {
-    square,
-    elevation,
-    variant,
-    classes
-  } = ownerState;
-  const slots = {
-    root: ['root', variant, !square && 'rounded', variant === 'elevation' && `elevation${elevation}`]
-  };
-  return (0, _base.unstable_composeClasses)(slots, _paperClasses.getPaperUtilityClass, classes);
-};
-
-const PaperRoot = (0, _styled.default)('div', {
-  name: 'MuiPaper',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[ownerState.variant], !ownerState.square && styles.rounded, ownerState.variant === 'elevation' && styles[`elevation${ownerState.elevation}`]];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  backgroundColor: theme.palette.background.paper,
-  color: theme.palette.text.primary,
-  transition: theme.transitions.create('box-shadow')
-}, !ownerState.square && {
-  borderRadius: theme.shape.borderRadius
-}, ownerState.variant === 'outlined' && {
-  border: `1px solid ${theme.palette.divider}`
-}, ownerState.variant === 'elevation' && (0, _extends2.default)({
-  boxShadow: theme.shadows[ownerState.elevation]
-}, theme.palette.mode === 'dark' && {
-  backgroundImage: `linear-gradient(${(0, _system.alpha)('#fff', getOverlayAlpha(ownerState.elevation))}, ${(0, _system.alpha)('#fff', getOverlayAlpha(ownerState.elevation))})`
-})));
-const Paper = /*#__PURE__*/React.forwardRef(function Paper(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiPaper'
-  });
-  const {
-    className,
-    component = 'div',
-    elevation = 1,
-    square = false,
-    variant = 'elevation'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const ownerState = (0, _extends2.default)({}, props, {
-    component,
-    elevation,
-    square,
-    variant
-  });
-  const classes = useUtilityClasses(ownerState);
-
-  if ("development" !== 'production') {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const theme = (0, _useTheme.default)();
-
-    if (theme.shadows[elevation] === undefined) {
-      console.error([`MUI: The elevation provided <Paper elevation={${elevation}}> is not available in the theme.`, `Please make sure that \`theme.shadows[${elevation}]\` is defined.`].join('\n'));
-    }
-  }
-
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(PaperRoot, (0, _extends2.default)({
-    as: component,
-    ownerState: ownerState,
-    className: (0, _clsx.default)(classes.root, className),
-    ref: ref
-  }, other));
-});
-"development" !== "production" ? Paper.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * Shadow depth, corresponds to `dp` in the spec.
-   * It accepts values between 0 and 24 inclusive.
-   * @default 1
-   */
-  elevation: (0, _utils.chainPropTypes)(_utils.integerPropType, props => {
-    const {
-      elevation,
-      variant
-    } = props;
-
-    if (elevation > 0 && variant === 'outlined') {
-      return new Error(`MUI: Combining \`elevation={${elevation}}\` with \`variant="${variant}"\` has no effect. Either use \`elevation={0}\` or use a different \`variant\`.`);
-    }
-
-    return null;
-  }),
-
-  /**
-   * If `true`, rounded corners are disabled.
-   * @default false
-   */
-  square: _propTypes.default.bool,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The variant to use.
-   * @default 'elevation'
-   */
-  variant: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['elevation', 'outlined']), _propTypes.default.string])
-} : void 0;
-var _default = Paper;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/system":"../node_modules/@mui/system/esm/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/useTheme":"../node_modules/@mui/material/styles/useTheme.js","./paperClasses":"../node_modules/@mui/material/Paper/paperClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Paper/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  paperClasses: true
-};
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Paper.default;
-  }
-});
-Object.defineProperty(exports, "paperClasses", {
-  enumerable: true,
-  get: function () {
-    return _paperClasses.default;
-  }
-});
-
-var _Paper = _interopRequireDefault(require("./Paper"));
-
-var _paperClasses = _interopRequireWildcard(require("./paperClasses"));
-
-Object.keys(_paperClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _paperClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _paperClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Paper":"../node_modules/@mui/material/Paper/Paper.js","./paperClasses":"../node_modules/@mui/material/Paper/paperClasses.js"}],"../node_modules/@mui/material/Card/cardClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getCardUtilityClass = getCardUtilityClass;
-
-var _base = require("@mui/base");
-
-function getCardUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiCard', slot);
-}
-
-const cardClasses = (0, _base.generateUtilityClasses)('MuiCard', ['root']);
-var _default = cardClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Card/Card.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _Paper = _interopRequireDefault(require("../Paper"));
-
-var _cardClasses = require("./cardClasses");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["className", "raised"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes
-  } = ownerState;
-  const slots = {
-    root: ['root']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _cardClasses.getCardUtilityClass, classes);
-};
-
-const CardRoot = (0, _styled.default)(_Paper.default, {
-  name: 'MuiCard',
-  slot: 'Root',
-  overridesResolver: (props, styles) => styles.root
-})(() => {
-  return {
-    overflow: 'hidden'
-  };
-});
-const Card = /*#__PURE__*/React.forwardRef(function Card(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiCard'
-  });
-  const {
-    className,
-    raised = false
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const ownerState = (0, _extends2.default)({}, props, {
-    raised
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(CardRoot, (0, _extends2.default)({
-    className: (0, _clsx.default)(classes.root, className),
-    elevation: raised ? 8 : undefined,
-    ref: ref,
-    ownerState: ownerState
-  }, other));
-});
-"development" !== "production" ? Card.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * If `true`, the card will use raised styling.
-   * @default false
-   */
-  raised: (0, _utils.chainPropTypes)(_propTypes.default.bool, props => {
-    if (props.raised && props.variant === 'outlined') {
-      return new Error('MUI: Combining `raised={true}` with `variant="outlined"` has no effect.');
-    }
-
-    return null;
-  }),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
-} : void 0;
-var _default = Card;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../Paper":"../node_modules/@mui/material/Paper/index.js","./cardClasses":"../node_modules/@mui/material/Card/cardClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Card/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  cardClasses: true
-};
-Object.defineProperty(exports, "cardClasses", {
-  enumerable: true,
-  get: function () {
-    return _cardClasses.default;
-  }
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Card.default;
-  }
-});
-
-var _Card = _interopRequireDefault(require("./Card"));
-
-var _cardClasses = _interopRequireWildcard(require("./cardClasses"));
-
-Object.keys(_cardClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _cardClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _cardClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Card":"../node_modules/@mui/material/Card/Card.js","./cardClasses":"../node_modules/@mui/material/Card/cardClasses.js"}],"../node_modules/@mui/material/CardMedia/cardMediaClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getCardMediaUtilityClass = getCardMediaUtilityClass;
-
-var _base = require("@mui/base");
-
-function getCardMediaUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiCardMedia', slot);
-}
-
-const cardMediaClasses = (0, _base.generateUtilityClasses)('MuiCardMedia', ['root', 'media', 'img']);
-var _default = cardMediaClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/CardMedia/CardMedia.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _cardMediaClasses = require("./cardMediaClasses");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["children", "className", "component", "image", "src", "style"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    isMediaComponent,
-    isImageComponent
-  } = ownerState;
-  const slots = {
-    root: ['root', isMediaComponent && 'media', isImageComponent && 'img']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _cardMediaClasses.getCardMediaUtilityClass, classes);
-};
-
-const CardMediaRoot = (0, _styled.default)('div', {
-  name: 'MuiCardMedia',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    const {
-      isMediaComponent,
-      isImageComponent
-    } = ownerState;
-    return [styles.root, isMediaComponent && styles.media, isImageComponent && styles.img];
-  }
-})(({
-  ownerState
-}) => (0, _extends2.default)({
-  display: 'block',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center'
-}, ownerState.isMediaComponent && {
-  width: '100%'
-}, ownerState.isImageComponent && {
-  // ⚠️ object-fit is not supported by IE11.
-  objectFit: 'cover'
-}));
-const MEDIA_COMPONENTS = ['video', 'audio', 'picture', 'iframe', 'img'];
-const IMAGE_COMPONENTS = ['picture', 'img'];
-const CardMedia = /*#__PURE__*/React.forwardRef(function CardMedia(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiCardMedia'
-  });
-  const {
-    children,
-    className,
-    component = 'div',
-    image,
-    src,
-    style
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const isMediaComponent = MEDIA_COMPONENTS.indexOf(component) !== -1;
-  const composedStyle = !isMediaComponent && image ? (0, _extends2.default)({
-    backgroundImage: `url("${image}")`
-  }, style) : style;
-  const ownerState = (0, _extends2.default)({}, props, {
-    component,
-    isMediaComponent,
-    isImageComponent: IMAGE_COMPONENTS.indexOf(component) !== -1
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(CardMediaRoot, (0, _extends2.default)({
-    className: (0, _clsx.default)(classes.root, className),
-    as: component,
-    role: !isMediaComponent && image ? 'img' : undefined,
-    ref: ref,
-    style: composedStyle,
-    ownerState: ownerState,
-    src: isMediaComponent ? image || src : undefined
-  }, other, {
-    children: children
-  }));
-});
-"development" !== "production" ? CardMedia.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: (0, _utils.chainPropTypes)(_propTypes.default.node, props => {
-    if (!props.children && !props.image && !props.src && !props.component) {
-      return new Error('MUI: Either `children`, `image`, `src` or `component` prop must be specified.');
-    }
-
-    return null;
-  }),
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * Image to be displayed as a background image.
-   * Either `image` or `src` prop must be specified.
-   * Note that caller must specify height otherwise the image will not be visible.
-   */
-  image: _propTypes.default.string,
-
-  /**
-   * An alias for `image` property.
-   * Available only with media components.
-   * Media components: `video`, `audio`, `picture`, `iframe`, `img`.
-   */
-  src: _propTypes.default.string,
-
-  /**
-   * @ignore
-   */
-  style: _propTypes.default.object,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
-} : void 0;
-var _default = CardMedia;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","./cardMediaClasses":"../node_modules/@mui/material/CardMedia/cardMediaClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/CardMedia/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  cardMediaClasses: true
-};
-Object.defineProperty(exports, "cardMediaClasses", {
-  enumerable: true,
-  get: function () {
-    return _cardMediaClasses.default;
-  }
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _CardMedia.default;
-  }
-});
-
-var _CardMedia = _interopRequireDefault(require("./CardMedia"));
-
-var _cardMediaClasses = _interopRequireWildcard(require("./cardMediaClasses"));
-
-Object.keys(_cardMediaClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _cardMediaClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _cardMediaClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./CardMedia":"../node_modules/@mui/material/CardMedia/CardMedia.js","./cardMediaClasses":"../node_modules/@mui/material/CardMedia/cardMediaClasses.js"}],"../node_modules/@mui/material/CardContent/cardContentClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getCardContentUtilityClass = getCardContentUtilityClass;
-
-var _base = require("@mui/base");
-
-function getCardContentUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiCardContent', slot);
-}
-
-const cardContentClasses = (0, _base.generateUtilityClasses)('MuiCardContent', ['root']);
-var _default = cardContentClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/CardContent/CardContent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _base = require("@mui/base");
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _cardContentClasses = require("./cardContentClasses");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["className", "component"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes
-  } = ownerState;
-  const slots = {
-    root: ['root']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _cardContentClasses.getCardContentUtilityClass, classes);
-};
-
-const CardContentRoot = (0, _styled.default)('div', {
-  name: 'MuiCardContent',
-  slot: 'Root',
-  overridesResolver: (props, styles) => styles.root
-})(() => {
-  return {
-    padding: 16,
-    '&:last-child': {
-      paddingBottom: 24
-    }
-  };
-});
-const CardContent = /*#__PURE__*/React.forwardRef(function CardContent(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiCardContent'
-  });
-  const {
-    className,
-    component = 'div'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const ownerState = (0, _extends2.default)({}, props, {
-    component
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(CardContentRoot, (0, _extends2.default)({
-    as: component,
-    className: (0, _clsx.default)(classes.root, className),
-    ownerState: ownerState,
-    ref: ref
-  }, other));
-});
-"development" !== "production" ? CardContent.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
-} : void 0;
-var _default = CardContent;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","./cardContentClasses":"../node_modules/@mui/material/CardContent/cardContentClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/CardContent/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  cardContentClasses: true
-};
-Object.defineProperty(exports, "cardContentClasses", {
-  enumerable: true,
-  get: function () {
-    return _cardContentClasses.default;
-  }
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _CardContent.default;
-  }
-});
-
-var _CardContent = _interopRequireDefault(require("./CardContent"));
-
-var _cardContentClasses = _interopRequireWildcard(require("./cardContentClasses"));
-
-Object.keys(_cardContentClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _cardContentClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _cardContentClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./CardContent":"../node_modules/@mui/material/CardContent/CardContent.js","./cardContentClasses":"../node_modules/@mui/material/CardContent/cardContentClasses.js"}],"../node_modules/@mui/material/Typography/typographyClasses.js":[function(require,module,exports) {
+},{"./Box":"../node_modules/@mui/material/Box/Box.js"}],"../node_modules/@mui/material/Typography/typographyClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57224,12 +56371,6 @@ var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
 
 var _Box = _interopRequireDefault(require("@mui/material/Box"));
 
-var _Card = _interopRequireDefault(require("@mui/material/Card"));
-
-var _CardMedia = _interopRequireDefault(require("@mui/material/CardMedia"));
-
-var _CardContent = _interopRequireDefault(require("@mui/material/CardContent"));
-
 var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -57251,38 +56392,22 @@ function _default() {
     item: true,
     xs: 12,
     md: 4
-  }, _react.default.createElement(_Card.default, {
-    sx: {
-      display: 'flex',
-      boxShadow: 0,
-      p: 1
-    }
   }, _react.default.createElement(_Box.default, {
     sx: {
-      display: 'flex',
-      flexDirection: 'column'
+      flexGrow: 1,
+      textAlign: 'right'
     }
-  }, _react.default.createElement(_CardMedia.default, {
-    component: "img",
-    image: "https://www.reff.ly/images/others/nicechartjs-v1.png"
-  })), _react.default.createElement(_Box.default, {
-    sx: {
-      display: 'flex',
-      flexDirection: 'column'
-    }
-  }, _react.default.createElement(_CardContent.default, {
-    sx: {
-      flex: '1 0 auto',
-      pt: 0
-    }
-  }, _react.default.createElement(_Typography.default, {
-    component: "div",
-    variant: "body2"
-  }, "According to the Worldwide Screen Resolution Stats (Jan 2020 \u2013 Jan 2021), the most commonly used resolutions across mobile, desktop, and tablet"))))), _react.default.createElement(_Grid.default, {
+  }, _react.default.createElement("img", {
+    width: "325",
+    src: "https://www.reff.ly/images/others/carbonad-v1.png"
+  }))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
     md: 2
-  }, _react.default.createElement(_Typography.default, null, "Find Us On-")), _react.default.createElement(_Grid.default, {
+  }, _react.default.createElement(_Typography.default, null, "Find Us On-"), _react.default.createElement("img", {
+    height: "40",
+    src: "https://cdn.buymeacoffee.com/assets/img/home-page-v3/bmc-new-logo.png"
+  })), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 3,
     sx: {
@@ -57293,7 +56418,7 @@ function _default() {
     }
   }, " ")));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Card":"../node_modules/@mui/material/Card/index.js","@mui/material/CardMedia":"../node_modules/@mui/material/CardMedia/index.js","@mui/material/CardContent":"../node_modules/@mui/material/CardContent/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/Badge/Badge.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/Badge/Badge.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58727,7 +57852,7 @@ function _default() {
     sx: {
       py: 4
     }
-  }, "Self host reffly for full features including Link tracking Statistics, Branding & more...or Try reffly plus"), _react.default.createElement(_Box.default, {
+  }, "Self host ", _react.default.createElement("i", null, _react.default.createElement("b", null, "reffly")), " for full features including Link tracking Statistics, Branding & more...or Try ", _react.default.createElement("i", null, _react.default.createElement("b", null, "reffly plus"))), _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'row-reverse',
@@ -58738,7 +57863,14 @@ function _default() {
       display: 'flex',
       flexDirection: 'column'
     }
-  }, _react.default.createElement(_Typography.default, null, "reflly")), _react.default.createElement(_Box.default, {
+  }, _react.default.createElement(_Typography.default, {
+    variant: "h1",
+    sx: {
+      color: 'primary.grey',
+      fontFamily: 'Beth Ellen',
+      mt: 1
+    }
+  }, "reflly+")), _react.default.createElement(_Box.default, {
     sx: {
       display: 'flex',
       flexDirection: 'column'
@@ -58761,8 +57893,16 @@ function _default() {
   })))))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
-    md: 6
-  }, _react.default.createElement(_ImageList.default, null, _react.default.createElement(_ImageListItem.default, null, _react.default.createElement("img", {
+    md: 6,
+    sx: {
+      pl: 8
+    }
+  }, _react.default.createElement(_ImageList.default, {
+    sx: {
+      width: '100%'
+    },
+    cols: 1
+  }, _react.default.createElement(_ImageListItem.default, null, _react.default.createElement("img", {
     src: "https://www.reff.ly/images/others/nicechartjs-v1.png",
     alt: "middle image"
   }))))));
@@ -68574,7 +67714,265 @@ Object.defineProperty(exports, "default", {
 var _MenuList = _interopRequireDefault(require("./MenuList"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./MenuList":"../node_modules/@mui/material/MenuList/MenuList.js"}],"../node_modules/@mui/material/transitions/utils.js":[function(require,module,exports) {
+},{"./MenuList":"../node_modules/@mui/material/MenuList/MenuList.js"}],"../node_modules/@mui/material/Paper/paperClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getPaperUtilityClass = getPaperUtilityClass;
+
+var _base = require("@mui/base");
+
+function getPaperUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiPaper', slot);
+}
+
+const paperClasses = (0, _base.generateUtilityClasses)('MuiPaper', ['root', 'rounded', 'outlined', 'elevation', 'elevation0', 'elevation1', 'elevation2', 'elevation3', 'elevation4', 'elevation5', 'elevation6', 'elevation7', 'elevation8', 'elevation9', 'elevation10', 'elevation11', 'elevation12', 'elevation13', 'elevation14', 'elevation15', 'elevation16', 'elevation17', 'elevation18', 'elevation19', 'elevation20', 'elevation21', 'elevation22', 'elevation23', 'elevation24']);
+var _default = paperClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Paper/Paper.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _utils = require("@mui/utils");
+
+var _base = require("@mui/base");
+
+var _system = require("@mui/system");
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _useTheme = _interopRequireDefault(require("../styles/useTheme"));
+
+var _paperClasses = require("./paperClasses");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["className", "component", "elevation", "square", "variant"];
+
+const getOverlayAlpha = elevation => {
+  let alphaValue;
+
+  if (elevation < 1) {
+    alphaValue = 5.11916 * elevation ** 2;
+  } else {
+    alphaValue = 4.5 * Math.log(elevation + 1) + 2;
+  }
+
+  return (alphaValue / 100).toFixed(2);
+};
+
+const useUtilityClasses = ownerState => {
+  const {
+    square,
+    elevation,
+    variant,
+    classes
+  } = ownerState;
+  const slots = {
+    root: ['root', variant, !square && 'rounded', variant === 'elevation' && `elevation${elevation}`]
+  };
+  return (0, _base.unstable_composeClasses)(slots, _paperClasses.getPaperUtilityClass, classes);
+};
+
+const PaperRoot = (0, _styled.default)('div', {
+  name: 'MuiPaper',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[ownerState.variant], !ownerState.square && styles.rounded, ownerState.variant === 'elevation' && styles[`elevation${ownerState.elevation}`]];
+  }
+})(({
+  theme,
+  ownerState
+}) => (0, _extends2.default)({
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
+  transition: theme.transitions.create('box-shadow')
+}, !ownerState.square && {
+  borderRadius: theme.shape.borderRadius
+}, ownerState.variant === 'outlined' && {
+  border: `1px solid ${theme.palette.divider}`
+}, ownerState.variant === 'elevation' && (0, _extends2.default)({
+  boxShadow: theme.shadows[ownerState.elevation]
+}, theme.palette.mode === 'dark' && {
+  backgroundImage: `linear-gradient(${(0, _system.alpha)('#fff', getOverlayAlpha(ownerState.elevation))}, ${(0, _system.alpha)('#fff', getOverlayAlpha(ownerState.elevation))})`
+})));
+const Paper = /*#__PURE__*/React.forwardRef(function Paper(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiPaper'
+  });
+  const {
+    className,
+    component = 'div',
+    elevation = 1,
+    square = false,
+    variant = 'elevation'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const ownerState = (0, _extends2.default)({}, props, {
+    component,
+    elevation,
+    square,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+
+  if ("development" !== 'production') {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const theme = (0, _useTheme.default)();
+
+    if (theme.shadows[elevation] === undefined) {
+      console.error([`MUI: The elevation provided <Paper elevation={${elevation}}> is not available in the theme.`, `Please make sure that \`theme.shadows[${elevation}]\` is defined.`].join('\n'));
+    }
+  }
+
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(PaperRoot, (0, _extends2.default)({
+    as: component,
+    ownerState: ownerState,
+    className: (0, _clsx.default)(classes.root, className),
+    ref: ref
+  }, other));
+});
+"development" !== "production" ? Paper.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * Shadow depth, corresponds to `dp` in the spec.
+   * It accepts values between 0 and 24 inclusive.
+   * @default 1
+   */
+  elevation: (0, _utils.chainPropTypes)(_utils.integerPropType, props => {
+    const {
+      elevation,
+      variant
+    } = props;
+
+    if (elevation > 0 && variant === 'outlined') {
+      return new Error(`MUI: Combining \`elevation={${elevation}}\` with \`variant="${variant}"\` has no effect. Either use \`elevation={0}\` or use a different \`variant\`.`);
+    }
+
+    return null;
+  }),
+
+  /**
+   * If `true`, rounded corners are disabled.
+   * @default false
+   */
+  square: _propTypes.default.bool,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * The variant to use.
+   * @default 'elevation'
+   */
+  variant: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['elevation', 'outlined']), _propTypes.default.string])
+} : void 0;
+var _default = Paper;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/system":"../node_modules/@mui/system/esm/index.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/useTheme":"../node_modules/@mui/material/styles/useTheme.js","./paperClasses":"../node_modules/@mui/material/Paper/paperClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Paper/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  paperClasses: true
+};
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _Paper.default;
+  }
+});
+Object.defineProperty(exports, "paperClasses", {
+  enumerable: true,
+  get: function () {
+    return _paperClasses.default;
+  }
+});
+
+var _Paper = _interopRequireDefault(require("./Paper"));
+
+var _paperClasses = _interopRequireWildcard(require("./paperClasses"));
+
+Object.keys(_paperClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _paperClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _paperClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./Paper":"../node_modules/@mui/material/Paper/Paper.js","./paperClasses":"../node_modules/@mui/material/Paper/paperClasses.js"}],"../node_modules/@mui/material/transitions/utils.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72575,7 +71973,338 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./TextField":"../node_modules/@mui/material/TextField/TextField.js","./textFieldClasses":"../node_modules/@mui/material/TextField/textFieldClasses.js"}],"components/SignIn.tsx":[function(require,module,exports) {
+},{"./TextField":"../node_modules/@mui/material/TextField/TextField.js","./textFieldClasses":"../node_modules/@mui/material/TextField/textFieldClasses.js"}],"../node_modules/@mui/material/Link/linkClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getLinkUtilityClass = getLinkUtilityClass;
+
+var _base = require("@mui/base");
+
+function getLinkUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiLink', slot);
+}
+
+const linkClasses = (0, _base.generateUtilityClasses)('MuiLink', ['root', 'underlineNone', 'underlineHover', 'underlineAlways', 'button', 'focusVisible']);
+var _default = linkClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Link/Link.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _utils = require("@mui/utils");
+
+var _base = require("@mui/base");
+
+var _system = require("@mui/system");
+
+var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _useIsFocusVisible = _interopRequireDefault(require("../utils/useIsFocusVisible"));
+
+var _useForkRef = _interopRequireDefault(require("../utils/useForkRef"));
+
+var _Typography = _interopRequireDefault(require("../Typography"));
+
+var _linkClasses = _interopRequireWildcard(require("./linkClasses"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant"];
+const colorTransformations = {
+  primary: 'primary.main',
+  textPrimary: 'text.primary',
+  secondary: 'secondary.main',
+  textSecondary: 'text.secondary',
+  error: 'error.main'
+};
+
+const transformDeprecatedColors = color => {
+  return colorTransformations[color] || color;
+};
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    component,
+    focusVisible,
+    underline
+  } = ownerState;
+  const slots = {
+    root: ['root', `underline${(0, _capitalize.default)(underline)}`, component === 'button' && 'button', focusVisible && 'focusVisible']
+  };
+  return (0, _base.unstable_composeClasses)(slots, _linkClasses.getLinkUtilityClass, classes);
+};
+
+const LinkRoot = (0, _styled.default)(_Typography.default, {
+  name: 'MuiLink',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[`underline${(0, _capitalize.default)(ownerState.underline)}`], ownerState.component === 'button' && styles.button];
+  }
+})(({
+  theme,
+  ownerState
+}) => {
+  const color = (0, _system.getPath)(theme, `palette.${transformDeprecatedColors(ownerState.color)}`) || ownerState.color;
+  return (0, _extends2.default)({}, ownerState.underline === 'none' && {
+    textDecoration: 'none'
+  }, ownerState.underline === 'hover' && {
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
+  }, ownerState.underline === 'always' && {
+    textDecoration: 'underline',
+    textDecorationColor: color !== 'inherit' ? (0, _system.alpha)(color, 0.4) : undefined,
+    '&:hover': {
+      textDecorationColor: 'inherit'
+    }
+  }, ownerState.component === 'button' && {
+    position: 'relative',
+    WebkitTapHighlightColor: 'transparent',
+    backgroundColor: 'transparent',
+    // Reset default value
+    // We disable the focus ring for mouse, touch and keyboard users.
+    outline: 0,
+    border: 0,
+    margin: 0,
+    // Remove the margin in Safari
+    borderRadius: 0,
+    padding: 0,
+    // Remove the padding in Firefox
+    cursor: 'pointer',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    MozAppearance: 'none',
+    // Reset
+    WebkitAppearance: 'none',
+    // Reset
+    '&::-moz-focus-inner': {
+      borderStyle: 'none' // Remove Firefox dotted outline.
+
+    },
+    [`&.${_linkClasses.default.focusVisible}`]: {
+      outline: 'auto'
+    }
+  });
+});
+const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiLink'
+  });
+  const {
+    className,
+    color = 'primary',
+    component = 'a',
+    onBlur,
+    onFocus,
+    TypographyClasses,
+    underline = 'always',
+    variant = 'inherit'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const {
+    isFocusVisibleRef,
+    onBlur: handleBlurVisible,
+    onFocus: handleFocusVisible,
+    ref: focusVisibleRef
+  } = (0, _useIsFocusVisible.default)();
+  const [focusVisible, setFocusVisible] = React.useState(false);
+  const handlerRef = (0, _useForkRef.default)(ref, focusVisibleRef);
+
+  const handleBlur = event => {
+    handleBlurVisible(event);
+
+    if (isFocusVisibleRef.current === false) {
+      setFocusVisible(false);
+    }
+
+    if (onBlur) {
+      onBlur(event);
+    }
+  };
+
+  const handleFocus = event => {
+    handleFocusVisible(event);
+
+    if (isFocusVisibleRef.current === true) {
+      setFocusVisible(true);
+    }
+
+    if (onFocus) {
+      onFocus(event);
+    }
+  };
+
+  const ownerState = (0, _extends2.default)({}, props, {
+    color,
+    component,
+    focusVisible,
+    underline,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(LinkRoot, (0, _extends2.default)({
+    className: (0, _clsx.default)(classes.root, className),
+    classes: TypographyClasses,
+    color: color,
+    component: component,
+    onBlur: handleBlur,
+    onFocus: handleFocus,
+    ref: handlerRef,
+    ownerState: ownerState,
+    variant: variant
+  }, other));
+});
+"development" !== "production" ? Link.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The color of the link.
+   * @default 'primary'
+   */
+  color: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .any,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _utils.elementTypeAcceptingRef,
+
+  /**
+   * @ignore
+   */
+  onBlur: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onFocus: _propTypes.default.func,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * `classes` prop applied to the [`Typography`](/api/typography/) element.
+   */
+  TypographyClasses: _propTypes.default.object,
+
+  /**
+   * Controls when the link should have an underline.
+   * @default 'always'
+   */
+  underline: _propTypes.default.oneOf(['always', 'hover', 'none']),
+
+  /**
+   * Applies the theme typography styles.
+   * @default 'inherit'
+   */
+  variant: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2']), _propTypes.default.string])
+} : void 0;
+var _default = Link;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/system":"../node_modules/@mui/system/esm/index.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../utils/useIsFocusVisible":"../node_modules/@mui/material/utils/useIsFocusVisible.js","../utils/useForkRef":"../node_modules/@mui/material/utils/useForkRef.js","../Typography":"../node_modules/@mui/material/Typography/index.js","./linkClasses":"../node_modules/@mui/material/Link/linkClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Link/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  linkClasses: true
+};
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _Link.default;
+  }
+});
+Object.defineProperty(exports, "linkClasses", {
+  enumerable: true,
+  get: function () {
+    return _linkClasses.default;
+  }
+});
+
+var _Link = _interopRequireDefault(require("./Link"));
+
+var _linkClasses = _interopRequireWildcard(require("./linkClasses"));
+
+Object.keys(_linkClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _linkClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _linkClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./Link":"../node_modules/@mui/material/Link/Link.js","./linkClasses":"../node_modules/@mui/material/Link/linkClasses.js"}],"components/SignIn.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72592,6 +72321,8 @@ var _Box = _interopRequireDefault(require("@mui/material/Box"));
 var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
 
 var _TextField = _interopRequireDefault(require("@mui/material/TextField"));
+
+var _Link = _interopRequireDefault(require("@mui/material/Link"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72627,7 +72358,11 @@ function SignIn() {
     label: "Enter long Url here",
     name: "url",
     type: "url"
-  })), _react.default.createElement(_Grid.default, {
+  }), _react.default.createElement("p", null, "By using our service, you accept out ", _react.default.createElement(_Link.default, {
+    href: "#"
+  }, "Terms"), " and", _react.default.createElement(_Link.default, {
+    href: "#"
+  }, "Conditions"))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
     md: 3
@@ -72642,7 +72377,7 @@ function SignIn() {
     }
   }, "SHORTEN")))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/TextField":"../node_modules/@mui/material/TextField/index.js"}],"../node_modules/@mui/material/ButtonGroup/buttonGroupClasses.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/TextField":"../node_modules/@mui/material/TextField/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js"}],"../node_modules/@mui/material/ButtonGroup/buttonGroupClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74710,338 +74445,7 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("p
 }), 'GitHub');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Link/linkClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getLinkUtilityClass = getLinkUtilityClass;
-
-var _base = require("@mui/base");
-
-function getLinkUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiLink', slot);
-}
-
-const linkClasses = (0, _base.generateUtilityClasses)('MuiLink', ['root', 'underlineNone', 'underlineHover', 'underlineAlways', 'button', 'focusVisible']);
-var _default = linkClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Link/Link.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _utils = require("@mui/utils");
-
-var _base = require("@mui/base");
-
-var _system = require("@mui/system");
-
-var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _useIsFocusVisible = _interopRequireDefault(require("../utils/useIsFocusVisible"));
-
-var _useForkRef = _interopRequireDefault(require("../utils/useForkRef"));
-
-var _Typography = _interopRequireDefault(require("../Typography"));
-
-var _linkClasses = _interopRequireWildcard(require("./linkClasses"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant"];
-const colorTransformations = {
-  primary: 'primary.main',
-  textPrimary: 'text.primary',
-  secondary: 'secondary.main',
-  textSecondary: 'text.secondary',
-  error: 'error.main'
-};
-
-const transformDeprecatedColors = color => {
-  return colorTransformations[color] || color;
-};
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    component,
-    focusVisible,
-    underline
-  } = ownerState;
-  const slots = {
-    root: ['root', `underline${(0, _capitalize.default)(underline)}`, component === 'button' && 'button', focusVisible && 'focusVisible']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _linkClasses.getLinkUtilityClass, classes);
-};
-
-const LinkRoot = (0, _styled.default)(_Typography.default, {
-  name: 'MuiLink',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[`underline${(0, _capitalize.default)(ownerState.underline)}`], ownerState.component === 'button' && styles.button];
-  }
-})(({
-  theme,
-  ownerState
-}) => {
-  const color = (0, _system.getPath)(theme, `palette.${transformDeprecatedColors(ownerState.color)}`) || ownerState.color;
-  return (0, _extends2.default)({}, ownerState.underline === 'none' && {
-    textDecoration: 'none'
-  }, ownerState.underline === 'hover' && {
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline'
-    }
-  }, ownerState.underline === 'always' && {
-    textDecoration: 'underline',
-    textDecorationColor: color !== 'inherit' ? (0, _system.alpha)(color, 0.4) : undefined,
-    '&:hover': {
-      textDecorationColor: 'inherit'
-    }
-  }, ownerState.component === 'button' && {
-    position: 'relative',
-    WebkitTapHighlightColor: 'transparent',
-    backgroundColor: 'transparent',
-    // Reset default value
-    // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 0,
-    border: 0,
-    margin: 0,
-    // Remove the margin in Safari
-    borderRadius: 0,
-    padding: 0,
-    // Remove the padding in Firefox
-    cursor: 'pointer',
-    userSelect: 'none',
-    verticalAlign: 'middle',
-    MozAppearance: 'none',
-    // Reset
-    WebkitAppearance: 'none',
-    // Reset
-    '&::-moz-focus-inner': {
-      borderStyle: 'none' // Remove Firefox dotted outline.
-
-    },
-    [`&.${_linkClasses.default.focusVisible}`]: {
-      outline: 'auto'
-    }
-  });
-});
-const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiLink'
-  });
-  const {
-    className,
-    color = 'primary',
-    component = 'a',
-    onBlur,
-    onFocus,
-    TypographyClasses,
-    underline = 'always',
-    variant = 'inherit'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const {
-    isFocusVisibleRef,
-    onBlur: handleBlurVisible,
-    onFocus: handleFocusVisible,
-    ref: focusVisibleRef
-  } = (0, _useIsFocusVisible.default)();
-  const [focusVisible, setFocusVisible] = React.useState(false);
-  const handlerRef = (0, _useForkRef.default)(ref, focusVisibleRef);
-
-  const handleBlur = event => {
-    handleBlurVisible(event);
-
-    if (isFocusVisibleRef.current === false) {
-      setFocusVisible(false);
-    }
-
-    if (onBlur) {
-      onBlur(event);
-    }
-  };
-
-  const handleFocus = event => {
-    handleFocusVisible(event);
-
-    if (isFocusVisibleRef.current === true) {
-      setFocusVisible(true);
-    }
-
-    if (onFocus) {
-      onFocus(event);
-    }
-  };
-
-  const ownerState = (0, _extends2.default)({}, props, {
-    color,
-    component,
-    focusVisible,
-    underline,
-    variant
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(LinkRoot, (0, _extends2.default)({
-    className: (0, _clsx.default)(classes.root, className),
-    classes: TypographyClasses,
-    color: color,
-    component: component,
-    onBlur: handleBlur,
-    onFocus: handleFocus,
-    ref: handlerRef,
-    ownerState: ownerState,
-    variant: variant
-  }, other));
-});
-"development" !== "production" ? Link.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The color of the link.
-   * @default 'primary'
-   */
-  color: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .any,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _utils.elementTypeAcceptingRef,
-
-  /**
-   * @ignore
-   */
-  onBlur: _propTypes.default.func,
-
-  /**
-   * @ignore
-   */
-  onFocus: _propTypes.default.func,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * `classes` prop applied to the [`Typography`](/api/typography/) element.
-   */
-  TypographyClasses: _propTypes.default.object,
-
-  /**
-   * Controls when the link should have an underline.
-   * @default 'always'
-   */
-  underline: _propTypes.default.oneOf(['always', 'hover', 'none']),
-
-  /**
-   * Applies the theme typography styles.
-   * @default 'inherit'
-   */
-  variant: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2']), _propTypes.default.string])
-} : void 0;
-var _default = Link;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/utils":"../node_modules/@mui/utils/esm/index.js","@mui/base":"../node_modules/@mui/base/index.js","@mui/system":"../node_modules/@mui/system/esm/index.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../utils/useIsFocusVisible":"../node_modules/@mui/material/utils/useIsFocusVisible.js","../utils/useForkRef":"../node_modules/@mui/material/utils/useForkRef.js","../Typography":"../node_modules/@mui/material/Typography/index.js","./linkClasses":"../node_modules/@mui/material/Link/linkClasses.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Link/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  linkClasses: true
-};
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Link.default;
-  }
-});
-Object.defineProperty(exports, "linkClasses", {
-  enumerable: true,
-  get: function () {
-    return _linkClasses.default;
-  }
-});
-
-var _Link = _interopRequireDefault(require("./Link"));
-
-var _linkClasses = _interopRequireWildcard(require("./linkClasses"));
-
-Object.keys(_linkClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _linkClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _linkClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Link":"../node_modules/@mui/material/Link/Link.js","./linkClasses":"../node_modules/@mui/material/Link/linkClasses.js"}],"components/Logo.tsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js","./utils/createSvgIcon":"../node_modules/@mui/icons-material/utils/createSvgIcon.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"components/Logo.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75109,7 +74513,7 @@ function _default() {
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Box.default, {
     sx: {
       flexGrow: 1,
-      my: 7
+      my: 5
     }
   }, _react.default.createElement(_Grid.default, {
     container: true,
@@ -75117,15 +74521,29 @@ function _default() {
   }, _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
-    md: 9
+    md: 10
   }), _react.default.createElement(_Grid.default, {
     item: true,
-    xs: 12,
-    md: 1,
+    xs: 8,
     sx: {
-      textAlign: 'right'
+      display: {
+        xs: 'flex',
+        md: 'none'
+      }
     }
-  }, _react.default.createElement(_Box.default, null, _react.default.createElement(StyledBadge, {
+  }), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 4,
+    md: 2,
+    sx: {
+      textAlign: 'right',
+      display: 'flex'
+    }
+  }, _react.default.createElement(_Box.default, {
+    sx: {
+      pr: 2
+    }
+  }, _react.default.createElement(StyledBadge, {
     overlap: "circular",
     anchorOrigin: {
       vertical: 'bottom',
@@ -75141,13 +74559,10 @@ function _default() {
     }
   }, _react.default.createElement(_AddLink.default, {
     sx: {
-      transform: 'rotate(-45deg)'
+      transform: 'rotate(-45deg)',
+      fontSize: 35
     }
-  })))))), _react.default.createElement(_Grid.default, {
-    item: true,
-    xs: 12,
-    md: 2
-  }, _react.default.createElement(_Box.default, null, _react.default.createElement(_Link.default, {
+  }))))), _react.default.createElement(_Box.default, null, _react.default.createElement(_Link.default, {
     href: "#"
   }, _react.default.createElement(_Avatar.default, {
     variant: "rounded",
@@ -75157,41 +74572,46 @@ function _default() {
   }, _react.default.createElement(_GitHub.default, null))))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
-    md: 6,
+    md: 12,
     sx: {
-      textAlign: 'right'
+      textAlign: 'center',
+      mt: 5
     }
-  }, _react.default.createElement(StyledBadge, {
+  }, _react.default.createElement(_Grid.default, {
+    container: true,
+    sx: {
+      justifyContent: 'center'
+    }
+  }, _react.default.createElement(_Badge.default, {
     overlap: "circular",
     anchorOrigin: {
       vertical: 'bottom',
       horizontal: 'right'
     },
-    variant: "dot"
+    badgeContent: " ",
+    color: "fontColor"
   }, _react.default.createElement(_Avatar.default, {
     sx: {
-      width: 70,
-      height: 70,
-      bgcolor: 'warning.main'
+      width: 80,
+      height: 80,
+      bgcolor: 'warning.light'
     }
   }, _react.default.createElement(_InsertLink.default, {
     sx: {
-      fontSize: 50,
-      transform: 'rotate(-45deg)',
-      color: 'primary.black'
+      fontSize: 70,
+      transform: 'rotate(-50deg)',
+      color: 'primary.grey'
     }
-  })))), _react.default.createElement(_Grid.default, {
-    item: true,
-    xs: 12,
-    md: 6
-  }, _react.default.createElement(_Typography.default, {
+  }))), _react.default.createElement(_Typography.default, {
     variant: "h2",
     sx: {
       color: 'primary.grey',
       fontFamily: 'Beth Ellen',
-      mt: 1
+      mt: 1,
+      fontSize: 40,
+      fontWeight: 'bold'
     }
-  }, "reffly")), _react.default.createElement(_Grid.default, {
+  }, "reffly"))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
     sx: {
@@ -75199,18 +74619,346 @@ function _default() {
     }
   }, _react.default.createElement(_Typography.default, {
     component: "div",
-    variant: "h6",
+    variant: "body1",
     noWrap: true,
     sx: {
       display: {
         xs: 'none',
         sm: 'block'
       },
-      color: 'secondary.dark'
+      color: 'primary.grey'
     }
-  }, "RBL Practice")))));
+  }, "Free, Open source, Community driven!")))));
 }
-},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/InsertLink":"../node_modules/@mui/icons-material/InsertLink.js","@mui/icons-material/GitHub":"../node_modules/@mui/icons-material/GitHub.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","@mui/material/Badge":"../node_modules/@mui/material/Badge/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/InsertLink":"../node_modules/@mui/icons-material/InsertLink.js","@mui/icons-material/GitHub":"../node_modules/@mui/icons-material/GitHub.js","@mui/icons-material/AddLink":"../node_modules/@mui/icons-material/AddLink.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js"}],"../node_modules/@mui/material/Container/containerClasses.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+exports.getContainerUtilityClass = getContainerUtilityClass;
+
+var _base = require("@mui/base");
+
+function getContainerUtilityClass(slot) {
+  return (0, _base.generateUtilityClass)('MuiContainer', slot);
+}
+
+const containerClasses = (0, _base.generateUtilityClasses)('MuiContainer', ['root', 'disableGutters', 'fixed', 'maxWidthXs', 'maxWidthSm', 'maxWidthMd', 'maxWidthLg', 'maxWidthXl']);
+var _default = containerClasses;
+exports.default = _default;
+},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Container/Container.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _clsx = _interopRequireDefault(require("clsx"));
+
+var _base = require("@mui/base");
+
+var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
+
+var _styled = _interopRequireDefault(require("../styles/styled"));
+
+var _containerClasses = require("./containerClasses");
+
+var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const _excluded = ["className", "component", "disableGutters", "fixed", "maxWidth"];
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    fixed,
+    disableGutters,
+    maxWidth
+  } = ownerState;
+  const slots = {
+    root: ['root', maxWidth && `maxWidth${(0, _capitalize.default)(String(maxWidth))}`, fixed && 'fixed', disableGutters && 'disableGutters']
+  };
+  return (0, _base.unstable_composeClasses)(slots, _containerClasses.getContainerUtilityClass, classes);
+};
+
+const ContainerRoot = (0, _styled.default)('div', {
+  name: 'MuiContainer',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[`maxWidth${(0, _capitalize.default)(String(ownerState.maxWidth))}`], ownerState.fixed && styles.fixed, ownerState.disableGutters && styles.disableGutters];
+  }
+})(({
+  theme,
+  ownerState
+}) => (0, _extends2.default)({
+  width: '100%',
+  marginLeft: 'auto',
+  boxSizing: 'border-box',
+  marginRight: 'auto',
+  display: 'block'
+}, !ownerState.disableGutters && {
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+  [theme.breakpoints.up('sm')]: {
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3)
+  }
+}), ({
+  theme,
+  ownerState
+}) => ownerState.fixed && Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
+  const value = theme.breakpoints.values[breakpoint];
+
+  if (value !== 0) {
+    acc[theme.breakpoints.up(breakpoint)] = {
+      maxWidth: `${value}${theme.breakpoints.unit}`
+    };
+  }
+
+  return acc;
+}, {}), ({
+  theme,
+  ownerState
+}) => (0, _extends2.default)({}, ownerState.maxWidth === 'xs' && {
+  [theme.breakpoints.up('xs')]: {
+    maxWidth: Math.max(theme.breakpoints.values.xs, 444)
+  }
+}, ownerState.maxWidth && ownerState.maxWidth !== 'xs' && {
+  [theme.breakpoints.up(ownerState.maxWidth)]: {
+    maxWidth: `${theme.breakpoints.values[ownerState.maxWidth]}${theme.breakpoints.unit}`
+  }
+}));
+const Container = /*#__PURE__*/React.forwardRef(function Container(inProps, ref) {
+  const props = (0, _useThemeProps.default)({
+    props: inProps,
+    name: 'MuiContainer'
+  });
+  const {
+    className,
+    component = 'div',
+    disableGutters = false,
+    fixed = false,
+    maxWidth = 'lg'
+  } = props,
+        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const ownerState = (0, _extends2.default)({}, props, {
+    component,
+    disableGutters,
+    fixed,
+    maxWidth
+  });
+  const classes = useUtilityClasses(ownerState);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(ContainerRoot, (0, _extends2.default)({
+    as: component,
+    ownerState: ownerState,
+    className: (0, _clsx.default)(classes.root, className),
+    ref: ref
+  }, other));
+});
+"development" !== "production" ? Container.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * @ignore
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * If `true`, the left and right padding is removed.
+   * @default false
+   */
+  disableGutters: _propTypes.default.bool,
+
+  /**
+   * Set the max-width to match the min-width of the current breakpoint.
+   * This is useful if you'd prefer to design for a fixed set of sizes
+   * instead of trying to accommodate a fully fluid viewport.
+   * It's fluid by default.
+   * @default false
+   */
+  fixed: _propTypes.default.bool,
+
+  /**
+   * Determine the max-width of the container.
+   * The container width grows with the size of the screen.
+   * Set to `false` to disable `maxWidth`.
+   * @default 'lg'
+   */
+  maxWidth: _propTypes.default
+  /* @typescript-to-proptypes-ignore */
+  .oneOfType([_propTypes.default.oneOf(['xs', 'sm', 'md', 'lg', 'xl', false]), _propTypes.default.string]),
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
+} : void 0;
+var _default = Container;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","./containerClasses":"../node_modules/@mui/material/Container/containerClasses.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Container/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  containerClasses: true
+};
+Object.defineProperty(exports, "containerClasses", {
+  enumerable: true,
+  get: function () {
+    return _containerClasses.default;
+  }
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _Container.default;
+  }
+});
+
+var _Container = _interopRequireDefault(require("./Container"));
+
+var _containerClasses = _interopRequireWildcard(require("./containerClasses"));
+
+Object.keys(_containerClasses).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _containerClasses[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _containerClasses[key];
+    }
+  });
+});
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./Container":"../node_modules/@mui/material/Container/Container.js","./containerClasses":"../node_modules/@mui/material/Container/containerClasses.js"}],"components/Skeleton.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
+
+var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
+
+var _ImageList = _interopRequireDefault(require("@mui/material/ImageList"));
+
+var _ImageListItem = _interopRequireDefault(require("@mui/material/ImageListItem"));
+
+var _Container = _interopRequireDefault(require("@mui/material/Container"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import Box from '@mui/material/Box';
+function _default() {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Grid.default, {
+    container: true,
+    spacing: 2
+  }, _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    md: 6,
+    sx: {
+      display: 'flex',
+      flexDirection: {
+        xs: 'row',
+        md: 'column'
+      },
+      bgcolor: 'background.default',
+      borderTopRightRadius: 63,
+      pt: 6
+    }
+  }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Typography.default, {
+    variant: "h3",
+    sx: {
+      py: 4
+    }
+  }, "Self host reffly for full features including Link tracking Statistics, Branding & more...or Try reffly plus"))), _react.default.createElement(_Grid.default, {
+    item: true,
+    xs: 12,
+    md: 6,
+    sx: {
+      display: 'flex',
+      flexDirection: {
+        xs: 'row',
+        md: 'column'
+      },
+      bgcolor: 'background.default',
+      borderTopLeftRadius: 63,
+      pl: 6,
+      pt: 6
+    }
+  }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Typography.default, {
+    variant: "h1",
+    sx: {
+      color: 'primary.grey',
+      fontFamily: 'Beth Ellen',
+      mt: 1
+    }
+  }, "reflly+"), _react.default.createElement(_ImageList.default, {
+    sx: {
+      width: 200
+    },
+    cols: 1
+  }, _react.default.createElement(_ImageListItem.default, null, _react.default.createElement("img", {
+    src: "https://www.reff.ly/images/others/nicechartjs-v1.png",
+    alt: "middle image"
+  })))))));
+}
+},{"react":"../node_modules/react/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/ImageList":"../node_modules/@mui/material/ImageList/index.js","@mui/material/ImageListItem":"../node_modules/@mui/material/ImageListItem/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js"}],"../node_modules/@mui/material/AppBar/appBarClasses.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75827,257 +75575,7 @@ Object.defineProperty(exports, "default", {
 var _CssBaseline = _interopRequireDefault(require("./CssBaseline"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./CssBaseline":"../node_modules/@mui/material/CssBaseline/CssBaseline.js"}],"../node_modules/@mui/material/Container/containerClasses.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getContainerUtilityClass = getContainerUtilityClass;
-
-var _base = require("@mui/base");
-
-function getContainerUtilityClass(slot) {
-  return (0, _base.generateUtilityClass)('MuiContainer', slot);
-}
-
-const containerClasses = (0, _base.generateUtilityClasses)('MuiContainer', ['root', 'disableGutters', 'fixed', 'maxWidthXs', 'maxWidthSm', 'maxWidthMd', 'maxWidthLg', 'maxWidthXl']);
-var _default = containerClasses;
-exports.default = _default;
-},{"@mui/base":"../node_modules/@mui/base/index.js"}],"../node_modules/@mui/material/Container/Container.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var React = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _base = require("@mui/base");
-
-var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
-
-var _styled = _interopRequireDefault(require("../styles/styled"));
-
-var _containerClasses = require("./containerClasses");
-
-var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const _excluded = ["className", "component", "disableGutters", "fixed", "maxWidth"];
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    fixed,
-    disableGutters,
-    maxWidth
-  } = ownerState;
-  const slots = {
-    root: ['root', maxWidth && `maxWidth${(0, _capitalize.default)(String(maxWidth))}`, fixed && 'fixed', disableGutters && 'disableGutters']
-  };
-  return (0, _base.unstable_composeClasses)(slots, _containerClasses.getContainerUtilityClass, classes);
-};
-
-const ContainerRoot = (0, _styled.default)('div', {
-  name: 'MuiContainer',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[`maxWidth${(0, _capitalize.default)(String(ownerState.maxWidth))}`], ownerState.fixed && styles.fixed, ownerState.disableGutters && styles.disableGutters];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({
-  width: '100%',
-  marginLeft: 'auto',
-  boxSizing: 'border-box',
-  marginRight: 'auto',
-  display: 'block'
-}, !ownerState.disableGutters && {
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
-  [theme.breakpoints.up('sm')]: {
-    paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3)
-  }
-}), ({
-  theme,
-  ownerState
-}) => ownerState.fixed && Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
-  const value = theme.breakpoints.values[breakpoint];
-
-  if (value !== 0) {
-    acc[theme.breakpoints.up(breakpoint)] = {
-      maxWidth: `${value}${theme.breakpoints.unit}`
-    };
-  }
-
-  return acc;
-}, {}), ({
-  theme,
-  ownerState
-}) => (0, _extends2.default)({}, ownerState.maxWidth === 'xs' && {
-  [theme.breakpoints.up('xs')]: {
-    maxWidth: Math.max(theme.breakpoints.values.xs, 444)
-  }
-}, ownerState.maxWidth && ownerState.maxWidth !== 'xs' && {
-  [theme.breakpoints.up(ownerState.maxWidth)]: {
-    maxWidth: `${theme.breakpoints.values[ownerState.maxWidth]}${theme.breakpoints.unit}`
-  }
-}));
-const Container = /*#__PURE__*/React.forwardRef(function Container(inProps, ref) {
-  const props = (0, _useThemeProps.default)({
-    props: inProps,
-    name: 'MuiContainer'
-  });
-  const {
-    className,
-    component = 'div',
-    disableGutters = false,
-    fixed = false,
-    maxWidth = 'lg'
-  } = props,
-        other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
-  const ownerState = (0, _extends2.default)({}, props, {
-    component,
-    disableGutters,
-    fixed,
-    maxWidth
-  });
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(ContainerRoot, (0, _extends2.default)({
-    as: component,
-    ownerState: ownerState,
-    className: (0, _clsx.default)(classes.root, className),
-    ref: ref
-  }, other));
-});
-"development" !== "production" ? Container.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * @ignore
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: _propTypes.default.object,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: _propTypes.default.elementType,
-
-  /**
-   * If `true`, the left and right padding is removed.
-   * @default false
-   */
-  disableGutters: _propTypes.default.bool,
-
-  /**
-   * Set the max-width to match the min-width of the current breakpoint.
-   * This is useful if you'd prefer to design for a fixed set of sizes
-   * instead of trying to accommodate a fully fluid viewport.
-   * It's fluid by default.
-   * @default false
-   */
-  fixed: _propTypes.default.bool,
-
-  /**
-   * Determine the max-width of the container.
-   * The container width grows with the size of the screen.
-   * Set to `false` to disable `maxWidth`.
-   * @default 'lg'
-   */
-  maxWidth: _propTypes.default
-  /* @typescript-to-proptypes-ignore */
-  .oneOfType([_propTypes.default.oneOf(['xs', 'sm', 'md', 'lg', 'xl', false]), _propTypes.default.string]),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object])), _propTypes.default.func, _propTypes.default.object])
-} : void 0;
-var _default = Container;
-exports.default = _default;
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","clsx":"../node_modules/clsx/dist/clsx.m.js","@mui/base":"../node_modules/@mui/base/index.js","../styles/useThemeProps":"../node_modules/@mui/material/styles/useThemeProps.js","../styles/styled":"../node_modules/@mui/material/styles/styled.js","./containerClasses":"../node_modules/@mui/material/Container/containerClasses.js","../utils/capitalize":"../node_modules/@mui/material/utils/capitalize.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../node_modules/@mui/material/Container/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  containerClasses: true
-};
-Object.defineProperty(exports, "containerClasses", {
-  enumerable: true,
-  get: function () {
-    return _containerClasses.default;
-  }
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _Container.default;
-  }
-});
-
-var _Container = _interopRequireDefault(require("./Container"));
-
-var _containerClasses = _interopRequireWildcard(require("./containerClasses"));
-
-Object.keys(_containerClasses).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _containerClasses[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _containerClasses[key];
-    }
-  });
-});
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Container":"../node_modules/@mui/material/Container/Container.js","./containerClasses":"../node_modules/@mui/material/Container/containerClasses.js"}],"theme.ts":[function(require,module,exports) {
+},{"./CssBaseline":"../node_modules/@mui/material/CssBaseline/CssBaseline.js"}],"theme.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -76101,7 +75599,8 @@ var refflyTheme = {
     secondary: {
       main: '#9c27b0',
       light: '#ba68c8',
-      dark: '#7b1fa2'
+      dark: '#7b1fa2',
+      white: '#ffffff'
     },
     error: {
       main: '#d32f2f',
@@ -76154,7 +75653,7 @@ var refflyTheme = {
       orange: '#ff9800',
       deepOrange: '#ff5722',
       brown: '#795548',
-      grey: _colors.grey[700],
+      grey: _colors.grey[800],
       blueGrey: '#607d8b'
     },
     fontColor: {
@@ -76201,11 +75700,13 @@ var refflyTheme = {
       fontSize: '2.50rem'
     },
     body1: {
-      fontSize: '14px'
+      fontSize: '1rem',
+      color: 'rgba(0, 0, 0, 0.87)'
     },
     body2: {
       fontSize: '12px'
-    }
+    },
+    fontFamily: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(',')
   },
   FontFace: {
     fontFamily: 'Comforter Brush'
@@ -76245,6 +75746,8 @@ var _Badge = _interopRequireDefault(require("./components/Badge"));
 
 var _Logo = _interopRequireDefault(require("./components/Logo"));
 
+var _Skeleton = _interopRequireDefault(require("./components/Skeleton"));
+
 var _AppBar = _interopRequireDefault(require("@mui/material/AppBar"));
 
 var _Grid = _interopRequireDefault(require("@mui/material/Grid"));
@@ -76276,18 +75779,21 @@ function App() {
     }
   }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_Logo.default, null))), _react.default.createElement(_Box.default, {
     sx: {
-      bgcolor: 'warning.main',
+      bgcolor: '#e43',
       transform: 'rotate(-45deg)',
       textAlign: 'center',
       alignItems: 'center',
       ml: -5,
       width: 450,
       left: -130,
-      top: 36,
+      top: 25,
       position: 'fixed',
       py: 2
     }
-  }, _react.default.createElement(_Typography.default, null, "Right Test")), _react.default.createElement(_Container.default, {
+  }, _react.default.createElement(_Typography.default, {
+    variant: "h6",
+    color: "secondary.white"
+  }, _react.default.createElement("b", null, "TEST MODE"))), _react.default.createElement(_Container.default, {
     maxWidth: false
   }, _react.default.createElement(_Box.default, {
     sx: {
@@ -76315,7 +75821,7 @@ function App() {
       padding: 2,
       boxShadow: 1
     }
-  }, _react.default.createElement(_SignIn.default, null), _react.default.createElement("p", null, "By using our service, you accept out terms and conditions"))), _react.default.createElement(_Grid.default, {
+  }, _react.default.createElement(_SignIn.default, null))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 2,
     sx: {
@@ -76345,7 +75851,13 @@ function App() {
     item: true,
     xs: 12,
     md: 12
-  }, _react.default.createElement(_SecondHello.default, null))))), _react.default.createElement(_Container.default, {
+  }, _react.default.createElement(_SecondHello.default, null))))), _react.default.createElement(_Box.default, {
+    sx: {
+      flexGrow: 1,
+      bgcolor: 'background.dark',
+      py: 5
+    }
+  }, _react.default.createElement(_Skeleton.default, null)), _react.default.createElement(_Container.default, {
     maxWidth: false
   }, _react.default.createElement(_Box.default, {
     sx: {
@@ -76386,7 +75898,7 @@ function App() {
 }
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/SayHello":"components/SayHello.tsx","./components/SecondHello":"components/SecondHello.tsx","./components/Allavatar":"components/Allavatar.tsx","./components/SignIn":"components/SignIn.tsx","./components/Badge":"components/Badge.tsx","./components/Logo":"components/Logo.tsx","./components/Skeleton":"components/Skeleton.tsx","@mui/material/AppBar":"../node_modules/@mui/material/AppBar/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/material/Toolbar":"../node_modules/@mui/material/Toolbar/index.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","@mui/material/CssBaseline":"../node_modules/@mui/material/CssBaseline/index.js","@mui/material/Container":"../node_modules/@mui/material/Container/index.js","@mui/material/styles":"../node_modules/@mui/material/styles/index.js","./theme":"theme.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -76414,7 +75926,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42485" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41721" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

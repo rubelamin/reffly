@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
 
 
 export default function SignIn() {
@@ -30,6 +31,9 @@ export default function SignIn() {
                            type="url"
                         
                         />
+                        <p>By using our service, you accept out <Link href="#">Terms</Link> and  
+                            <Link href="#">Conditions</Link>
+                            </p>
                      </Grid>
                      <Grid item xs={12} md={3}>
                         <Button
@@ -45,6 +49,7 @@ export default function SignIn() {
                            SHORTEN
                         </Button>
                      </Grid>
+                     
                   </Grid>
                </Box> 
    </>

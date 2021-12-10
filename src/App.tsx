@@ -6,6 +6,7 @@ import Allavatar from './components/Allavatar';
 import SignIn from './components/SignIn';
 import Badge from './components/Badge';
 import Logo from './components/Logo';
+import Skeleton from './components/Skeleton';
 
 import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
@@ -38,20 +39,20 @@ function App() {
         </AppBar>
         <Box
           sx={{ 
-            bgcolor: 'warning.main', 
+            bgcolor: '#e43', 
             transform: 'rotate(-45deg)',
             textAlign: 'center',
             alignItems: 'center',
             ml: -5,
             width: 450,
             left: -130,
-            top: 36,
+            top: 25,
             position: 'fixed',
             py: 2,
             }}
         >
-              <Typography>
-                Right Test
+              <Typography variant="h6" color="secondary.white">
+                <b>TEST MODE</b>
               </Typography>
         </Box>
 
@@ -69,7 +70,7 @@ function App() {
                 
                     >
                   <SignIn />
-                  <p>By using our service, you accept out terms and conditions</p>
+                  
                 </Box>
               </Grid>
               <Grid item xs={2} sx={{ display:{ xs:'none', md: 'block',} }}>  </Grid>
@@ -95,6 +96,10 @@ function App() {
                 </Grid>
               </Grid>
         </Container>
+      </Box>
+      <Box sx={{ flexGrow: 1, bgcolor: 'background.dark', py: 5, }}>
+        <Skeleton />
+        
       </Box>
       
       <Container maxWidth={false} >

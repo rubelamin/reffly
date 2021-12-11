@@ -2,11 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import SayHello from './components/SayHello';
 import SecondHello from './components/SecondHello';
-import Allavatar from './components/Allavatar';
 import SignIn from './components/SignIn';
-import Badge from './components/Badge';
 import Logo from './components/Logo';
 import Skeleton from './components/Skeleton';
+import Footer from './components/Footer';
 
 import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
@@ -90,54 +89,20 @@ function App() {
       
       <Box sx={{ flexGrow: 1, bgcolor: 'background.dark', py: 5, }}>
         <Container>
-              <Grid container spacing={0} >
+              <Grid container >
                 <Grid item xs={12} md={12}>
                   <SecondHello/>
                 </Grid>
               </Grid>
         </Container>
       </Box>
-      <Box sx={{ flexGrow: 1, bgcolor: 'background.dark', py: 5, }}>
+      <Box sx={{ flexGrow: 1, bgcolor: 'background.dark', pb: 0, }}>
         <Skeleton />
         
       </Box>
       
-      <Container maxWidth={false} >
-        <Box sx={{ flexGrow: 1, }}>
-            <Grid container spacing={1} >
-              <Grid item xs={12} md={4}>
-                <Box sx={{ 
-                  bgcolor: 'background.blue',
-                  padding: 2,
-                  boxShadow: 1,
-                  }}
-              
-                  >
-                  <Badge />
-                </Box>
-              </Grid>
-              
-              <Grid item xs={12} md={5}>
-                <Box sx={{ 
-                  bgcolor: 'background.cyan',
-                  padding: 2,
-                  boxShadow: 1,
-                  }}
-              
-                  >
-                  <Allavatar/>
-                </Box>
-              </Grid>
-              
-
-            </Grid>
-          </Box>
-
-      </Container>
-      <Container maxWidth={false} >
-        <Box sx={{ display: 'flex', flexDirection: 'row', mt: 2, }}>
-          <p>Copyright © Tbazar 2021.</p>
-        </Box>
+      <Container maxWidth={false} sx={{ borderTop: 1, borderColor: 'secondary.grey' }} >
+        <Footer />
       </Container>
       </ThemeProvider>
   

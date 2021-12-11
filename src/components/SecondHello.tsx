@@ -1,13 +1,14 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/system';
 import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import CardMedia from '@mui/material/CardMedia';
+import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import AddLinkIcon from '@mui/icons-material/AddLink';
+import Link from '@mui/material/Link';
 
 
 const StyledBadge = styled(Badge) (( {theme} ) => ({
@@ -43,14 +44,14 @@ const StyledBadge = styled(Badge) (( {theme} ) => ({
 export default function() {
     return (
       <>
-        <Grid container spacing={1}>
+        <Grid container >
           <Grid item xs={12} sx={{ textAlign: 'center', }}>
-              <Typography variant="h2">
+              <Typography variant="h3" sx={{ letterSpacing: 0, }}>
                     FOR ENTERPRISE
               </Typography>
           </Grid>
-          <Grid item xs={12} md={6} sx={{ textAlign: 'right', }}>
-            <Typography variant="h3" sx={{ py: 4, }}>
+          <Grid item xs={12} md={6} sx={{ textAlign: 'right', pt: 5, }}>
+            <Typography variant="h4" sx={{ py: 4, }}>
                 Self host <i><b>reffly</b></i> for full features including Link tracking Statistics, 
                 Branding & more...or Try <i><b>reffly plus</b></i>
             </Typography>
@@ -77,17 +78,78 @@ export default function() {
             </Box>
 
           </Grid>
-          <Grid item xs={12} md={6} sx={{ pl: 8,}}>
-            <ImageList sx={{ width: '100%', }} cols={1}>
-              <ImageListItem>
-                <img 
-                  src="https://www.reff.ly/images/others/nicechartjs-v1.png"
-                  alt="middle image"
+          <Grid item xs={12} md={6} sx={{ pl: 8, pt: 5,}}>
+            <Paper>
+              <CardMedia
+                component="img"
+                image="https://www.reff.ly/images/others/nicechartjs-v1.png"
+                alt="Chart Bar"
+              />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sx={{ py: 8, }}>
+            <Typography variant="h4" sx={{ textAlign: 'center' }}>
+            Play with <i><b>reffly</b></i> using freemium technologies, <Link> learn more ...</Link>
+            </Typography>
+          </Grid>
+          
+        </Grid>
+        <Grid container spacing={3}>
+        
+          <Grid item xs={12} md={3}>
+            <Paper sx={{ p: 1, }}>
+              <Typography component="p">
+                <CardMedia
+                  component="img"
+                  image="https://www.reff.ly/images/logos/nodejs-v2.svg"
+                  height="70"
+                  width="auto"
+                  sx={{ my: '10px'}}
                   />
-              </ImageListItem>
-            </ImageList>
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Paper sx={{ p: 1, }}>
+              <Typography component="p">
+                <CardMedia
+                  component="img"
+                  image="https://www.reff.ly/images/logos/mongodb-v1.svg"
+                  height="70"
+                  sx={{ my: '10px'}}
+                  />
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Paper sx={{ p: 1, }}>
+              <Typography component="p">
+                <CardMedia
+                  component="img"
+                  image="https://www.reff.ly/images/logos/nginx-v1.svg"
+                  height="70"
+                  width="auto"
+                  sx={{ my: '10px'}}
+                  />
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Paper sx={{ p: 1, }}>
+              <Typography component="p">
+                <CardMedia
+                  component="img"
+                  image="https://www.reff.ly/images/logos/heroku-v1.svg"
+                  height="70"
+                  sx={{ my: '10px'}}
+                  />
+              </Typography>
+            </Paper>
           </Grid>
         </Grid>
+        <Typography component="p" sx={{ mt: '16px', textAlign: 'center', }}>
+            Need help? hire me on <Link>Freelancer.com</Link>
+        </Typography>
       </> 
     );
 

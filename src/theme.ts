@@ -27,11 +27,13 @@ export const refflyTheme = {
       light: '#ba68c8',
       dark: '#7b1fa2',
       white: '#ffffff',
+      grey: grey[800],
     },
     error: {
       main: '#d32f2f',
       light: '#ef5350',
       dark: '#c62828',
+      pink: '#d32f2f',
     },
     warning: {
       main: '#ed6c02',
@@ -118,10 +120,10 @@ export const refflyTheme = {
       fontSize: '1rem',
       color: 'rgba(0, 0, 0, 0.87)',
     },
-    body2: { fontSize: '12px' },
+    body2: { fontSize: '0.875rem' },
     fontFamily: [
-      'Roboto',
-      '"Helvetica Neue"',
+      '"Roboto"',
+      '"Helvetica"',
       'Arial',
       'sans-serif',
     ].join(','),

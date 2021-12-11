@@ -13,7 +13,7 @@ import Container from '@mui/material/Container';
 export default function() {
     return (
       <>
-    <Grid container spacing={2} >
+    <Grid container >
         <Grid item xs={12} md={6} 
           sx={{ 
               display: 'flex',
@@ -25,9 +25,8 @@ export default function() {
         >
           
           <Container>
-            <Typography variant="h3" sx={{ py: 4, }}>
-                Self host reffly for full features including Link tracking Statistics, 
-                Branding & more...or Try reffly plus
+            <Typography variant="h6" sx={{ mt: '40px', textAlign: 'right' }}>
+                An open source contribution by
             </Typography>
           </Container>
         </Grid>
@@ -38,20 +37,16 @@ export default function() {
               flexDirection: { xs: 'row', md: 'column' },
               bgcolor: 'background.default',
               borderTopLeftRadius: 63,
-              pl: 6,
-              pt: 6,
+              pl: 0,
+              pt: 4,
           }}
         >
           
-            <Container>
-              <Typography variant="h1"
-                sx={{ color: 'primary.grey', fontFamily: 'Beth Ellen', mt:1, }}
-                >reflly+
-              </Typography>
-              <ImageList sx={{ width: 200, }} cols={1}>
+            <Container sx={{ pl: 1, }}>
+              <ImageList sx={{ width: 270, }} cols={1}>
                 <ImageListItem>
                   <img 
-                    src="https://www.reff.ly/images/others/nicechartjs-v1.png"
+                    src="https://www.reff.ly/images/logos/aicat-v1.png"
                     alt="middle image"
                     />
                 </ImageListItem>

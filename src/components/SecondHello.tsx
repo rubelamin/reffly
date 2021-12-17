@@ -84,6 +84,10 @@ export default function() {
                 component="img"
                 image="https://www.reff.ly/images/others/nicechartjs-v1.png"
                 alt="Chart Bar"
+                sx={{
+                  filter: 'grayscale(70%)',
+                  opacity: 0.2,
+                }}
               />
             </Paper>
           </Grid>
@@ -97,51 +101,54 @@ export default function() {
         <Grid container spacing={3}>
         
           <Grid item xs={12} md={3}>
-            <Paper sx={{ p: 1, }}>
+            <Paper sx={{ p: 1, bgcolor: 'background.paperdark' }}>
               <Typography component="p">
                 <CardMedia
                   component="img"
                   image="https://www.reff.ly/images/logos/nodejs-v2.svg"
                   height="70"
                   width="auto"
-                  sx={{ my: '10px'}}
+                  sx={{ my: '10px', filter: 'grayscale(90%)',}}
                   />
               </Typography>
             </Paper>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Paper sx={{ p: 1, }}>
+            <Paper sx={{ p: 1, bgcolor: 'background.paperdark' }}>
               <Typography component="p">
                 <CardMedia
                   component="img"
                   image="https://www.reff.ly/images/logos/mongodb-v1.svg"
                   height="70"
-                  sx={{ my: '10px'}}
+                  sx={{ my: '10px', filter: 'grayscale(90%)',}}
                   />
               </Typography>
             </Paper>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Paper sx={{ p: 1, }}>
+            <Paper sx={{ p: 1, bgcolor: 'background.paperdark' }}>
               <Typography component="p">
                 <CardMedia
                   component="img"
                   image="https://www.reff.ly/images/logos/nginx-v1.svg"
-                  height="70"
-                  width="auto"
-                  sx={{ my: '10px'}}
+                  sx={{ 
+                    my: '10px',
+                    filter: 'grayscale(90%)',
+                    width: '260px',
+                    height: '70px'
+                  }}
                   />
               </Typography>
             </Paper>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Paper sx={{ p: 1, }}>
+            <Paper sx={{ p: 1, bgcolor: 'background.paperdark' }}>
               <Typography component="p">
                 <CardMedia
                   component="img"
                   image="https://www.reff.ly/images/logos/heroku-v1.svg"
                   height="70"
-                  sx={{ my: '10px'}}
+                  sx={{ my: '10px', filter: 'grayscale(90%)',}}
                   />
               </Typography>
             </Paper>

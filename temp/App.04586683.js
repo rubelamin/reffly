@@ -58170,7 +58170,11 @@ function _default() {
   }, _react.default.createElement(_Paper.default, null, _react.default.createElement(_CardMedia.default, {
     component: "img",
     image: "https://www.reff.ly/images/others/nicechartjs-v1.png",
-    alt: "Chart Bar"
+    alt: "Chart Bar",
+    sx: {
+      filter: 'grayscale(70%)',
+      opacity: 0.2
+    }
   }))), _react.default.createElement(_Grid.default, {
     item: true,
     xs: 12,
@@ -58191,7 +58195,8 @@ function _default() {
     md: 3
   }, _react.default.createElement(_Paper.default, {
     sx: {
-      p: 1
+      p: 1,
+      bgcolor: 'background.paperdark'
     }
   }, _react.default.createElement(_Typography.default, {
     component: "p"
@@ -58201,7 +58206,8 @@ function _default() {
     height: "70",
     width: "auto",
     sx: {
-      my: '10px'
+      my: '10px',
+      filter: 'grayscale(90%)'
     }
   })))), _react.default.createElement(_Grid.default, {
     item: true,
@@ -58209,7 +58215,8 @@ function _default() {
     md: 3
   }, _react.default.createElement(_Paper.default, {
     sx: {
-      p: 1
+      p: 1,
+      bgcolor: 'background.paperdark'
     }
   }, _react.default.createElement(_Typography.default, {
     component: "p"
@@ -58218,7 +58225,8 @@ function _default() {
     image: "https://www.reff.ly/images/logos/mongodb-v1.svg",
     height: "70",
     sx: {
-      my: '10px'
+      my: '10px',
+      filter: 'grayscale(90%)'
     }
   })))), _react.default.createElement(_Grid.default, {
     item: true,
@@ -58226,17 +58234,19 @@ function _default() {
     md: 3
   }, _react.default.createElement(_Paper.default, {
     sx: {
-      p: 1
+      p: 1,
+      bgcolor: 'background.paperdark'
     }
   }, _react.default.createElement(_Typography.default, {
     component: "p"
   }, _react.default.createElement(_CardMedia.default, {
     component: "img",
     image: "https://www.reff.ly/images/logos/nginx-v1.svg",
-    height: "70",
-    width: "auto",
     sx: {
-      my: '10px'
+      my: '10px',
+      filter: 'grayscale(90%)',
+      width: '260px',
+      height: '70px'
     }
   })))), _react.default.createElement(_Grid.default, {
     item: true,
@@ -58244,7 +58254,8 @@ function _default() {
     md: 3
   }, _react.default.createElement(_Paper.default, {
     sx: {
-      p: 1
+      p: 1,
+      bgcolor: 'background.paperdark'
     }
   }, _react.default.createElement(_Typography.default, {
     component: "p"
@@ -58253,7 +58264,8 @@ function _default() {
     image: "https://www.reff.ly/images/logos/heroku-v1.svg",
     height: "70",
     sx: {
-      my: '10px'
+      my: '10px',
+      filter: 'grayscale(90%)'
     }
   }))))), _react.default.createElement(_Typography.default, {
     component: "p",

@@ -64,6 +64,7 @@ export const refflyTheme = {
       default: '#ECEFF1',
       dark: '#d3e1eb',
       paper: '#ffffff',
+      paperdark: '#f5f5f5',
       red: red[800],
       pink: '#e91e63',
       purple: '#9c27b0',

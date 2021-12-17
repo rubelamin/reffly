@@ -62,7 +62,7 @@ function App() {
               <Grid item xs={2} sx={{ display:{ xs:'none', md: 'block',} }}>  </Grid>
               <Grid item xs={12} md={8}> 
                 <Box sx={{ 
-                    bgcolor: 'background.paper',
+                    bgcolor: 'background.paperdark',
                     padding: 2,
                     boxShadow: 1,
                     }}

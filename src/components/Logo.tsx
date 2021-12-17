@@ -80,7 +80,6 @@ export default function() {
                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
  
                         badgeContent=" "
-                        color="fontColor"
                       >
                         <Avatar sx={{ width:80, height: 80, bgcolor: 'warning.light' }} >
                           <InsertLinkIcon sx={{ 

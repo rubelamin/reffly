@@ -70694,8 +70694,7 @@ function _default() {
       vertical: 'bottom',
       horizontal: 'right'
     },
-    badgeContent: " ",
-    color: "fontColor"
+    badgeContent: " "
   }, _react.default.createElement(_Avatar.default, {
     sx: {
       width: 80,
